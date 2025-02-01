@@ -1,0 +1,79 @@
+---
+title: "Revue litterature"
+format: pdf
+editor: visual
+---
+
+# Résumé d'articles
+
+## Fiscal
+
+### Tax competition among local governments: Evidence from a property tax reform in Finland (2012)
+
+L'auteur utilise un changement dans la réglementation sur le taux de taxation foncière minimum comme source de variation exogène pour estimer les réponses des municipalités voisines. Les résultats ne permettent pas d'établir une influence significative de la proximité sur les changements de taux de taxation, ce qui est décrit comme allant généralement contre la littérature empirique déjà existante, mais qui est cohérent avec la littérature théorique (?). L'auteur estime que les méthodes populaires d'économétrie spatiale (utilisation de lag) ont tendance à surestimer l'effet d'inter-dépendance dans les taux de taxation.
+
+**Intro** : La litterature théorique sur les intéraction fiscales entre gouvernements locaux est assez bien développée et a identifiée plusieurs sources potentielles d'inter-dépendance dans les décisions de taxation et de dépenses publiques des gouvernements (ref Wilson 1999, Wilson et Wilson et Wildasin 2004). Cependant, la littérature empirique sur les intéractions fiscales est encore peu développée *et les stratégies d'identification utilisées ne répondent généralement pas aux normes requises pour que les résultats aient une interprétation causale* (citation traduite, signification à clarifier).
+
+L'estimaton des réponses des gouvernements aux changements dans la taxation et dans les dépenses publiques subis ces deux sources problématiques d'endogénéité:
+
+1.  L'inter-dépendance entre les différents gouvernements crée un problème de causalité à deux sens. Estimation par OLS inconsistente.
+2.  Les taux de taxation des voisins peuvent être influencés des facteurs non observés et spatiallement corrélés (à préciser), ce qui serait source de corrélation fallacieuse entre les taux de taxation.
+
+En Finland, le taux de taxation foncière doit être choisis dans des limites encadrées par la loi (limites exogènes). En 2000, le taux minimum de taxation a été haussé, causant une hausse forcée des taux de taxation. Cette hausse est utilisée pour estimer l'effet d'une hausse du taux de taxation sur le choix de taxation des municipalités voisines. Les changements dans le taux de taxation sont régressés sur les changements dans le taux de taxation moyen des municipalités voisines par 2SLS. Les hausses de taxes imposées chez les voisins sont utilisés comme un instrument pour le changement réel du taux de taxation des voisins.
+
+La littérature empirique est principalement décomposée en deux types de modèles
+
+1.  Lag spatial : Fait l'hypothèse qu'à l'exception des taux de taxe des voisins, les déterminants du taux de taxation sont exogènes. Dépendent d'hypothèses restrictives sur la forme fonctionnelle et la distribution.
+2.  Variables instrumentales spatiales: Utilise les caractéristiques des voisins, tels que les structures d'âge et de revenus, comme instruments pour leurs taux de taxation. Fait également l'hypothèse que les caractéristiques individuelles utilisées pour déterminer les taux de taxation sont exogènes.
+
+**Background théorique**: Il y a deux catégories principales de modèles pour la compétition fiscale:
+
+1.  Modèles du type Tiebout (1956) (*Models of efficient tax competition*) qui sont semblable à un marché compétitif. Fait l'hypothèse de nombreuses petites juridictions qui fournissent des services publics à partir de taxes *sans distorsions* de manière à maximiser la valeur foncière sur son territoire. Les ménages sont mobiles et choisissent les juridictions qui fournissent leur combinaisons préférée de taxes et de services. La compétition entre juridictions bénéficie au consommateur en créant une variété de combinaisons tax-services parmi lesquels choisir pour les ménages. La distribution des ménages dans les différentes juridictions mène à un niveau efficient de services publics et améliore l'efficience en comparaison avec la situation où les taxes et services sont centralisés. Il n'y a donc pas d'intéraction stratégique à un niveau local puisque la taille des juridictions est très petite par rapport à celle de l'économie. Les ménages sont mobiles et il n'y a pas d'externalités ou de distorsions liées à la taxation locale et aux services publics fournis.
+2.  Modèles qui incluent des intéractions stratégiques entre juridictions. Il y a trois sources principales d'intéractions stratégiques:
+    i.  Contagion des bénéfices: a lieu si les résidents d'une juridiction peu bénéficier des services fournis par d'autres juridictions. Une contagion négative peut également avoir lieu lorsqu'une juridiction a des dépenses policières plus élevées: le crime ce déplace vers les juridictions avoisinantes où il est moins risqué de commettre des crimes. Crée distorsions dans les niveaux de taxes et de dépenses.
+    ii. Effet de distorsion de la taxe sur l'assiète fiscale mobile. (Note: fait hypothèse que le capital n'est pas complètement mobile et partiellement fixé à une région, autre difficulté concerne hétérogénéité des préférences pour les services publics.)
+    iii. Considérations concernant l'économie politique et les asymétries d'information. Si les voteurs utilisent la comparaison de leur taux de taxe avec celui des autres juridictions comme un indicateur sur la performance de leur gouvernement local. Les élus agissent donc en fonction de leurs intérêts personnels et immitent les décisions des autres juridictions (un taux de taxe plus élevé pourrait être perçu comme une moins bonne gestion que chez les voisins).
+
+**Pertinence du contexte Finlandais** La *contagion des bénéfices* est considérée comme potentiellement négligeable étant donné la structure de financement.
+
+**Modèle empirique** Le modèle empirique de l'étude est : 
+$$T_{it} = \beta \sum_{j\neq i} w_{ij} T_{jt} + \gamma X_{it} + k_t + m_i + e_{it}$$
+$T_{it}$ est le taux de taxe de $i$ à l'année $t$, $w_{ij}T_{jt}$ est la moyenne pondérée (spatiale) des taux de taxe des autres juridictions, $X_{it}$ est une matrice de caractéristiques des juridictions, $k_t$ caputre des effets variables dans le temps et communs à tous les municipalités et $m_i$ est l'effet fixe de chaque municipalité.
+
+L'estimation OLS de $\beta$ sera biaisé car la détermination simultanée des taux rend les taux des voisins endogènes. (Endogénéité adressée en utilisant le choc (exogène) à la réglmentation)
+
+Les variables omises avec corrélation spatiales invariantes dans le temps sont *traitées* en faisant la différence dans le temps (traite l'hétérogénéité invariante dans le temps).
+
+**Note sur économétrie spatialle standard** Les modèles à lag spatial assume que les erreurs sont iid normales (restrictif) et dépend d'hypothèses fortes concernant la fonction de réaction. De plus, assume aussi que les caractéristiques de la matrice X sont exogènes. L'auteur indique que ça a peu de chances de tenir étant donné des variables omises et la présence de variables comme l'âge et le revenu. Les structures de ces variables peuvent être déterminées de manière endogène par le taux de taxe (selon les modèles type Tiebout). De plus, même si X est exogène, des erreurs avec corrélation spatiale ou des effets directs des voisins sur le taux de taxe peuvent rendre l'estimation avec lag spatial standard non consistente.
+
+Une alternative concerne les modèles spatiaux à variable instrumentale, qui utilisent le lag spatial de X comme des instruments pour le lag spatial des taux de taxation. Assume que X est indep du terme d'erreur et pas corrélation spatial dans les termes d'erreur. N'importe quel facteurs omis corrélé (spatial) avec le terme d'erreur rend l'estimaton SIV inconsistente. Dans les applications à la compétition fiscale, les instruments incluent généralement des caractéristiques telles que les structures d'âge et de revenu qui sont déterminés de manière endogène dans les modèle Tiebout, ce qui veut dire que les X sont vraisemblablement corrélés avec les termes d'erreur.  La corrélation spatiale dans les erreurs se présente suite à une forme de sélection/distribution(sorting) basée sur des variables inobservables (ex: préférence inobservée pour les services publics) ou par la présence d'un lieu de causalité entre des inobservables (ex: mobilité entre les voisins). Le pouvoir prédictif des VI est aussi généralement bas (instruments faibles), plus spécialement dans les données de panel avec effet fixe (ce qui veut dire que même une faible corrélation entre les instruments et les termes d'erreur peut mener à un important biais. Les études qui utilisent des SIV avec des données de panel et qui contrôlent pour des effets fixes sont donc rares.
+
+Alternatives: Utiliser des méthodes d'identification alternatives pour estimer les effets spatiaux. Dans d'autres domaines d'application, il est courant d'utiliser des interventions sur la politiques telles que des discontinuités et autres situations quasi-experimentales qui fournissent une source de chocs exogènes dans la variable explicative d'intérêt.
+
+**Changement dans la politique et IV**
+Utilise le choc exogène à la politique pour remplacer les caractéristiques $X$ des municipalités.
+$$T_{it} - T_{it-1} = \beta \sum_{j\neq i} w_{ij}(T_{jt} - T{jt-1}) + \gamma(X_{it} - X_{it-1}) + I_t + u_{it}$$
+*rajouter plus de détail au besoin*
+
+**Solutions de coin**
+Avant la réforme la contrainte du taux minimum n'était pas serrante. Pour éviter des problèmes (vs Tobit ?) liés aux solutions de coin, l'auteur élminie les municipalité pour qui la nouvelle contrainte inférieure deviendrait serrante (le taux pré-choc était inférieur à la nouvelle contrainte). Ces observations sont quand même utilisées pour calculer le taux moyen du voisinage. L'auteur mentionne que la présence d'une limite inférieure pourrait empêcher de trouver une réponse négative aux taux de tax voisins, mais que les réponses négatives seront toujours détectées.
+
+**Effets hétérogènes** à compléter éventuellement
+
+**Pondération spatiale**
+$W_a$: spécification de base avec plus proche voisins (1 ou 0, si partage une *frontière*), $W_b$: plus proche voisin en terme de taille de la population, $W_c$: donne 1 au ppv et 0.5 au voisin du voisin, $W_d$: $W_c$ et prend en considération la taille de la population.
+
+**Résultats**
+Autant avec que sans contrainte sur l'échantillon et avec différents lags de temps et spatiaux, les effets d'intéraction calculés ne sont pas significatifs avec les données finlandaises. Dû à une différence dans la structure des institutions ou méthodologique ? L'absence d'intéraction pourrait venir des sources suivantes:
+1. Le système d'égalisation fiscale atténu les incitatifs à la compétition fiscale.
+2. Les municipalité compétitionnent à un niveau plus élevé que simplement local.
+3. Les politiciens finlandais ne sont pas particulièrement motivés par des intérêts personnels et les voteurs font confiance aux décisions liées au taux de taxe.
+4. Les taxes municipales en Finland sont une faible source de revenus.
+
+**Comparaison avec méthodes spatiales standards**
+Différences importante sur la taille et la significativité de l'effet d'intéraction.
+
+
+### Do Local Governments Engage in Strategic Property-Tax Competition ?
+
+
