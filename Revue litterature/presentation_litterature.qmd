@@ -1,0 +1,44 @@
+---
+title: "Compétition fiscale avec intéractions stratégiques - revue de littérature sur les modèles empiriques"
+author: Vincent Robitaille
+format: revealjs
+editor: visual
+---
+
+## Cadre théorique
+
+- Modèles de compétitivité fiscale (concurrence parfaite)
+- Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+
+## Compétitivité fiscale
+- Compétition des juridictions pour offrir des combinaisons de taxes et services publics
+- Taxes sans distorsions
+- Taille faible des juridictions face à l'économie
+- Incapacité des juridictions à influencer le marché
+- AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
+
+## Intéractions stratégiques
+- Théorie des jeux
+- Le taux de taxe influence l'assiette fiscale (ménages, capital se déplacent)
+- Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
+- AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
+
+## Modélisation économétrique
+- Concurrence parfaire - iid
+- Intéractions stratégiques - matrice W
+- Modélisation de la variable de taux (continue vs censurée)
+
+## Bullets
+
+When you click the **Render** button a document will be generated that includes:
+
+-   Content authored with markdown
+-   Output from executable code
+
+## Code
+
+When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
