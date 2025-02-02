@@ -81,3 +81,13 @@ L'application empirique concerne les taux de taxe foncière pour les municipalit
 Plus récent, Port et Revelli (2013) utilisent un modèle de type Tobit basé sur les intéractions avec variables latentes et/ou lags spatial/temporelle, ce qui diffère des auteurs qui modèlisent le taux de taxe comme un l'outcome d'un équilibre d'un jeu statique et simultané où l'information est sous complète ou incomplète.
 
 À compléter !
+
+
+### International tax competition with rising intangible capital and financial globalization
+
+
+
+
+
+
+
