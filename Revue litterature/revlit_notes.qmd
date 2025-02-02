@@ -36,9 +36,7 @@ La littérature empirique est principalement décomposée en deux types de modè
 
 **Pertinence du contexte Finlandais** La *contagion des bénéfices* est considérée comme potentiellement négligeable étant donné la structure de financement.
 
-**Modèle empirique** Le modèle empirique de l'étude est : 
-$$T_{it} = \beta \sum_{j\neq i} w_{ij} T_{jt} + \gamma X_{it} + k_t + m_i + e_{it}$$
-$T_{it}$ est le taux de taxe de $i$ à l'année $t$, $w_{ij}T_{jt}$ est la moyenne pondérée (spatiale) des taux de taxe des autres juridictions, $X_{it}$ est une matrice de caractéristiques des juridictions, $k_t$ caputre des effets variables dans le temps et communs à tous les municipalités et $m_i$ est l'effet fixe de chaque municipalité.
+**Modèle empirique** Le modèle empirique de l'étude est : $$T_{it} = \beta \sum_{j\neq i} w_{ij} T_{jt} + \gamma X_{it} + k_t + m_i + e_{it}$$ $T_{it}$ est le taux de taxe de $i$ à l'année $t$, $w_{ij}T_{jt}$ est la moyenne pondérée (spatiale) des taux de taxe des autres juridictions, $X_{it}$ est une matrice de caractéristiques des juridictions, $k_t$ caputre des effets variables dans le temps et communs à tous les municipalités et $m_i$ est l'effet fixe de chaque municipalité.
 
 L'estimation OLS de $\beta$ sera biaisé car la détermination simultanée des taux rend les taux des voisins endogènes. (Endogénéité adressée en utilisant le choc (exogène) à la réglmentation)
 
@@ -46,53 +44,35 @@ Les variables omises avec corrélation spatiales invariantes dans le temps sont 
 
 **Note sur économétrie spatialle standard** Les modèles à lag spatial assume que les erreurs sont iid normales (restrictif) et dépend d'hypothèses fortes concernant la fonction de réaction. De plus, assume aussi que les caractéristiques de la matrice X sont exogènes. L'auteur indique que ça a peu de chances de tenir étant donné des variables omises et la présence de variables comme l'âge et le revenu. Les structures de ces variables peuvent être déterminées de manière endogène par le taux de taxe (selon les modèles type Tiebout). De plus, même si X est exogène, des erreurs avec corrélation spatiale ou des effets directs des voisins sur le taux de taxe peuvent rendre l'estimation avec lag spatial standard non consistente.
 
-Une alternative concerne les modèles spatiaux à variable instrumentale, qui utilisent le lag spatial de X comme des instruments pour le lag spatial des taux de taxation. Assume que X est indep du terme d'erreur et pas corrélation spatial dans les termes d'erreur. N'importe quel facteurs omis corrélé (spatial) avec le terme d'erreur rend l'estimaton SIV inconsistente. Dans les applications à la compétition fiscale, les instruments incluent généralement des caractéristiques telles que les structures d'âge et de revenu qui sont déterminés de manière endogène dans les modèle Tiebout, ce qui veut dire que les X sont vraisemblablement corrélés avec les termes d'erreur.  La corrélation spatiale dans les erreurs se présente suite à une forme de sélection/distribution(sorting) basée sur des variables inobservables (ex: préférence inobservée pour les services publics) ou par la présence d'un lieu de causalité entre des inobservables (ex: mobilité entre les voisins). Le pouvoir prédictif des VI est aussi généralement bas (instruments faibles), plus spécialement dans les données de panel avec effet fixe (ce qui veut dire que même une faible corrélation entre les instruments et les termes d'erreur peut mener à un important biais. Les études qui utilisent des SIV avec des données de panel et qui contrôlent pour des effets fixes sont donc rares.
+Une alternative concerne les modèles spatiaux à variable instrumentale, qui utilisent le lag spatial de X comme des instruments pour le lag spatial des taux de taxation. Assume que X est indep du terme d'erreur et pas corrélation spatial dans les termes d'erreur. N'importe quel facteurs omis corrélé (spatial) avec le terme d'erreur rend l'estimaton SIV inconsistente. Dans les applications à la compétition fiscale, les instruments incluent généralement des caractéristiques telles que les structures d'âge et de revenu qui sont déterminés de manière endogène dans les modèle Tiebout, ce qui veut dire que les X sont vraisemblablement corrélés avec les termes d'erreur. La corrélation spatiale dans les erreurs se présente suite à une forme de sélection/distribution(sorting) basée sur des variables inobservables (ex: préférence inobservée pour les services publics) ou par la présence d'un lieu de causalité entre des inobservables (ex: mobilité entre les voisins). Le pouvoir prédictif des VI est aussi généralement bas (instruments faibles), plus spécialement dans les données de panel avec effet fixe (ce qui veut dire que même une faible corrélation entre les instruments et les termes d'erreur peut mener à un important biais. Les études qui utilisent des SIV avec des données de panel et qui contrôlent pour des effets fixes sont donc rares.
 
 Alternatives: Utiliser des méthodes d'identification alternatives pour estimer les effets spatiaux. Dans d'autres domaines d'application, il est courant d'utiliser des interventions sur la politiques telles que des discontinuités et autres situations quasi-experimentales qui fournissent une source de chocs exogènes dans la variable explicative d'intérêt.
 
-**Changement dans la politique et IV**
-Utilise le choc exogène à la politique pour remplacer les caractéristiques $X$ des municipalités.
-$$T_{it} - T_{it-1} = \beta \sum_{j\neq i} w_{ij}(T_{jt} - T{jt-1}) + \gamma(X_{it} - X_{it-1}) + I_t + u_{it}$$
-*rajouter plus de détail au besoin*
+**Changement dans la politique et IV** Utilise le choc exogène à la politique pour remplacer les caractéristiques $X$ des municipalités. $$T_{it} - T_{it-1} = \beta \sum_{j\neq i} w_{ij}(T_{jt} - T{jt-1}) + \gamma(X_{it} - X_{it-1}) + I_t + u_{it}$$ *rajouter plus de détail au besoin*
 
-**Solutions de coin**
-Avant la réforme la contrainte du taux minimum n'était pas serrante. Pour éviter des problèmes (vs Tobit ?) liés aux solutions de coin, l'auteur élminie les municipalité pour qui la nouvelle contrainte inférieure deviendrait serrante (le taux pré-choc était inférieur à la nouvelle contrainte). Ces observations sont quand même utilisées pour calculer le taux moyen du voisinage. L'auteur mentionne que la présence d'une limite inférieure pourrait empêcher de trouver une réponse négative aux taux de tax voisins, mais que les réponses négatives seront toujours détectées.
+**Solutions de coin** Avant la réforme la contrainte du taux minimum n'était pas serrante. Pour éviter des problèmes (vs Tobit ?) liés aux solutions de coin, l'auteur élminie les municipalité pour qui la nouvelle contrainte inférieure deviendrait serrante (le taux pré-choc était inférieur à la nouvelle contrainte). Ces observations sont quand même utilisées pour calculer le taux moyen du voisinage. L'auteur mentionne que la présence d'une limite inférieure pourrait empêcher de trouver une réponse négative aux taux de tax voisins, mais que les réponses négatives seront toujours détectées.
 
 **Effets hétérogènes** à compléter éventuellement
 
-**Pondération spatiale**
-$W_a$: spécification de base avec plus proche voisins (1 ou 0, si partage une *frontière*), $W_b$: plus proche voisin en terme de taille de la population, $W_c$: donne 1 au ppv et 0.5 au voisin du voisin, $W_d$: $W_c$ et prend en considération la taille de la population.
+**Pondération spatiale** $W_a$: spécification de base avec plus proche voisins (1 ou 0, si partage une *frontière*), $W_b$: plus proche voisin en terme de taille de la population, $W_c$: donne 1 au ppv et 0.5 au voisin du voisin, $W_d$: $W_c$ et prend en considération la taille de la population.
 
-**Résultats**
-Autant avec que sans contrainte sur l'échantillon et avec différents lags de temps et spatiaux, les effets d'intéraction calculés ne sont pas significatifs avec les données finlandaises. Dû à une différence dans la structure des institutions ou méthodologique ? L'absence d'intéraction pourrait venir des sources suivantes:
-1. Le système d'égalisation fiscale atténu les incitatifs à la compétition fiscale.
-2. Les municipalité compétitionnent à un niveau plus élevé que simplement local.
-3. Les politiciens finlandais ne sont pas particulièrement motivés par des intérêts personnels et les voteurs font confiance aux décisions liées au taux de taxe.
-4. Les taxes municipales en Finland sont une faible source de revenus.
+**Résultats** Autant avec que sans contrainte sur l'échantillon et avec différents lags de temps et spatiaux, les effets d'intéraction calculés ne sont pas significatifs avec les données finlandaises. Dû à une différence dans la structure des institutions ou méthodologique ? L'absence d'intéraction pourrait venir des sources suivantes: 1. Le système d'égalisation fiscale atténu les incitatifs à la compétition fiscale. 2. Les municipalité compétitionnent à un niveau plus élevé que simplement local. 3. Les politiciens finlandais ne sont pas particulièrement motivés par des intérêts personnels et les voteurs font confiance aux décisions liées au taux de taxe. 4. Les taxes municipales en Finland sont une faible source de revenus.
 
-**Comparaison avec méthodes spatiales standards**
-Différences importante sur la taille et la significativité de l'effet d'intéraction.
-
+**Comparaison avec méthodes spatiales standards** Différences importante sur la taille et la significativité de l'effet d'intéraction.
 
 ### Do Local Governments Engage in Strategic Property-Tax Competition ?
 
-
-
 ### Tobit models with social interactions: Complete vs incomplete information
 
-**Introduction** Un modèle Tobit avec intéraction sociale (spatial) peut être utilisé pour prendre en compte à la fois la censure et les effets de pairs. Cependant, les intéractions entre les agents peuvent être modélisées sous différentes formes de structure d'information.
-1. Information complète: Chaque agent du jeu connait l'ensemble des caractéristiques pertienentes à propos de l'ensemble des joueurs. Les actions des agents sont directement influencées par celles des autres agents.
-2. Information incomplète: Certaines informations à propos des agents ne sont pas connus de tous (privilégiées ou privées)
+**Introduction** Un modèle Tobit avec intéraction sociale (spatial) peut être utilisé pour prendre en compte à la fois la censure et les effets de pairs. Cependant, les intéractions entre les agents peuvent être modélisées sous différentes formes de structure d'information. 1. Information complète: Chaque agent du jeu connait l'ensemble des caractéristiques pertienentes à propos de l'ensemble des joueurs. Les actions des agents sont directement influencées par celles des autres agents. 2. Information incomplète: Certaines informations à propos des agents ne sont pas connus de tous (privilégiées ou privées)
 
-Ces deux structutres d'information impliquent des résultats potentiellement très différents et la littérature est peu développée sur les méthodes pour déterminer de quel type de structure d'information il s'agit. La littérature concerne principalement la comparaison d'équilibres entre différentes structures d'information (?). 
+Ces deux structutres d'information impliquent des résultats potentiellement très différents et la littérature est peu développée sur les méthodes pour déterminer de quel type de structure d'information il s'agit. La littérature concerne principalement la comparaison d'équilibres entre différentes structures d'information (?).
 
-Particulièrement pour les modèles censurés avec effets de pairs, les tests de spécification ont deux types de difficultés:
-1. L'inter-dépendance entre l'outcome des individus.
-2. La non linéarité dû à la censure.
+Particulièrement pour les modèles censurés avec effets de pairs, les tests de spécification ont deux types de difficultés: 1. L'inter-dépendance entre l'outcome des individus. 2. La non linéarité dû à la censure.
 
 Les auteurs modélisent un jeu sous les deux types de structure d'information à l'aide d'un modèle Tobit à intéractions sociales et propose un test afin de comparer ces deux modèles.
 
-La littérature Tobin ---> SAR censuré (Lee et autres)  (à compléter)
+La littérature Tobin ---\> SAR censuré (Lee et autres) (à compléter)
 
 Puisque la log-vraisemblance estimée d'un modèle avec la mauvaise structure d'information tendra à être plus élevée que celle pour la bonne structure, les auteurs proposent un test basé sur les vraisemblances estimées. La littérature existante propose deux types de test entre deux modèles SAR (COX-type, likelihood ratio). Le Cox-type spécifie qu'un des deux modèles est le bon et que l'autre est le mauvais, alors que le likelihood ratio permet aux deux structures d'être mauvaises. Les auteurs suggèrent une test Cox-type (difficultés: inter-dépendance, non-linéarité et absence de solution fermée pour la distribution conjointe des variables indépendante)
 
