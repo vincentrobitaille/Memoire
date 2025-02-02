@@ -27,18 +27,32 @@ editor: visual
 - Concurrence parfaire - iid
 - Intéractions stratégiques - matrice W
 - Modélisation de la variable de taux (continue vs censurée)
+- Approche classique vs bayésienne
 
-## Bullets
+## Question de recherche
+- Question de recherche
 
-When you click the **Render** button a document will be generated that includes:
+## Corpus thématique
 
--   Content authored with markdown
--   Output from executable code
+## Corpus thématique
 
-## Code
+## Corpus thématique
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+## Corpus thématique
 
-```{r}
-1 + 1
-```
+## Corpus méthodologique
+
+## Corpus méthodologique
+
+## Corpus méthodologique
+
+## Corpus méthodologique
+
+## Contribution thématique
+
+## Contribution méthodologique
+
+## Contribution méthodologique
+
+
+
