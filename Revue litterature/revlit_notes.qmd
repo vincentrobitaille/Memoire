@@ -77,3 +77,27 @@ Différences importante sur la taille et la significativité de l'effet d'intér
 ### Do Local Governments Engage in Strategic Property-Tax Competition ?
 
 
+
+### Tobit models with social interactions: Complete vs incomplete information
+
+**Introduction** Un modèle Tobit avec intéraction sociale (spatial) peut être utilisé pour prendre en compte à la fois la censure et les effets de pairs. Cependant, les intéractions entre les agents peuvent être modélisées sous différentes formes de structure d'information.
+1. Information complète: Chaque agent du jeu connait l'ensemble des caractéristiques pertienentes à propos de l'ensemble des joueurs. Les actions des agents sont directement influencées par celles des autres agents.
+2. Information incomplète: Certaines informations à propos des agents ne sont pas connus de tous (privilégiées ou privées)
+
+Ces deux structutres d'information impliquent des résultats potentiellement très différents et la littérature est peu développée sur les méthodes pour déterminer de quel type de structure d'information il s'agit. La littérature concerne principalement la comparaison d'équilibres entre différentes structures d'information (?). 
+
+Particulièrement pour les modèles censurés avec effets de pairs, les tests de spécification ont deux types de difficultés:
+1. L'inter-dépendance entre l'outcome des individus.
+2. La non linéarité dû à la censure.
+
+Les auteurs modélisent un jeu sous les deux types de structure d'information à l'aide d'un modèle Tobit à intéractions sociales et propose un test afin de comparer ces deux modèles.
+
+La littérature Tobin ---> SAR censuré (Lee et autres)  (à compléter)
+
+Puisque la log-vraisemblance estimée d'un modèle avec la mauvaise structure d'information tendra à être plus élevée que celle pour la bonne structure, les auteurs proposent un test basé sur les vraisemblances estimées. La littérature existante propose deux types de test entre deux modèles SAR (COX-type, likelihood ratio). Le Cox-type spécifie qu'un des deux modèles est le bon et que l'autre est le mauvais, alors que le likelihood ratio permet aux deux structures d'être mauvaises. Les auteurs suggèrent une test Cox-type (difficultés: inter-dépendance, non-linéarité et absence de solution fermée pour la distribution conjointe des variables indépendante)
+
+L'application empirique concerne les taux de taxe foncière pour les municipalité voisines en Caroline du Nord. La plupart des recherches considèrent le taux comme étant une variable continue, mais il est plus approprié d'utiliser un modèle Tobit, puisque les choix des gouvernements subissent une contrainte de non-négativité et qu'une part des valeurs observées sont égales à zéro.
+
+Plus récent, Port et Revelli (2013) utilisent un modèle de type Tobit basé sur les intéractions avec variables latentes et/ou lags spatial/temporelle, ce qui diffère des auteurs qui modèlisent le taux de taxe comme un l'outcome d'un équilibre d'un jeu statique et simultané où l'information est sous complète ou incomplète.
+
+À compléter !
