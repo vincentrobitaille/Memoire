@@ -24,7 +24,7 @@ editor: visual
 - AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
 
 ## Modélisation économétrique
-- Concurrence parfaire - iid
+- Concurrence parfaite - iid
 - Intéractions stratégiques - matrice W
 - Modélisation de la variable de taux (continue vs censurée)
 - Approche classique vs bayésienne
