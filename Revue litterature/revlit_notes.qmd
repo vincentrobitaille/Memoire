@@ -105,5 +105,48 @@ Bien qu'en général la taille et la direction du biais causé par le fait d'avo
 Les auteurs utilisent des données de panel sur les taxes d'immatriculation des véhicules dans 100 provinces italiennes entre 2000 et 2006. Une contrainte max établie par l'état était serrante pour environ la moitié des juridictions en 2000 et pour près de 90% d'entre-elles en 2006. Les résultats suggèrent une sous-estimation de la dépendance spatiale lorsque la contrainte n'est pas prise en compte. Permettre des solutions de coin créées par les contraintes fiscales renforce les preuves envers la présence de dépendance spatial entre les juridictions, contrairement au modèle conventionnel.
 
 
+### Strategical interactions on municipal public safety spending with correlated private information (2018)
+
+Les auteurs étudient les intéractions entre municipalité sur le financement de la sécurité publique avec des informations privées corrélées. Un modèle de jeu simultané théorique et une application empirique sont présentés. Les auteurs trouvent que le financement des municipalités peut être négativement corrélé avec celui de ses voisins. Ils estiment que que les intéractions stratégiques causent une réduction de 7,2% dans le financement de la sécurité publique et qu'un gouvernement local réduit ses propres dépenses de 0,093 M\$ lorsqu'il anticipe que ses voisins vont augmenter leur dépenses en sécurité publique de 1M\$, ce qui montre un fort effet de *free-riding*.
+
+L'effet d'intéraction est justifié selon deux hypothèses du modèle théorique:
+
+1. Les criminels peuvent bouger et commettre des crimes dans des villes adjacentes
+2. Ils seront punis sans égare à la ville où ils sont attrapés.
+
+Ainsi, la criminalité dans une ville peut être influencée par les dépenses en sécurité pulique d'une autre ville de deux façons:
+
+1. Lorsqu'une ville dépense plus en sécurité sur son territoire, il est relativement plus probable qu'un criminel commette des crimes dans la ville voisine (effet de substitution).
+2. Des dépenses en sécurité plus élevées dans une ville voisine décroit le rendement (argent ou utilité) des activités criminelles, ce qui réduit le niveau de crime dans l'ensemble des villes (effet de revenu).
+
+*Il est montré comme exemple que lorsque la fonction de paiement est logarithmique et que la probabilité d'être attrapé a une élasticité unitaire de substitution entre les crimes et les services de sécurité publique, l'effet de substitution dominera. De plus, les dépenses d'une ville voisine peuvent affecter le taux d'effet politique d'une juridiction locale. Si une augmentation des dépenses en matière de sécurité publique dans une ville peut réduire les incidents criminels sur son propre territoire, lorsqu’une ville voisine augmente ses dépenses, l’ampleur de la réduction de la criminalité sera encore plus grande que ce qu’elle serait sans l’augmentation des dépenses de ce voisin. En raison de ce type de retombées de politique spatiale, la politique de dépenses d’une ville sera affectée par les politiques de ses voisins, montrant des « interactions stratégiques ».*
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
