@@ -10,7 +10,8 @@
 <link href="presentation_litterature_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
-  <title>Compétition fiscale - revue de littérature sur les modèles empiriques</title>
+  <meta name="author" content="Vincent Robitaille">
+  <title>Compétition fiscale avec intéractions stratégiques</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -325,9 +326,14 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Compétition fiscale - revue de littérature sur les modèles empiriques</h1>
+  <h1 class="title">Compétition fiscale avec intéractions stratégiques</h1>
 
 <div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Vincent Robitaille 
+</div>
+</div>
 </div>
 
 </section>
@@ -335,7 +341,11 @@
 <h2>Cadre théorique</h2>
 <ul>
 <li>Modèles de compétitivité fiscale (concurrence parfaite)</li>
-<li>Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)</li>
+<li>Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+<ul>
+<li>Information complète, ou;</li>
+<li>Information incomplète</li>
+</ul></li>
 </ul>
 </section>
 <section id="compétitivité-fiscale" class="slide level2">
@@ -345,6 +355,7 @@
 <li>Taxes sans distorsions</li>
 <li>Taille faible des juridictions face à l’économie</li>
 <li>Incapacité des juridictions à influencer le marché</li>
+<li>Similaire aux modèles de compétition parfaite de micro</li>
 </ul>
 </section>
 <section id="intéractions-stratégiques" class="slide level2">
@@ -353,30 +364,151 @@
 <li>Théorie des jeux</li>
 <li>Le taux de taxe influence l’assiette fiscale (ménages, capital se déplacent)</li>
 <li>Intéraction entre les décisions de taxation (fonctions de meilleur réponse)</li>
+<li>AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES</li>
 </ul>
 </section>
-<section id="bullets" class="slide level2">
-<h2>Bullets</h2>
-<p>When you click the <strong>Render</strong> button a document will be generated that includes:</p>
+<section id="modélisation-économétrique" class="slide level2">
+<h2>Modélisation économétrique</h2>
 <ul>
-<li>Content authored with markdown</li>
-<li>Output from executable code</li>
+<li>Concurrence parfaite - iid</li>
+<li>Intéractions stratégiques - corrélation entre les individus</li>
+<li>Modélisation de la variable de taux (continue vs censurée)</li>
+<li>Approche classique vs bayésienne</li>
 </ul>
 </section>
-<section id="code" class="slide level2">
-<h2>Code</h2>
-<p>When you click the <strong>Render</strong> button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="question-de-recherche" class="slide level2">
+<h2>Question de recherche</h2>
+<ul>
+<li>Estimation des effets d’intéraction dans un jeu simultané de compétition fiscale dans des municipalités américaines par une approche bayésienne</li>
+</ul>
+</section>
+<section>
+<section id="corpus-thématique" class="title-slide slide level1 center">
+<h1>Corpus thématique</h1>
+
+</section>
+<section id="concurrence-parfaite---théorie" class="slide level2">
+<h2>Concurrence parfaite - théorie</h2>
+</section>
+<section id="concurrence-parfaite---empirique" class="slide level2">
+<h2>Concurrence parfaite - empirique</h2>
+</section>
+<section id="intéractions---théorie" class="slide level2">
+<h2>Intéractions - théorie</h2>
+</section>
+<section id="intéractions---empirique" class="slide level2">
+<h2>Intéractions - empirique</h2>
+</section></section>
+<section>
+<section id="corpus-méthodologique" class="title-slide slide level1 center">
+<h1>Corpus méthodologique</h1>
+
+</section>
+<section id="économétrie-spatiale" class="slide level2">
+<h2>Économétrie spatiale</h2>
+<p>Les modèles économétriques standards assument que les chocs sont indépendants et identiquement distribués.</p>
+<ul>
+<li>Le choc d’un individu n’influence pas celui d’un autre</li>
+<li>Problèmatique lorsqu’un individu prends en compte les actions des autres individus, par exemple dû à un déplacement de la base d’imposition et de la contagion des externalités
+<ul>
+<li>Déplacement du capital, partage des infrastructures, évolution de la criminalité, etc.</li>
+</ul></li>
+</ul>
+</section>
+<section id="économétrie-bayésienne" class="slide level2">
+<h2>Économétrie bayésienne</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Fréquentiste</strong></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Bayésienne</strong></p>
 </div>
 </div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>L’approche fréquentiste est basée sur la répétition un nombre élevé de fois</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>L’approche bayésienne est basée sur un niveau de croyance à propos d’un évênement</p>
+</div>
+</div>
+</div>
+<p><strong>Théorème de bayes</strong></p>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[Pr(\theta|y) = \frac{Pr(\theta)\times Pr(y|\theta)}{Pr(y)}\]</span></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><span class="math display">\[\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \times \overbrace{p(x|\theta)}^{vraisemb.}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="économétrie-bayésienne---suite" class="slide level2">
+<h2>Économétrie bayésienne - suite</h2>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Fréquentiste</strong></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p><strong>Bayésienne</strong></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Intervalle de confiance - paramètre fixe et bornes aléatoires</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Intervalle de crédibilité - paramètre aléatoire et bornes fixes</p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Hypothèse nulle et seuil</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<p>Distribution a priori et a posteriori</p>
+</div>
+</div>
+</div>
+</section>
+<section id="modélisation" class="slide level2">
+<h2>Modélisation</h2>
+<ul>
+<li>Variable latente et solution de coin</li>
+</ul>
+</section>
+<section id="contribution-thématique" class="slide level2">
+<h2>Contribution thématique</h2>
+<ul>
+<li>Permet d’améliorer la compréhension du processus d’intéraction dans les politiques fiscales de juridictions locales</li>
+<li>L’approche bayésienne permet d’approcher différement et de manière plus intuitive les résultats</li>
+</ul>
+</section>
+<section id="contribution-méthodologique" class="slide level2">
+<h2>Contribution méthodologique</h2>
+</section>
+<section id="contribution-méthodologique-1" class="slide level2">
+<h2>Contribution méthodologique</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
 </div>
 </div>
-</section>
+</section></section>
     </div>
   </div>
 
@@ -587,44 +719,6 @@
         ]
       });
     </script>
-    
-    <script>
-      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
-      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
-      // slide changes (different for each slide format).
-      (function () {
-        // dispatch for htmlwidgets
-        function fireSlideEnter() {
-          const event = window.document.createEvent("Event");
-          event.initEvent("slideenter", true, true);
-          window.document.dispatchEvent(event);
-        }
-
-        function fireSlideChanged(previousSlide, currentSlide) {
-          fireSlideEnter();
-
-          // dispatch for shiny
-          if (window.jQuery) {
-            if (previousSlide) {
-              window.jQuery(previousSlide).trigger("hidden");
-            }
-            if (currentSlide) {
-              window.jQuery(currentSlide).trigger("shown");
-            }
-          }
-        }
-
-        // hookup for slidy
-        if (window.w3c_slidy) {
-          window.w3c_slidy.add_observer(function (slide_num) {
-            // slide_num starts at position 1
-            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
-          });
-        }
-
-      })();
-    </script>
-
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

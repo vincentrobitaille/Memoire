@@ -1,5 +1,5 @@
 ---
-title: "Compétition fiscale avec intéractions stratégiques - revue de littérature sur les modèles empiriques"
+title: "Compétition fiscale avec intéractions stratégiques"
 author: Vincent Robitaille
 format: revealjs
 editor: visual
@@ -9,6 +9,8 @@ editor: visual
 
 -   Modèles de compétitivité fiscale (concurrence parfaite)
 -   Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+    -   Information complète, ou;
+    -   Information incomplète
 
 ## Compétitivité fiscale
 
@@ -16,7 +18,7 @@ editor: visual
 -   Taxes sans distorsions
 -   Taille faible des juridictions face à l'économie
 -   Incapacité des juridictions à influencer le marché
--   AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
+-   Similaire aux modèles de compétition parfaite de micro
 
 ## Intéractions stratégiques
 
@@ -28,31 +30,82 @@ editor: visual
 ## Modélisation économétrique
 
 -   Concurrence parfaite - iid
--   Intéractions stratégiques - matrice W
+-   Intéractions stratégiques - corrélation entre les individus
 -   Modélisation de la variable de taux (continue vs censurée)
 -   Approche classique vs bayésienne
 
 ## Question de recherche
 
--   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale dans municipalités américaines
+-   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale dans des municipalités américaines par une approche bayésienne
 
-## Corpus thématique
+# Corpus thématique
 
-## Corpus thématique
+## Concurrence parfaite - théorie
 
-## Corpus thématique
+## Concurrence parfaite - empirique
 
-## Corpus thématique
+## Intéractions - théorie
 
-## Corpus méthodologique
+## Intéractions - empirique
 
-## Corpus méthodologique
+# Corpus méthodologique
 
-## Corpus méthodologique
+## Économétrie spatiale
 
-## Corpus méthodologique
+Les modèles économétriques standards assument que les chocs sont indépendants et identiquement distribués. 
+
+- Le choc d'un individu n'influence pas celui d'un autre 
+- Problèmatique lorsqu'un individu prends en compte les actions des autres individus, par exemple dû à un déplacement de la base d'imposition et de la contagion des externalités
+  + Déplacement du capital, partage des infrastructures, évolution de la criminalité, etc.
+
+## Économétrie bayésienne
+
+::: {layout-ncol="2"}
+**Fréquentiste**
+
+**Bayésienne**
+
+L'approche fréquentiste est basée sur la répétition un nombre élevé de fois
+
+L'approche bayésienne est basée sur un niveau de croyance à propos d'un évênement
+
+:::
+
+**Théorème de bayes** 
+
+:::{layout-ncol="2"}
+
+$$Pr(\theta|y) = \frac{Pr(\theta)\times Pr(y|\theta)}{Pr(y)}$$
+
+$$\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \times \overbrace{p(x|\theta)}^{vraisemb.}$$
+:::
+
+## Économétrie bayésienne - suite
+
+:::{layout-ncol="2"}
+
+**Fréquentiste**
+
+**Bayésienne**
+
+Intervalle de confiance - paramètre fixe et bornes aléatoires
+
+Intervalle de crédibilité - paramètre aléatoire et bornes fixes
+
+Hypothèse nulle et seuil
+
+Distribution a priori et a posteriori
+
+:::
+
+## Modélisation
+
+-   Variable latente et solution de coin
 
 ## Contribution thématique
+
+-   Permet d'améliorer la compréhension du processus d'intéraction dans les politiques fiscales de juridictions locales
+-   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
 
 ## Contribution méthodologique
 
