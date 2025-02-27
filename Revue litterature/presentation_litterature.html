@@ -7,7 +7,7 @@
 <link href="presentation_litterature_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="presentation_litterature_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="presentation_litterature_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="presentation_litterature_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="presentation_litterature_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.5.57">
 
   <meta name="author" content="Vincent Robitaille">
@@ -321,7 +321,7 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body class="quarto-dark">
   <div class="reveal">
     <div class="slides">
 
@@ -339,42 +339,126 @@ Vincent Robitaille
 </section>
 <section id="cadre-théorique" class="slide level2">
 <h2>Cadre théorique</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
-<li>Modèles de compétitivité fiscale (concurrence parfaite)</li>
-<li>Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+<li>Modèles de compétitivité fiscale (concurrence parfaite)
 <ul>
-<li>Information complète, ou;</li>
-<li>Information incomplète</li>
+<li>Modèles Tiebout</li>
 </ul></li>
 </ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+<ul>
+<li>Information complète ou incomplète</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </section>
-<section id="compétitivité-fiscale" class="slide level2">
-<h2>Compétitivité fiscale</h2>
+<section id="compétition-fiscale-tiebout" class="slide level2">
+<h2>Compétition fiscale (Tiebout)</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
 <li>Compétition des juridictions pour offrir des combinaisons de taxes et services publics</li>
-<li>Taxes sans distorsions</li>
-<li>Taille faible des juridictions face à l’économie</li>
-<li>Incapacité des juridictions à influencer le marché</li>
-<li>Similaire aux modèles de compétition parfaite de micro</li>
 </ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Taxes sans distorsions</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Taille faible des juridictions face à l’économie</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Incapacité des juridictions à influencer le marché</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Similaire aux modèles de compétition parfaite</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="intéractions-stratégiques" class="slide level2">
 <h2>Intéractions stratégiques</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
 <li>Théorie des jeux</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Le taux de taxe influence l’assiette fiscale (ménages, capital se déplacent)</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Intéraction entre les décisions de taxation (fonctions de meilleur réponse)</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="modélisation-économétrique" class="slide level2">
 <h2>Modélisation économétrique</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
 <li>Concurrence parfaite - iid</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Intéractions stratégiques - corrélation entre les individus</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Modélisation de la variable de taux (continue vs censurée)</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Approche classique vs bayésienne</li>
 </ul>
+</div>
+</div>
 </section>
 <section id="question-de-recherche" class="slide level2">
 <h2>Question de recherche</h2>
@@ -406,82 +490,80 @@ Vincent Robitaille
 </section>
 <section id="économétrie-spatiale" class="slide level2">
 <h2>Économétrie spatiale</h2>
-<p>Les modèles économétriques standards assument que les chocs sont indépendants et identiquement distribués.</p>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<p>Modèles économétriques standards: assument que les chocs sont indépendants et identiquement distribués.</p>
 <ul>
 <li>Le choc d’un individu n’influence pas celui d’un autre</li>
-<li>Problèmatique lorsqu’un individu prends en compte les actions des autres individus, par exemple dû à un déplacement de la base d’imposition et de la contagion des externalités
-<ul>
-<li>Déplacement du capital, partage des infrastructures, évolution de la criminalité, etc.</li>
-</ul></li>
 </ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<p>Modèles économétiques spatiaux: permettent des intéractions dans les chocs, la variable endogène, etc.</p>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>“Spill over” des externalités</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Déplacement de la base fiscale</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Nombre réduit de communautés</li>
+</ul>
+</div>
+</div>
 </section>
 <section id="économétrie-bayésienne" class="slide level2">
 <h2>Économétrie bayésienne</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p><strong>Fréquentiste</strong></p>
+<p>Répétition d’un nombre élevé de fois</p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p><strong>Bayésienne</strong></p>
+<p>Basée sur un niveau de croyance à propos d’un évênement</p>
 </div>
 </div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>L’approche fréquentiste est basée sur la répétition un nombre élevé de fois</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>L’approche bayésienne est basée sur un niveau de croyance à propos d’un évênement</p>
-</div>
-</div>
-</div>
-<p><strong>Théorème de bayes</strong></p>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p><span class="math display">\[Pr(\theta|y) = \frac{Pr(\theta)\times Pr(y|\theta)}{Pr(y)}\]</span></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <p><span class="math display">\[\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \times \overbrace{p(x|\theta)}^{vraisemb.}\]</span></p>
-</div>
 </div>
 </div>
 </section>
 <section id="économétrie-bayésienne---suite" class="slide level2">
 <h2>Économétrie bayésienne - suite</h2>
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout-ncol="2">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p><strong>Fréquentiste</strong></p>
+<ul>
+<li>Intervalle de confiance - paramètre fixe et bornes aléatoires</li>
+<li>Hypothèse nulle et seuil</li>
+</ul>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p><strong>Bayésienne</strong></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Intervalle de confiance - paramètre fixe et bornes aléatoires</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Intervalle de crédibilité - paramètre aléatoire et bornes fixes</p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Hypothèse nulle et seuil</p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<p>Distribution a priori et a posteriori</p>
-</div>
+<ul>
+<li>Intervalle de crédibilité - paramètre aléatoire et bornes fixes</li>
+<li>Distribution a priori et a posteriori</li>
+</ul>
 </div>
 </div>
 </section>
@@ -493,13 +575,33 @@ Vincent Robitaille
 </section>
 <section id="contribution-thématique" class="slide level2">
 <h2>Contribution thématique</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
 <li>Permet d’améliorer la compréhension du processus d’intéraction dans les politiques fiscales de juridictions locales</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<ul>
 <li>L’approche bayésienne permet d’approcher différement et de manière plus intuitive les résultats</li>
 </ul>
+</div>
 </section>
 <section id="contribution-méthodologique" class="slide level2">
 <h2>Contribution méthodologique</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Peu de méthodes bayésiennes dans la littérature</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Diversification des approches</li>
+</ul>
+</div>
 </section>
 <section id="contribution-méthodologique-1" class="slide level2">
 <h2>Contribution méthodologique</h2>

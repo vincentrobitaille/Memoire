@@ -1,38 +1,111 @@
 ---
 title: "Compétition fiscale avec intéractions stratégiques"
 author: Vincent Robitaille
-format: revealjs
+format: 
+  revealjs:
+    theme: dark
 editor: visual
 ---
 
 ## Cadre théorique
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Modèles de compétitivité fiscale (concurrence parfaite)
+    -   Modèles Tiebout
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
-    -   Information complète, ou;
-    -   Information incomplète
+    -   Information complète ou incomplète
+:::
+::::
 
-## Compétitivité fiscale
+## Compétition fiscale (Tiebout)
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Compétition des juridictions pour offrir des combinaisons de taxes et services publics
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Taxes sans distorsions
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Taille faible des juridictions face à l'économie
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Incapacité des juridictions à influencer le marché
--   Similaire aux modèles de compétition parfaite de micro
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Similaire aux modèles de compétition parfaite
+:::
+::::
 
 ## Intéractions stratégiques
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Théorie des jeux
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Le taux de taxe influence l'assiette fiscale (ménages, capital se déplacent)
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
+:::
+::::
 
 ## Modélisation économétrique
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Concurrence parfaite - iid
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Intéractions stratégiques - corrélation entre les individus
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Modélisation de la variable de taux (continue vs censurée)
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Approche classique vs bayésienne
+:::
+::::
 
 ## Question de recherche
 
@@ -52,51 +125,81 @@ editor: visual
 
 ## Économétrie spatiale
 
-Les modèles économétriques standards assument que les chocs sont indépendants et identiquement distribués. 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Modèles économétriques standards: assument que les chocs sont indépendants et identiquement distribués.
 
-- Le choc d'un individu n'influence pas celui d'un autre 
-- Problèmatique lorsqu'un individu prends en compte les actions des autres individus, par exemple dû à un déplacement de la base d'imposition et de la contagion des externalités
-  + Déplacement du capital, partage des infrastructures, évolution de la criminalité, etc.
+-   Le choc d'un individu n'influence pas celui d'un autre
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Modèles économétiques spatiaux: permettent des intéractions dans les chocs, la variable endogène, etc.
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   "Spill over" des externalités
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Déplacement de la base fiscale
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Nombre réduit de communautés
+:::
+::::
 
 ## Économétrie bayésienne
 
-::: {layout-ncol="2"}
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 **Fréquentiste**
 
+Répétition d'un nombre élevé de fois
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 **Bayésienne**
 
-L'approche fréquentiste est basée sur la répétition un nombre élevé de fois
-
-L'approche bayésienne est basée sur un niveau de croyance à propos d'un évênement
-
+Basée sur un niveau de croyance à propos d'un évênement
 :::
+::::
 
-**Théorème de bayes** 
-
-:::{layout-ncol="2"}
-
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 $$Pr(\theta|y) = \frac{Pr(\theta)\times Pr(y|\theta)}{Pr(y)}$$
 
 $$\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \times \overbrace{p(x|\theta)}^{vraisemb.}$$
 :::
+::::
 
 ## Économétrie bayésienne - suite
 
-:::{layout-ncol="2"}
-
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 **Fréquentiste**
 
+-   Intervalle de confiance - paramètre fixe et bornes aléatoires
+-   Hypothèse nulle et seuil
+:::
+::::
+
+:::: {.fragment .fade-in}
 **Bayésienne**
 
-Intervalle de confiance - paramètre fixe et bornes aléatoires
-
-Intervalle de crédibilité - paramètre aléatoire et bornes fixes
-
-Hypothèse nulle et seuil
-
-Distribution a priori et a posteriori
-
-:::
+-   Intervalle de crédibilité - paramètre aléatoire et bornes fixes
+-   Distribution a priori et a posteriori
+::::
 
 ## Modélisation
 
@@ -104,9 +207,26 @@ Distribution a priori et a posteriori
 
 ## Contribution thématique
 
+::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Permet d'améliorer la compréhension du processus d'intéraction dans les politiques fiscales de juridictions locales
+:::
+:::
+
+::: {.fragment .fade-in}
 -   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
+:::
 
 ## Contribution méthodologique
+
+::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Peu de méthodes bayésiennes dans la littérature
+:::
+:::
+
+::: {.fragment .fade-in}
+-   Diversification des approches
+:::
 
 ## Contribution méthodologique
