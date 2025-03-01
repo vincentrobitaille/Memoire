@@ -124,31 +124,29 @@ Ainsi, la criminalité dans une ville peut être influencée par les dépenses e
 
 Tiebout apporte l'idée de représenter les communautés locales comme un marché compétitif. Les consommateurs-voteurs ont des préférences pour des paniers de biens publics à certains prix (niveaux de taxes) et sont libres de bouger d'une communauté à l'autre. Les consommateurs-voteurs se déplacent ainsi vers les communautés qui leur permettent de maximiser leur utilité. Ce marché entre les communautés et les consommateurs-voteurs dépend de sept hypothèses:
 
-1. Consommateurs mobiles. Ils peuvent aller où ils veulent et sans coût de transport.
-2. Information complète.
-3. Nombreuses communauté parmis lesquelles choisir.
-4. Aucune intéraction avec le marché du travail.
-5. Pas de *spill overs* positifs ou négatifs des biens publics entre les communautés.
-6. Il existe une taille optimale de communauté.
-7. Les communautés agissent de manière à essayer d'atteindre leur taille optimale.
-
+1.  Consommateurs mobiles. Ils peuvent aller où ils veulent et sans coût de transport.
+2.  Information complète.
+3.  Nombreuses communauté parmis lesquelles choisir.
+4.  Aucune intéraction avec le marché du travail.
+5.  Pas de *spill overs* positifs ou négatifs des biens publics entre les communautés.
+6.  Il existe une taille optimale de communauté.
+7.  Les communautés agissent de manière à essayer d'atteindre leur taille optimale.
 
 ### Nash Equilibria in Models of Fiscal Competition (1987, Wildasin) (À FAIRE)
 
 Se démarque des modèles de type Tiebout (compétition parfaite) en étudiant le phénomène de compétition fiscale pour un nombre restreint de communautés à l'aide de la théorie des jeux. L'article compare les équilibres de Nash pour un jeu qui compétitionne sur la taxation et un autre sur les dépenses publiques.
 
-
 ### Tax Mimicking and Yardstick Competition Among Local Governments in the Netherlands (2005, Allers & Elhorst)
 
-Note: 
+Note:
 
-* Tax mimicking: imiter les décisions de taxation des voisins
-* Yardstick competition: forme de *tax mimicking*, il s'agit de la comparaison entre différents agents économiques (ici des municipalités) entre eux.
+-   Tax mimicking: imiter les décisions de taxation des voisins
+-   Yardstick competition: forme de *tax mimicking*, il s'agit de la comparaison entre différents agents économiques (ici des municipalités) entre eux.
 
 Utilise une approche d'économétrie spatiale. Les résultats suggèrent l'existence de *tax mimicking*: une hausse de 10% du taux de taxe sur les propriétés dans les municipalités avoisinantes amène une hausse de 3,5% du taux de taxe dans la municipalité. Les auteurs suggèrent que la *yardstick competition* est la source de *tax mimickking* la plus vraisemblable.
 
 **Intro**: La littérature propose 3 approches théoriques concernant la compétition fiscale:
 
-1. *Expenditure spillover*
-2. Modèles de Tiebout
-3. Compétition fiscale (*yardstick competition*)
+1.  *Expenditure spillover*
+2.  Modèles de Tiebout
+3.  Compétition fiscale (*yardstick competition*)

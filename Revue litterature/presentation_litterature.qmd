@@ -7,19 +7,65 @@ format:
 editor: visual
 ---
 
-## Cadre théorique
+## Pertinence
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Modèles de compétitivité fiscale (concurrence parfaite)
-    -   Modèles Tiebout
+Financement des biens publics (locaux)
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
-    -   Information complète ou incomplète
+-   Routes municipales
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Sécurité publique
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Problèmes économiques
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Érosion de l'assiete fiscale
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   "Spill over" de externalité et bénéfices
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Optimalité et efficience
+:::
+::::
+
+## Cadre théorique
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Modèles de compétitivité fiscale (concurrence parfaite)
+
+-   Modèles Tiebout (1956)
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+
+-   Information complète ou incomplète
 :::
 ::::
 
@@ -27,7 +73,7 @@ editor: visual
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Compétition des juridictions pour offrir des combinaisons de taxes et services publics
+Compétition des juridictions pour offrir des combinaisons de taxes et biens publics locaux
 :::
 ::::
 
@@ -55,29 +101,29 @@ editor: visual
 :::
 ::::
 
+::: {.fragment .fade-in}
+-   Rapidement critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
+:::
+
 ## Intéractions stratégiques
 
+AJOUTER CONTENU
+
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Théorie des jeux
+Théorie des jeux
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Le taux de taxe influence l'assiette fiscale (ménages, capital se déplacent)
+Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   AJOUTER CONCLUSIONS DES MODÈLES THÉORIQUES ET SOURCES
+Équilibre non efficace
 :::
 ::::
 
@@ -85,27 +131,30 @@ editor: visual
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Concurrence parfaite - iid
+Intéractions stratégiques - corrélation entre les individus
+
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Intéractions stratégiques - corrélation entre les individus
+Modélisation de la variable de taux (continue ou censurée)
 :::
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   Modélisation de la variable de taux (continue vs censurée)
-:::
+Approche classique vs bayésienne
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   Approche classique vs bayésienne
-:::
+-   Classique: répétition d'un nombre élevé de fois
+-   Bayésienne: niveau de croyance à propos d'un évènement 
 ::::
+
+:::: {.fragment .fade-in}
+$$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{P(y|\theta)}^\text{Vraisem.}}{\underbrace{P(y)}_\text{Evidence}}$$
+::::
+
 
 ## Question de recherche
 
@@ -113,23 +162,21 @@ editor: visual
 
 # Corpus thématique
 
-## Concurrence parfaite - théorie
+## Concurrence parfaite
 
-## Concurrence parfaite - empirique
+## Concurrence parfaite
 
-## Intéractions - théorie
+## Intéractions
 
-## Intéractions - empirique
+## Intéractions
 
 # Corpus méthodologique
 
-## Économétrie spatiale
+## Contôler pour les intéractions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Modèles économétriques standards: assument que les chocs sont indépendants et identiquement distribués.
-
--   Le choc d'un individu n'influence pas celui d'un autre
+Utilisation de variable instrumentale
 :::
 ::::
 
@@ -157,61 +204,21 @@ Modèles économétiques spatiaux: permettent des intéractions dans les chocs, 
 :::
 ::::
 
-## Économétrie bayésienne
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-**Fréquentiste**
-
-Répétition d'un nombre élevé de fois
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-**Bayésienne**
-
-Basée sur un niveau de croyance à propos d'un évênement
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-$$Pr(\theta|y) = \frac{Pr(\theta)\times Pr(y|\theta)}{Pr(y)}$$
-
-$$\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \times \overbrace{p(x|\theta)}^{vraisemb.}$$
-:::
-::::
-
-## Économétrie bayésienne - suite
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-**Fréquentiste**
-
--   Intervalle de confiance - paramètre fixe et bornes aléatoires
--   Hypothèse nulle et seuil
-:::
-::::
-
-:::: {.fragment .fade-in}
-**Bayésienne**
-
--   Intervalle de crédibilité - paramètre aléatoire et bornes fixes
--   Distribution a priori et a posteriori
-::::
-
 ## Modélisation
 
 -   Variable latente et solution de coin
+-   Modèle autorégressif
+-   Modèle autorégressif censuré
+    -   Choc exogène
+    -   Type d'information (Yang & Lee, 2018)
 
 ## Contribution thématique
 
-::: {.fragment .fade-in}
+:::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Permet d'améliorer la compréhension du processus d'intéraction dans les politiques fiscales de juridictions locales
+-   Améliorer la compréhension du processus d'intéraction dans les politiques fiscales de juridictions locales
 :::
-:::
+::::
 
 ::: {.fragment .fade-in}
 -   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
@@ -219,14 +226,19 @@ $$\overbrace{p(\theta|x)}^{posterior} \propto \overbrace{p(\theta)}^{prior} \tim
 
 ## Contribution méthodologique
 
-::: {.fragment .fade-in}
+:::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 -   Peu de méthodes bayésiennes dans la littérature
 :::
-:::
+::::
 
 ::: {.fragment .fade-in}
 -   Diversification des approches
+    -   Structurelle
 :::
 
 ## Contribution méthodologique
+
+
+## Références
+
