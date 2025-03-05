@@ -101,38 +101,26 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 :::
 ::::
 
-::: {.fragment .fade-in}
--   Rapidement critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
-:::
-
 ## Intéractions stratégiques
 
-AJOUTER CONTENU
-
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Théorie des jeux
+-   Théorie des jeux
 :::
 ::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
+::: {.fragment .fade-in}
+-   Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
+    -   Nombre réduit de juridictions
+    -   "Spill over" (positif ou négatif)
+    -   Mobilité
 :::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-Équilibre non efficace
-:::
-::::
 
 ## Modélisation économétrique
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 Intéractions stratégiques - corrélation entre les individus
-
 :::
 ::::
 
@@ -142,19 +130,18 @@ Modélisation de la variable de taux (continue ou censurée)
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Approche classique vs bayésienne
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Classique: répétition d'un nombre élevé de fois
--   Bayésienne: niveau de croyance à propos d'un évènement 
-::::
+-   Bayésienne: niveau de croyance à propos d'un évènement
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{P(y|\theta)}^\text{Vraisem.}}{\underbrace{P(y)}_\text{Evidence}}$$
-::::
-
+:::
 
 ## Question de recherche
 
@@ -162,29 +149,34 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 
 # Corpus thématique
 
-## Concurrence parfaite
+## Modèles Tiebout
 
-## Concurrence parfaite
+-   Tiebout (1956)
+    -   Littérature test nombreuses hypothèses et implications
+    -   Résultats assez mixtes (Dowding et al. 1994) (À DÉVELOPPER)
+-   Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
 
 ## Intéractions
+
+-   Littérature récente
+-   Intéractions, variables politiques significatives (Delgado et al. 2012)
+    -   Variable non censurée ?
 
 ## Intéractions
 
 # Corpus méthodologique
 
-## Contôler pour les intéractions
+## Modélisation
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Utilisation de variable instrumentale
+Utilisation de variable instrumentale (À DÉVELOPPER)
 :::
 ::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
+::: {.fragment .fade-in}
 Modèles économétiques spatiaux: permettent des intéractions dans les chocs, la variable endogène, etc.
 :::
-::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -204,13 +196,34 @@ Modèles économétiques spatiaux: permettent des intéractions dans les chocs, 
 :::
 ::::
 
-## Modélisation
+## Mesurer les intéractions (suite)
 
--   Variable latente et solution de coin
--   Modèle autorégressif
--   Modèle autorégressif censuré
-    -   Choc exogène
-    -   Type d'information (Yang & Lee, 2018)
+Modèles spatiaux: intéractions significatives (Allers & Elhorst, 2005)
+
+Comparaison estimation causale (choc exogène à la politique) avec:
+
+-   Variable intrumentale spatiale
+-   Lag spatial Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012).
+
+## Solution de coin
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Structure d'information (Yang et al. 2018)
+
+-   
+
+    ```         
+    Complète vs incomplète
+    ```
+
+-   
+
+    ```         
+    Variable censurée
+    ```
+:::
+::::
 
 ## Contribution thématique
 
@@ -239,6 +252,4 @@ Modèles économétiques spatiaux: permettent des intéractions dans les chocs, 
 
 ## Contribution méthodologique
 
-
 ## Références
-
