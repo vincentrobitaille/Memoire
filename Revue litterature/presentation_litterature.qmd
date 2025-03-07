@@ -61,13 +61,11 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 :::
 ::::
 
-:::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
 
 -   Information complète ou incomplète
 :::
-::::
 
 ## Compétition fiscale (Tiebout)
 
@@ -101,6 +99,12 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 :::
 ::::
 
+::: {.notes}
+Les individus votent *avec leurs pieds* : en déménageant
+Nombreuses extensions développées au fil du temps
+Hypothèses contraignantes
+:::
+
 ## Intéractions stratégiques
 
 :::: {.fragment .fade-in}
@@ -112,8 +116,15 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 ::: {.fragment .fade-in}
 -   Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
     -   Nombre réduit de juridictions
-    -   "Spill over" (positif ou négatif)
+    -   *Spill over* (positif ou négatif)
+    -   *Yardstick competition*
     -   Mobilité
+:::
+
+::: {.notes}
+**Spill over**: Externalités positives ou négatives pour les voisins
+**Yardstick competiton**: Comparaison avec les voisins, contrainte politiques de voteurs
+**Mobilité**: La base de taxation se déplace en fonction des différents taux de taxe
 :::
 
 ## Modélisation économétrique
@@ -143,26 +154,20 @@ Approche classique vs bayésienne
 $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{P(y|\theta)}^\text{Vraisem.}}{\underbrace{P(y)}_\text{Evidence}}$$
 :::
 
+::: {.notes}
+**Intéractions**: Modèles économétriques standard assument généralement iid (indép. des individus)
+**Censure**: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale)
+**Bayésien**: Approche différente des probabilités, converge avec fréq lorsque $n\rightarrow \infty$, peut faciliter l'estimation de certains modèles complexes
+:::
+
 ## Question de recherche
 
--   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale dans des municipalités américaines par une approche bayésienne
+-   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale auprès de municipalités américaines par une approche bayésienne
 
-# Corpus thématique
-
-## Modèles Tiebout
-
--   Tiebout (1956)
-    -   Littérature test nombreuses hypothèses et implications
-    -   Résultats assez mixtes (Dowding et al. 1994) (À DÉVELOPPER)
--   Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
-
-## Intéractions
-
--   Littérature récente
--   Intéractions, variables politiques significatives (Delgado et al. 2012)
-    -   Variable non censurée ?
-
-## Intéractions
+::: {.notes}
+Basé sur:
+Tobit models with social interactions: Complete vs incomplete information (Yang et al. 2018)
+:::
 
 # Corpus méthodologique
 
@@ -196,34 +201,70 @@ Modèles économétiques spatiaux: permettent des intéractions dans les chocs, 
 :::
 ::::
 
-## Mesurer les intéractions (suite)
+## Mesurer les intéractions
 
-Modèles spatiaux: intéractions significatives (Allers & Elhorst, 2005)
+Choix du modèle selon le type de compétition (Bordignon et al., 2003):
 
-Comparaison estimation causale (choc exogène à la politique) avec:
+-   **SEM**: *Yardstick competition*
+-   **SAR**: *Mobilité de l'assiète fiscale*
 
--   Variable intrumentale spatiale
--   Lag spatial Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012).
+Intéractions significatives (Allers & Elhorst, 2005)
 
-## Solution de coin
+Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012).
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   Structure d'information (Yang et al. 2018)
-
--   
-
-    ```         
-    Complète vs incomplète
-    ```
-
--   
-
-    ```         
-    Variable censurée
-    ```
+::: {.notes}
+**SEM**: Compétition associée aux variables inobservées (termes d'erreur)
+**SAR**: Compétition directement liée à la variable endogène
 :::
-::::
+
+## Solution de coin et structure d'information
+
+Modèles Tobit avec effet spatial (Qu & Lee, 2012)
+
+-   Tobit SLM simultané
+-   Tobit SLM latent
+
+Structure d'information (Yang et al. 2018)
+
+-   Complète vs incomplète
+-   Variable censurée
+
+::: {.notes}
+**Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe)
+Un SLM est un type de SAR ?
+**SLM simultané**: Comportement affecté par l'outcome réalisé/observé
+**SLM latent**: Intéractions entre variables latente au lieu d'outcome réel
+:::
+
+# Corpus thématique
+
+## Modèles Tiebout
+
+-   Tiebout (1956)
+    -   Littérature test nombreuses hypothèses et implications
+    -   Résultats assez mixtes (Dowding et al. 1994) (À DÉVELOPPER)
+-   Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
+
+::: {.notes}
+Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.
+Test de nombreuses hypothèses et implications du modèle, résultats assez mixtes.
+Modèle utile, mais sérieuses limitations.
+:::
+
+## Intéractions
+
+-   Séparation des effets *yardstick* et *spill over* (Bordignon et al., 2003)
+    -   Incertitude politique: Intéractions positives (conditionnelle)
+-   Intéractions, variables politiques significatives (Delgado et al. 2012)
+
+::: {.notes}
+Littérature tend à démontrer la présence d'intéractions, mais reste de l'incertitude.
+L'ampleur de l'effet est beaucoup moins clair.
+:::
+
+## Intéractions
+
+Ajouter section résultats méthodes causales/quasi-experimentales
 
 ## Contribution thématique
 
@@ -247,9 +288,7 @@ Comparaison estimation causale (choc exogène à la politique) avec:
 
 ::: {.fragment .fade-in}
 -   Diversification des approches
-    -   Structurelle
+    -   Approche structurelle peut présente
 :::
-
-## Contribution méthodologique
 
 ## Références
