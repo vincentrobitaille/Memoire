@@ -1,0 +1,32 @@
+---
+title: "Exploration des données"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(spdep)
+```
+
+-   **nc_hhi_ts** contient l'évolution du revenu médian des ménages
+-   **county_pop_tax** semble contenir des infos au niveau des comtés (pas nécessaire ?)
+-   **municipal_info** contient des données fiscales, économiques, démographiques et géographiques sur les municipalités
+
+```{r}
+county_pop_tax <- read.csv("data/CountyPopTaxNum.csv")
+municipal_info <- read.csv("data/NCMunicipalInfoNewVar2.csv")
+nc_hhi_ts <- read.csv("data/NChhits.csv")
+municipal_info |> summary()
+```
+
+-   **Variable du taux de taxation manquante ?**
+-   Les variables qui commencent par "exp" semblent être la ventilation des dépenses municipales
+-   Les variables qui commencent par "p" ?
+-   city: Ville
+-   mhhi: median house hold income ?
+-   citypop: population de la ville ?
+-   latitude: ok
+-   longitude: ok
+-   De nombreuses variables existent en plusieurs versions ex:pop11 et pop12
