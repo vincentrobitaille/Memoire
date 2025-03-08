@@ -395,7 +395,7 @@ Vincent Robitaille
 </ul>
 </div>
 </div>
-<div class="fragment semi-fade-out">
+<div class="fragment fade-in">
 <p>Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)</p>
 <ul>
 <li>Information complète ou incomplète</li>
@@ -462,17 +462,25 @@ Vincent Robitaille
 </div>
 <div class="fragment fade-in">
 <ul>
-<li>Intéraction entre les décisions de taxation (fonctions de meilleur réponse)
-<ul>
-<li>Nombre réduit de juridictions</li>
-<li><em>Spill over</em> (positif ou négatif)</li>
-<li><em>Yardstick competition</em></li>
-<li>Mobilité</li>
-</ul></li>
+<li>Intéraction entre les décisions de taxation</li>
 </ul>
 </div>
+<div class="fragment fade-in">
+<pre><code>-   Nombre réduit de juridictions</code></pre>
+</div>
+<div class="fragment fade-in">
+<pre><code>-   Spill over (positif ou négatif)</code></pre>
+</div>
+<div class="fragment fade-in">
+<pre><code>-   Yardstick competition</code></pre>
+</div>
+<div class="fragment fade-in">
+<pre><code>-   Mobilité des agents / du capital</code></pre>
+</div>
 <aside class="notes">
-<p><strong>Spill over</strong>: Externalités positives ou négatives pour les voisins <strong>Yardstick competiton</strong>: Comparaison avec les voisins, contrainte politiques de voteurs <strong>Mobilité</strong>: La base de taxation se déplace en fonction des différents taux de taxe</p>
+<p><strong>Spill over</strong>: Externalités positives ou négatives pour les voisins</p>
+<p><strong>Yardstick competiton</strong>: Comparaison avec les voisins, contrainte politiques de voteurs</p>
+<p><strong>Mobilité</strong>: La base de taxation se déplace en fonction des différents taux de taxe</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -510,7 +518,9 @@ Vincent Robitaille
 <p><span class="math display">\[\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{P(y|\theta)}^\text{Vraisem.}}{\underbrace{P(y)}_\text{Evidence}}\]</span></p>
 </div>
 <aside class="notes">
-<p><strong>Intéractions</strong>: Modèles économétriques standard assument généralement iid (indép. des individus) <strong>Censure</strong>: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale) <strong>Bayésien</strong>: Approche différente des probabilités, converge avec fréq lorsque <span class="math inline">\(n\rightarrow \infty\)</span>, peut faciliter l’estimation de certains modèles complexes</p>
+<p><strong>Intéractions</strong>: Modèles économétriques standard assument généralement iid (indép. des individus)</p>
+<p><strong>Censure</strong>: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale)</p>
+<p><strong>Bayésien</strong>: Approche différente des probabilités, converge avec fréq lorsque <span class="math inline">\(n\rightarrow \infty\)</span>, peut faciliter l’estimation de certains modèles complexes</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -550,12 +560,7 @@ Vincent Robitaille
 <section id="modélisation" class="slide level2">
 <h2>Modélisation</h2>
 <div class="fragment fade-in">
-<div class="fragment semi-fade-out">
-<p>Utilisation de variable instrumentale (À DÉVELOPPER)</p>
-</div>
-</div>
-<div class="fragment fade-in">
-<p>Modèles économétiques spatiaux: permettent des intéractions dans les chocs, la variable endogène, etc.</p>
+<p>Économétrie spatiale: permet des intéractions dans les chocs, la variable endogène, etc.</p>
 </div>
 <div class="fragment fade-in">
 <div class="fragment semi-fade-out">
@@ -574,22 +579,83 @@ Vincent Robitaille
 <div class="fragment fade-in">
 <div class="fragment semi-fade-out">
 <ul>
-<li>Nombre réduit de communautés</li>
+<li>Yardstick competition</li>
 </ul>
 </div>
+</div>
+<div class="fragment fade-in">
+<p>Utilisation de variables instrumentales - Utilisation d’un choc exogène comme instrument</p>
 </div>
 </section>
 <section id="mesurer-les-intéractions" class="slide level2">
 <h2>Mesurer les intéractions</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p>Choix du modèle selon le type de compétition (Bordignon et al., 2003):</p>
 <ul>
 <li><strong>SEM</strong>: <em>Yardstick competition</em></li>
 <li><strong>SAR</strong>: <em>Mobilité de l’assiète fiscale</em></li>
 </ul>
-<p>Intéractions significatives (Allers &amp; Elhorst, 2005)</p>
-<p>Modèles spatiaux standard auraient tendance à surestimer l’intéraction (Lyytikäinen, 2012).</p>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<p>Intéractions significatives (Allers &amp; Elhorst, 2005) ???</p>
+</div>
+</div>
+<div class="fragment fade-in">
+<p>Modèles spatiaux standard auraient tendance à surestimer l’intéraction (Lyytikäinen, 2012) (Finland):</p>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Choc exogène au taux minimum</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Retrait des solutions de coin</li>
+</ul>
+</div>
 <aside class="notes">
-<p><strong>SEM</strong>: Compétition associée aux variables inobservées (termes d’erreur) <strong>SAR</strong>: Compétition directement liée à la variable endogène</p>
+<p><strong>SEM</strong>: Compétition associée aux variables inobservées (termes d’erreur)</p>
+<p><strong>SAR</strong>: Compétition directement liée à la variable endogène</p>
+<p><strong>Lyytikäinen</strong>: garde uniquement municipalité par lesquelles taux minimum pas contrainte mordante</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="solution-de-coin" class="slide level2">
+<h2>Solution de coin</h2>
+<div class="fragment fade-in">
+<p>Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules (Porto &amp; Revelli, 2011):</p>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Approche bayésienne - Variable censurée</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Tobit avec lag spatio-temporel</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Modèle de survie</li>
+</ul>
+</div>
+<aside class="notes">
+<p><strong>Bayésien censurée</strong>: choix du taux influencé par taux désiré des voisins et non taux censuré/appliqué (représente moins bien solution coin)</p>
+<p><strong>Tobit lag spatio-temporel</strong>: <span class="math inline">\(\tau_{-it-1}^* = x'_{it}\beta + \rho\tau_{it-1} + \varepsilon_{it},\quad \tau_{it-1} = \sum_{j=1}^N w_{ij}\tau_{jt-1}\)</span></p>
+<p><strong>Modèle de survie</strong>: Probabilité d’atteindre la limite</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -604,18 +670,26 @@ Vincent Robitaille
 </section>
 <section id="solution-de-coin-et-structure-dinformation" class="slide level2">
 <h2>Solution de coin et structure d’information</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <p>Modèles Tobit avec effet spatial (Qu &amp; Lee, 2012)</p>
 <ul>
 <li>Tobit SLM simultané</li>
 <li>Tobit SLM latent</li>
 </ul>
+</div>
+</div>
+<div class="fragment fade-in">
 <p>Structure d’information (Yang et al.&nbsp;2018)</p>
 <ul>
 <li>Complète vs incomplète</li>
 <li>Variable censurée</li>
 </ul>
+</div>
 <aside class="notes">
-<p><strong>Tobit</strong>: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR ? <strong>SLM simultané</strong>: Comportement affecté par l’outcome réalisé/observé <strong>SLM latent</strong>: Intéractions entre variables latente au lieu d’outcome réel</p>
+<p><strong>Tobit</strong>: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR ?</p>
+<p><strong>SLM simultané</strong>: Comportement affecté par l’outcome réalisé/observé</p>
+<p><strong>SLM latent</strong>: Intéractions entre variables latente au lieu d’outcome réel</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -635,16 +709,26 @@ Vincent Robitaille
 </section>
 <section id="modèles-tiebout" class="slide level2">
 <h2>Modèles Tiebout</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
 <li>Tiebout (1956)
 <ul>
 <li>Littérature test nombreuses hypothèses et implications</li>
 <li>Résultats assez mixtes (Dowding et al.&nbsp;1994) (À DÉVELOPPER)</li>
 </ul></li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<ul>
 <li>Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)</li>
 </ul>
+</div>
 <aside class="notes">
-<p>Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe. Test de nombreuses hypothèses et implications du modèle, résultats assez mixtes. Modèle utile, mais sérieuses limitations.</p>
+<p>Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.</p>
+<p>Test de nombreuses hypothèses et implications du modèle, résultats assez mixtes.</p>
+<p>Modèle utile, mais sérieuses limitations.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -659,15 +743,33 @@ Vincent Robitaille
 </section>
 <section id="intéractions" class="slide level2">
 <h2>Intéractions</h2>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
 <ul>
-<li>Séparation des effets <em>yardstick</em> et <em>spill over</em> (Bordignon et al., 2003)
+<li>Séparation des effets <em>yardstick</em> et <em>spill over</em> (Bordignon et al., 2003) (Italie)
 <ul>
 <li>Incertitude politique: Intéractions positives (conditionnelle)</li>
 </ul></li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
 <li>Intéractions, variables politiques significatives (Delgado et al.&nbsp;2012)</li>
 </ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>Pas de preuve solide d’interdépendance dans les municipalités finlandaises (Lyytikäinen, 2012)</li>
+</ul>
+</div>
+</div>
 <aside class="notes">
-<p>Littérature tend à démontrer la présence d’intéractions, mais reste de l’incertitude. L’ampleur de l’effet est beaucoup moins clair.</p>
+<p>Littérature tend à démontrer la présence d’intéractions, mais reste de l’incertitude.</p>
+<p>L’ampleur de l’effet est beaucoup moins clair.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -682,14 +784,31 @@ Vincent Robitaille
 </section>
 <section id="intéractions-1" class="slide level2">
 <h2>Intéractions</h2>
-<p>Ajouter section résultats méthodes causales/quasi-experimentales</p>
+<div class="fragment fade-in">
+<p>Équilibre de Nash: information complète (Yang et al., 2018)</p>
+</div>
+<div class="fragment fade-in">
+<div class="fragment semi-fade-out">
+<ul>
+<li>SAR Tobit (simultané)</li>
+</ul>
+</div>
+</div>
+<div class="fragment fade-in">
+<ul>
+<li>Information incomplète rejetée vs information complète</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<pre><code>-   Information incomplète: Espérance du taux des voisins</code></pre>
+</div>
 </section>
 <section id="contribution-thématique" class="slide level2">
 <h2>Contribution thématique</h2>
 <div class="fragment fade-in">
 <div class="fragment semi-fade-out">
 <ul>
-<li>Améliorer la compréhension du processus d’intéraction dans les politiques fiscales de juridictions locales</li>
+<li>Améliorer la compréhension du processus d’intéraction dans les politiques fiscales de juridictions locales sous la forme d’un équilibre de Nash</li>
 </ul>
 </div>
 </div>
@@ -712,7 +831,7 @@ Vincent Robitaille
 <ul>
 <li>Diversification des approches
 <ul>
-<li>Approche structurelle peut présente</li>
+<li>Approche structurelle peu présente</li>
 </ul></li>
 </ul>
 </div>
