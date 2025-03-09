@@ -1,5 +1,5 @@
 ---
-title: "Compétition fiscale avec intéractions stratégiques"
+title: "Compétition fiscale locale"
 author: Vincent Robitaille
 format: 
   revealjs:
@@ -11,7 +11,7 @@ editor: visual
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Financement des biens publics (locaux)
+Financement des biens publics locaux
 :::
 ::::
 
@@ -29,26 +29,52 @@ Financement des biens publics (locaux)
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Problèmes économiques
+-   Autres services et infrastructures publiques
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Érosion de l'assiete fiscale
+Défis économiques et politiques
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   "Spill over" de externalité et bénéfices
+-   Érosion de l'assiette fiscale
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Optimalité et efficience
+-   "Spill over" d'externalités et de bénéfices
 :::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Satisfaction des électeurs
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Optimalité
+:::
+::::
+
+:::: notes
+**Biens/services publics**: routes, sécurité, parcs, aqueducs, entretient, loisirs, culture, éducation (partiel/variable)
+
+**Défis**
+
+**Érosion**: la base d'imposition peut se déplacer en fonction des décisions de taxation
+
+**Spill over**: municipalité bénéficie ou souffrent des décisions de ses voisins (ex: déplacement de la criminalité)
+
+**Satisfaction des électeurs**: base électorale insatisfaite en comparaison aux voisins, élus ne reviendra pas aux prochaines élections (yardstick competition)
+
+**Optimalité**: biens à fort spill over peuvent être sous financés (payeur ne récupère pas tous les bénéfices)
 ::::
 
 ## Cadre théorique
@@ -61,11 +87,11 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
 
 -   Information complète ou incomplète
-::::
+:::
 
 ## Compétition fiscale (Tiebout)
 
@@ -116,25 +142,33 @@ Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions
 :::
 
 ::: {.fragment .fade-in}
-    -   Nombre réduit de juridictions
+```         
+-   Nombre réduit de juridictions
+```
 :::
 
 ::: {.fragment .fade-in}
-    -   Spill over (positif ou négatif)
+```         
+-   Spill over (positif ou négatif)
+```
 :::
 
 ::: {.fragment .fade-in}
-    -   Yardstick competition
+```         
+-   Yardstick competition
+```
 :::
 
 ::: {.fragment .fade-in}
-    -   Mobilité des agents / du capital
+```         
+-   Mobilité des agents / du capital
+```
 :::
 
 ::: notes
-**Spill over**: Externalités positives ou négatives pour les voisins 
+**Spill over**: Externalités positives ou négatives pour les voisins
 
-**Yardstick competiton**: Comparaison avec les voisins, contrainte politiques de voteurs 
+**Yardstick competiton**: Comparaison avec les voisins, contrainte politiques de voteurs
 
 **Mobilité**: La base de taxation se déplace en fonction des différents taux de taxe
 :::
@@ -167,9 +201,9 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 :::
 
 ::: notes
-**Intéractions**: Modèles économétriques standard assument généralement iid (indép. des individus) 
+**Intéractions**: Modèles économétriques standard assument généralement iid (indép. des individus)
 
-**Censure**: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale) 
+**Censure**: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale)
 
 **Bayésien**: Approche différente des probabilités, converge avec fréq lorsque $n\rightarrow \infty$, peut faciliter l'estimation de certains modèles complexes
 :::
@@ -208,12 +242,17 @@ Basé sur: Tobit models with social interactions: Complete vs incomplete informa
 :::
 ::::
 
-:::: {.fragment .fade-in}
-Utilisation de variables instrumentales
--   Utilisation d'un choc exogène comme instrument
-::::
+::: {.fragment .fade-in}
+Utilisation de variables instrumentales - Utilisation d'un choc exogène comme instrument
+:::
 
 ## Mesurer les intéractions
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Estimation de l'effet d'intéraction sur les dépenses à l'aide de lag spatial (Case et al., 1993)
+:::
+::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -230,20 +269,20 @@ Intéractions significatives (Allers & Elhorst, 2005) ???
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012) (Finland):
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Choc exogène au taux minimum
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Retrait des solutions de coin
-::::
+:::
 
 ::: notes
-**SEM**: Compétition associée aux variables inobservées (termes d'erreur) 
+**SEM**: Compétition associée aux variables inobservées (termes d'erreur)
 
 **SAR**: Compétition directement liée à la variable endogène
 
@@ -252,21 +291,21 @@ Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyyti
 
 ## Solution de coin
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules (Porto & Revelli, 2011):
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Approche bayésienne - Variable censurée
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Tobit avec lag spatio-temporel
-::::
+:::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Modèle de survie
-::::
+:::
 
 ::: notes
 **Bayésien censurée**: choix du taux influencé par taux désiré des voisins et non taux censuré/appliqué (représente moins bien solution coin)
@@ -287,17 +326,17 @@ Modèles Tobit avec effet spatial (Qu & Lee, 2012)
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Structure d'information (Yang et al. 2018)
 
 -   Complète vs incomplète
 -   Variable censurée
-::::
+:::
 
 ::: notes
-**Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR ? 
+**Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR ?
 
-**SLM simultané**: Comportement affecté par l'outcome réalisé/observé 
+**SLM simultané**: Comportement affecté par l'outcome réalisé/observé
 
 **SLM latent**: Intéractions entre variables latente au lieu d'outcome réel
 :::
@@ -310,18 +349,18 @@ Structure d'information (Yang et al. 2018)
 ::: {.fragment .semi-fade-out}
 -   Tiebout (1956)
     -   Littérature test nombreuses hypothèses et implications
-    -   Résultats assez mixtes (Dowding et al. 1994) (À DÉVELOPPER)
+    -   Revue de littérature empirique: résultats assez mixtes (Dowding et al. 1994)
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
-::::
+:::
 
 ::: notes
-Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe. 
+Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.
 
-Test de nombreuses hypothèses et implications du modèle, résultats assez mixtes. 
+Test de nombreuses hypothèses et implications du modèle, résultats assez mixtes.
 
 Modèle utile, mais sérieuses limitations.
 :::
@@ -330,14 +369,21 @@ Modèle utile, mais sérieuses limitations.
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
+-   Effet positif et important de l'intéraction dans les dépenses des états américains (Case et al., 1993)
+:::
+::::
+
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Séparation des effets *yardstick* et *spill over* (Bordignon et al., 2003) (Italie)
-    -   Incertitude politique: Intéractions positives (conditionnelle)
+    -   Incertitude politique: Intéractions positives
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Intéractions, variables politiques significatives (Delgado et al. 2012)
+-   Intéractions et politique (Delgado et al. 2012)
 :::
 ::::
 
@@ -348,16 +394,16 @@ Modèle utile, mais sérieuses limitations.
 ::::
 
 ::: notes
-Littérature tend à démontrer la présence d'intéractions, mais reste de l'incertitude. 
+Littérature tend à démontrer la présence d'intéractions, mais reste de l'incertitude.
 
 L'ampleur de l'effet est beaucoup moins clair.
 :::
 
 ## Intéractions
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Équilibre de Nash: information complète (Yang et al., 2018)
-::::
+:::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -366,11 +412,13 @@ L'ampleur de l'effet est beaucoup moins clair.
 ::::
 
 :::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 -   Information incomplète rejetée vs information complète
+:::
 ::::
 
 :::: {.fragment .fade-in}
-    -   Information incomplète: Espérance du taux des voisins
+-   Information incomplète: Espérance du taux des voisins
 ::::
 
 ## Contribution thématique

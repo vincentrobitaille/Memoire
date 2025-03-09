@@ -151,11 +151,8 @@ Utilise une approche d'économétrie spatiale. Les résultats suggèrent l'exist
 2.  Modèles de Tiebout
 3.  Compétition fiscale (*yardstick competition*)
 
-
 ### Tiebout: A Survey of the Empirical Literature (Dowding et al. 1994)
 
 Pas pertinent, ne parle pas de taux de taxation ?
 
 ### Reassessment of the Tiebout model (Boadway & Tremblay, 2011)
-
-
