@@ -29,12 +29,6 @@ Financement des biens publics locaux
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Autres services et infrastructures publiques
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Défis économiques et politiques
 :::
 ::::
@@ -52,15 +46,7 @@ Défis économiques et politiques
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Satisfaction des électeurs
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   Optimalité
-:::
 ::::
 
 :::: notes
@@ -210,7 +196,7 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 
 ## Question de recherche
 
--   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale auprès de municipalités américaines par une approche bayésienne
+-   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale par une approche bayésienne
 
 ::: notes
 Basé sur: Tobit models with social interactions: Complete vs incomplete information (Yang et al. 2018)
