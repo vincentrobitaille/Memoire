@@ -228,8 +228,15 @@ Basé sur: Tobit models with social interactions: Complete vs incomplete informa
 :::
 ::::
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+$$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
+:::
+::::
+
+
 ::: {.fragment .fade-in}
-Utilisation de variables instrumentales - Utilisation d'un choc exogène comme instrument
+Utilisation de variables instrumentales - Utilisation d'un choc exogène comme instrument ??? GARDER ???
 :::
 
 ## Mesurer les intéractions
@@ -245,7 +252,7 @@ Estimation de l'effet d'intéraction sur les dépenses à l'aide de lag spatial 
 Choix du modèle selon le type de compétition (Bordignon et al., 2003):
 
 -   **SEM**: *Yardstick competition*
--   **SAR**: *Mobilité de l'assiète fiscale*
+-   **SAR**: *Mobilité de l'assiette fiscale*
 :::
 ::::
 
@@ -259,20 +266,12 @@ Intéractions significatives (Allers & Elhorst, 2005) ???
 Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012) (Finland):
 :::
 
-::: {.fragment .fade-in}
--   Choc exogène au taux minimum
-:::
-
-::: {.fragment .fade-in}
--   Retrait des solutions de coin
-:::
-
 ::: notes
 **SEM**: Compétition associée aux variables inobservées (termes d'erreur)
 
 **SAR**: Compétition directement liée à la variable endogène
 
-**Lyytikäinen**: garde uniquement municipalité par lesquelles taux minimum pas contrainte mordante
+**Lyytikäinen**: garde uniquement municipalité par lesquelles taux minimum pas contrainte mordante, choc exogène au taux minimum
 :::
 
 ## Solution de coin
