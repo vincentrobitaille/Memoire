@@ -45,11 +45,11 @@ Défis économiques et politiques
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Satisfaction des électeurs
-::::
+:::
 
-:::: notes
+::: notes
 **Biens/services publics**: routes, sécurité, parcs, aqueducs, entretient, loisirs, culture, éducation (partiel/variable)
 
 **Défis**
@@ -61,7 +61,7 @@ Défis économiques et politiques
 **Satisfaction des électeurs**: base électorale insatisfaite en comparaison aux voisins, élus ne reviendra pas aux prochaines élections (yardstick competition)
 
 **Optimalité**: biens à fort spill over peuvent être sous financés (payeur ne récupère pas tous les bénéfices)
-::::
+:::
 
 ## Cadre théorique
 
@@ -74,7 +74,7 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 ::::
 
 ::: {.fragment .fade-in}
-Modèles de compétition fiscale avec intéractions stratégiques (théorie des jeux)
+Modèles de compétition fiscale avec interactionss stratégiques (théorie des jeux)
 
 -   Information complète ou incomplète
 :::
@@ -115,7 +115,7 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions développées au fil du temps Hypothèses contraignantes
 :::
 
-## Intéractions stratégiques
+## interactionss stratégiques
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -124,7 +124,7 @@ Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions
 ::::
 
 ::: {.fragment .fade-in}
--   Intéraction entre les décisions de taxation
+-   interactions entre les décisions de taxation
 :::
 
 ::: {.fragment .fade-in}
@@ -163,7 +163,7 @@ Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Intéractions stratégiques - corrélation entre les individus
+interactionss stratégiques - corrélation entre les individus
 :::
 ::::
 
@@ -187,7 +187,7 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 :::
 
 ::: notes
-**Intéractions**: Modèles économétriques standard assument généralement iid (indép. des individus)
+**interactionss**: Modèles économétriques standard assument généralement iid (indép. des individus)
 
 **Censure**: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale)
 
@@ -196,7 +196,7 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 
 ## Question de recherche
 
--   Estimation des effets d'intéraction dans un jeu simultané de compétition fiscale par une approche bayésienne
+-   Estimation des effets d'interactions dans un jeu simultané de compétition fiscale par une approche bayésienne
 
 ::: notes
 Basé sur: Tobit models with social interactions: Complete vs incomplete information (Yang et al. 2018)
@@ -207,7 +207,7 @@ Basé sur: Tobit models with social interactions: Complete vs incomplete informa
 ## Modélisation
 
 ::: {.fragment .fade-in}
-Économétrie spatiale: permet des intéractions dans les chocs, la variable endogène, etc.
+Économétrie spatiale: permet des interactionss dans les chocs, la variable endogène, etc.
 :::
 
 :::: {.fragment .fade-in}
@@ -234,16 +234,15 @@ $$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
 :::
 ::::
 
-
 ::: {.fragment .fade-in}
 Utilisation de variables instrumentales - Utilisation d'un choc exogène comme instrument ??? GARDER ???
 :::
 
-## Mesurer les intéractions
+## Mesurer les interactionss
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Estimation de l'effet d'intéraction sur les dépenses à l'aide de lag spatial (Case et al., 1993)
+Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial (Case et al., 1993)
 :::
 ::::
 
@@ -258,12 +257,12 @@ Choix du modèle selon le type de compétition (Bordignon et al., 2003):
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Intéractions significatives (Allers & Elhorst, 2005) ???
+interactionss significatives (Allers & Elhorst, 2005) ???
 :::
 ::::
 
 ::: {.fragment .fade-in}
-Modèles spatiaux standard auraient tendance à surestimer l'intéraction (Lyytikäinen, 2012) (Finland):
+Modèles spatiaux standard auraient tendance à surestimer l'interactions (Lyytikäinen, 2012) (Finland):
 :::
 
 ::: notes
@@ -323,7 +322,7 @@ Structure d'information (Yang et al. 2018)
 
 **SLM simultané**: Comportement affecté par l'outcome réalisé/observé
 
-**SLM latent**: Intéractions entre variables latente au lieu d'outcome réel
+**SLM latent**: interactionss entre variables latente au lieu d'outcome réel
 :::
 
 # Corpus thématique
@@ -350,25 +349,24 @@ Test de nombreuses hypothèses et implications du modèle, résultats assez mixt
 Modèle utile, mais sérieuses limitations.
 :::
 
-## Intéractions
+## Interactions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Effet positif et important de l'intéraction dans les dépenses des états américains (Case et al., 1993)
+-   Effet positif et important de l'interactions dans les dépenses des états américains (Case et al., 1993)
 :::
 ::::
-
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 -   Séparation des effets *yardstick* et *spill over* (Bordignon et al., 2003) (Italie)
-    -   Incertitude politique: Intéractions positives
+    -   Incertitude politique: interactionss positives
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Intéractions et politique (Delgado et al. 2012)
+-   interactionss et politique (Delgado et al. 2012)
 :::
 ::::
 
@@ -379,12 +377,12 @@ Modèle utile, mais sérieuses limitations.
 ::::
 
 ::: notes
-Littérature tend à démontrer la présence d'intéractions, mais reste de l'incertitude.
+Littérature tend à démontrer la présence d'interactionss, mais reste de l'incertitude.
 
 L'ampleur de l'effet est beaucoup moins clair.
 :::
 
-## Intéractions
+## interactionss
 
 ::: {.fragment .fade-in}
 Équilibre de Nash: information complète (Yang et al., 2018)
@@ -402,15 +400,15 @@ L'ampleur de l'effet est beaucoup moins clair.
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Information incomplète: Espérance du taux des voisins
-::::
+:::
 
 ## Contribution thématique
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Améliorer la compréhension du processus d'intéraction dans les politiques fiscales de juridictions locales sous la forme d'un équilibre de Nash
+-   Améliorer la compréhension du processus d'interactions dans les politiques fiscales de juridictions locales sous la forme d'un équilibre de Nash
 :::
 ::::
 
