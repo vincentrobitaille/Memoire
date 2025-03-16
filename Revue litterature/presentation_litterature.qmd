@@ -60,7 +60,7 @@ Défis économiques et politiques
 
 **Spill over**: municipalité bénéficie ou souffrent des décisions de ses voisins (ex: déplacement de la criminalité)
 
-**Satisfaction des électeurs**: base électorale insatisfaite en comparaison aux voisins, élus ne reviendra pas aux prochaines élections (yardstick competition)
+**Satisfaction des électeurs**: yardstick competition
 
 **Optimalité**: biens à fort spill over peuvent être sous financés (payeur ne récupère pas tous les bénéfices)
 :::
@@ -209,8 +209,8 @@ $$\underbrace{p(\theta|y)}_\text{Posterior} = \frac{\overbrace{p(\theta)}^\text{
 
 Estimation des effets d'interactions dans un jeu simultané de compétition fiscale par une approche bayésienne
 
-- Taux de taxation
-- Municipalité de Caroline du Nord (2012)
+-   Taux de taxation
+-   Municipalité de Caroline du Nord (2012)
 
 ::: notes
 Basé sur: Tobit models with social interactions: Complete c. incomplete information (Yang et al. 2018)
@@ -424,15 +424,15 @@ Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@p
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Information incomplète rejetée c. information complète
-::::
+:::
 
 ## Contribution thématique
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Améliorer la compréhension du processus d'interactions dans les politiques fiscales des juridictions locales sous la forme d'un équilibre de Nash
-::::
+:::
 
 ## Contribution méthodologique
 
