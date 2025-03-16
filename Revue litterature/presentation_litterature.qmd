@@ -74,9 +74,10 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 ::::
 
 ::: {.fragment .fade-in}
-Modèles de compétition fiscale avec interactionss stratégiques (théorie des jeux)
+Modèles de compétition fiscale avec interactions stratégiques (théorie des jeux)
 
 -   Information complète ou incomplète
+-   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction (Case et al., 1993)
 :::
 
 ## Compétition fiscale (Tiebout)
@@ -115,7 +116,7 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions développées au fil du temps Hypothèses contraignantes
 :::
 
-## interactionss stratégiques
+## Interactions stratégiques
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -163,7 +164,7 @@ Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-interactionss stratégiques - corrélation entre les individus
+Interactions stratégiques - corrélation entre les individus
 :::
 ::::
 
@@ -187,7 +188,7 @@ $$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{
 :::
 
 ::: notes
-**interactionss**: Modèles économétriques standard assument généralement iid (indép. des individus)
+**interactions**: Modèles économétriques standard assument généralement iid (indép. des individus)
 
 **Censure**: Jamais négatif, contrainte légales exogènes (ex: réglementation fédérale)
 
@@ -207,7 +208,7 @@ Basé sur: Tobit models with social interactions: Complete vs incomplete informa
 ## Modélisation
 
 ::: {.fragment .fade-in}
-Économétrie spatiale: permet des interactionss dans les chocs, la variable endogène, etc.
+Économétrie spatiale: permet des interactions dans les chocs, la variable endogène, etc.
 :::
 
 :::: {.fragment .fade-in}
@@ -235,10 +236,10 @@ $$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
 ::::
 
 ::: {.fragment .fade-in}
-Utilisation de variables instrumentales - Utilisation d'un choc exogène comme instrument ??? GARDER ???
+(Arbia, 2024)
 :::
 
-## Mesurer les interactionss
+## Mesurer les interactions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -257,12 +258,12 @@ Choix du modèle selon le type de compétition (Bordignon et al., 2003):
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-interactionss significatives (Allers & Elhorst, 2005) ???
+Interactions significatives (Allers & Elhorst, 2005) ???
 :::
 ::::
 
 ::: {.fragment .fade-in}
-Modèles spatiaux standard auraient tendance à surestimer l'interactions (Lyytikäinen, 2012) (Finland):
+Modèles spatiaux standard auraient tendance à surestimer les interactions (Lyytikäinen, 2012) (Finland)
 :::
 
 ::: notes
@@ -322,7 +323,7 @@ Structure d'information (Yang et al. 2018)
 
 **SLM simultané**: Comportement affecté par l'outcome réalisé/observé
 
-**SLM latent**: interactionss entre variables latente au lieu d'outcome réel
+**SLM latent**: Interactions entre variables latente au lieu d'outcome réel
 :::
 
 # Corpus thématique
@@ -360,13 +361,13 @@ Modèle utile, mais sérieuses limitations.
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 -   Séparation des effets *yardstick* et *spill over* (Bordignon et al., 2003) (Italie)
-    -   Incertitude politique: interactionss positives
+    -   Incertitude politique, interactions positives
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   interactionss et politique (Delgado et al. 2012)
+-   Interactions et politique (Delgado et al. 2012)
 :::
 ::::
 
@@ -377,16 +378,36 @@ Modèle utile, mais sérieuses limitations.
 ::::
 
 ::: notes
-Littérature tend à démontrer la présence d'interactionss, mais reste de l'incertitude.
+Littérature tend à démontrer la présence d'interactions, mais reste de l'incertitude.
 
 L'ampleur de l'effet est beaucoup moins clair.
 :::
 
-## interactionss
+## /Interactions et solution de coin
 
-::: {.fragment .fade-in}
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+Porto et Revelli (2011): estiment des effets d'interaction limités à l'aide de modèles spatiaux censurés.
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Variable endogène observée des voisins significative et importante (lag spatio-temporel)
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Variable latente des voisins significative, mais représente mal une solution de coin
+:::
+::::
+
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
 Équilibre de Nash: information complète (Yang et al., 2018)
 :::
+::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
@@ -429,4 +450,4 @@ L'ampleur de l'effet est beaucoup moins clair.
     -   Approche structurelle peu présente
 :::
 
-## Références
+## References
