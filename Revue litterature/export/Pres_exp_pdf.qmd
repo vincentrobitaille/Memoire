@@ -1,0 +1,156 @@
+---
+title: "Compétition fiscale locale"
+author: Vincent Robitaille
+format: 
+  revealjs:
+    theme: dark
+editor: visual
+bibliography: references.bib
+csl: apa.csl
+---
+
+## Pertinence
+
+Financement des biens publics locaux
+
+-   Routes municipales
+-   Sécurité publique
+
+Défis économiques et politiques
+
+-   Érosion de l'assiette fiscale
+-   "Spill over" d'externalités et de bénéfices
+-   Satisfaction des électeurs
+
+## Cadre théorique
+
+Modèles de compétitivité fiscale (concurrence parfaite)
+
+-   [@tiebout1956]
+
+Modèles de compétition fiscale avec interactions stratégiques (théorie des jeux)
+
+-   Information complète ou incomplète
+-   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction [@case1993]
+
+## Compétition fiscale (Tiebout)
+
+Compétition des juridictions pour offrir des combinaisons de taxes et biens publics locaux
+
+-   Taxes sans distorsions
+-   Taille faible des juridictions face à l'économie
+-   Incapacité des juridictions à influencer le marché
+-   Similaire aux modèles de compétition parfaite
+
+Critiqué pour ses hypothèses contraignantes [@bewley1981; @dowding1994]
+
+## Interactions stratégiques
+
+-   Théorie des jeux
+-   Interactions entre les décisions de taxation
+-   Nombre réduit de juridictions
+-   Spill over (positif ou négatif)
+-   Yardstick competition
+-   Mobilité des agents / du capital
+
+## Modélisation économétrique
+
+Interactions stratégiques - corrélation entre les individus
+
+Modélisation de la variable de taux (continue ou censurée)
+
+Approche classique vs bayésienne
+
+-   Classique: répétition d'un nombre élevé de fois
+-   Bayésienne: niveau de croyance à propos d'un évènement
+
+$$\underbrace{p(\theta|y)}_\text{Posterior} = \frac{\overbrace{p(\theta)}^\text{Prior} \times \overbrace{p(y|\theta)}^\text{Vraisem.}}{\underbrace{p(y)}_\text{Données}}$$
+
+## Question de recherche
+
+-   Estimation des effets d'interactions dans un jeu simultané de compétition fiscale par une approche bayésienne
+
+# Corpus méthodologique
+
+## Modélisation
+
+Économétrie spatiale: permet des interactions dans les chocs, la variable endogène, etc. [@arbia2024]
+
+-   "Spill over" des externalités
+-   Déplacement de la base fiscale
+-   Yardstick competition
+
+$$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
+
+## Mesurer les interactions
+
+Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial[@case1993]
+
+Choix du modèle selon le type de compétition [@bordignon2003]:
+
+-   **SEM**: *Yardstick competition*
+-   **SAR**: *Mobilité de l'assiette fiscale*
+
+Modèles spatiaux standard auraient tendance à surestimer les interactions [@lyytikäinen2012] (Finland)
+
+## Solution de coin
+
+Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules [@porto2013]:
+
+-   Approche bayésienne - Variable censurée
+-   Tobit avec lag spatio-temporel
+-   Modèle de survie
+
+## Solution de coin et structure d'information
+
+Modèles Tobit avec effet spatial [@qu2012]
+
+-   Tobit SLM simultané
+-   Tobit SLM latent
+
+Structure d'information [@yang2018]
+
+-   Complète vs incomplète
+-   Variable censurée
+
+# Corpus thématique
+
+## Modèles Tiebout
+
+-   Tiebout (1956)
+    -   Littérature test nombreuses hypothèses et implications
+    -   Revue de littérature empirique: résultats assez mixtes [@dowding1994]
+-   Critiqué pour ses hypothèses très exigeantes[@bewley1981]
+
+## Interactions
+
+-   Effet positif et important de l'interactions dans les dépenses des états américains [@case1993]
+-   Séparation des effets *yardstick* et *spill over* [@bordignon2003] (Italie)
+    -   Incertitude politique, interactions positives
+-   Interactions et politique [@delgado2015]
+-   Pas de preuve solide d'interdépendance dans les municipalités finlandaises [@lyytikäinen2012]
+
+## Interactions et solution de coin
+
+Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@porto2013]
+
+-   Variable endogène observée des voisins significative et importante (lag spatio-temporel)
+-   Variable latente des voisins significative, mais représente mal une solution de coin
+
+Équilibre de Nash: information complète [@yang2018]
+
+-   SAR Tobit (simultané)
+-   Information incomplète rejetée c. information complète
+
+## Contribution thématique
+
+-   Améliorer la compréhension du processus d'interactions dans les politiques fiscales de juridictions locales sous la forme d'un équilibre de Nash
+-   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
+
+## Contribution méthodologique
+
+-   Peu de méthodes bayésiennes dans la littérature
+-   Diversification des approches
+    -   Approche structurelle peu présente
+
+## References

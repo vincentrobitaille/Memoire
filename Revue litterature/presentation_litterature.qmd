@@ -5,6 +5,8 @@ format:
   revealjs:
     theme: dark
 editor: visual
+bibliography: references.bib
+csl: apa.csl
 ---
 
 ## Pertinence
@@ -69,7 +71,7 @@ Défis économiques et politiques
 ::: {.fragment .semi-fade-out}
 Modèles de compétitivité fiscale (concurrence parfaite)
 
--   Modèles Tiebout (1956)
+-   [@tiebout1956]
 :::
 ::::
 
@@ -77,7 +79,7 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 Modèles de compétition fiscale avec interactions stratégiques (théorie des jeux)
 
 -   Information complète ou incomplète
--   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction (Case et al., 1993)
+-   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction [@case1993]
 :::
 
 ## Compétition fiscale (Tiebout)
@@ -112,8 +114,16 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 :::
 ::::
 
+::: {.fragment .fade-in}
+Critiqué pour ses hypothèses contraignantes [@bewley1981; @dowding1994]
+:::
+
 ::: notes
-Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions développées au fil du temps Hypothèses contraignantes
+Les individus votent *avec leurs pieds* : en déménageant
+
+Nombreuses extensions développées au fil du temps
+
+Hypothèses contraignantes
 :::
 
 ## Interactions stratégiques
@@ -125,7 +135,7 @@ Les individus votent *avec leurs pieds* : en déménageant Nombreuses extensions
 ::::
 
 ::: {.fragment .fade-in}
--   interactions entre les décisions de taxation
+-   Interactions entre les décisions de taxation
 :::
 
 ::: {.fragment .fade-in}
@@ -184,7 +194,7 @@ Approche classique vs bayésienne
 :::
 
 ::: {.fragment .fade-in}
-$$\text{Posterior} = \frac{\overbrace{P(\theta)}^\text{Prior} \times \overbrace{P(y|\theta)}^\text{Vraisem.}}{\underbrace{P(y)}_\text{Evidence}}$$
+$$\underbrace{p(\theta|y)}_\text{Posterior} = \frac{\overbrace{p(\theta)}^\text{Prior} \times \overbrace{p(y|\theta)}^\text{Vraisem.}}{\underbrace{p(y)}_\text{Données}}$$
 :::
 
 ::: notes
@@ -208,7 +218,7 @@ Basé sur: Tobit models with social interactions: Complete vs incomplete informa
 ## Modélisation
 
 ::: {.fragment .fade-in}
-Économétrie spatiale: permet des interactions dans les chocs, la variable endogène, etc.
+Économétrie spatiale: permet des interactions dans les chocs, la variable endogène, etc. [@arbia2024]
 :::
 
 :::: {.fragment .fade-in}
@@ -235,21 +245,17 @@ $$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
 :::
 ::::
 
-::: {.fragment .fade-in}
-(Arbia, 2024)
-:::
-
 ## Mesurer les interactions
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial (Case et al., 1993)
+Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial[@case1993a]
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Choix du modèle selon le type de compétition (Bordignon et al., 2003):
+Choix du modèle selon le type de compétition [@bordignon2003]:
 
 -   **SEM**: *Yardstick competition*
 -   **SAR**: *Mobilité de l'assiette fiscale*
@@ -263,7 +269,7 @@ Interactions significatives (Allers & Elhorst, 2005) ???
 ::::
 
 ::: {.fragment .fade-in}
-Modèles spatiaux standard auraient tendance à surestimer les interactions (Lyytikäinen, 2012) (Finland)
+Modèles spatiaux standard auraient tendance à surestimer les interactions [@lyytikäinen2012] (Finland)
 :::
 
 ::: notes
@@ -277,7 +283,7 @@ Modèles spatiaux standard auraient tendance à surestimer les interactions (Lyy
 ## Solution de coin
 
 ::: {.fragment .fade-in}
-Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules (Porto & Revelli, 2011):
+Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules [@porto2013]:
 :::
 
 ::: {.fragment .fade-in}
@@ -304,7 +310,7 @@ Politiques fiscales limitées avec interactions. Application aux taxes locales s
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Modèles Tobit avec effet spatial (Qu & Lee, 2012)
+Modèles Tobit avec effet spatial [@qu2012]
 
 -   Tobit SLM simultané
 -   Tobit SLM latent
@@ -312,14 +318,14 @@ Modèles Tobit avec effet spatial (Qu & Lee, 2012)
 ::::
 
 ::: {.fragment .fade-in}
-Structure d'information (Yang et al. 2018)
+Structure d'information [@yang2018]
 
 -   Complète vs incomplète
 -   Variable censurée
 :::
 
 ::: notes
-**Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR ?
+**Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR.
 
 **SLM simultané**: Comportement affecté par l'outcome réalisé/observé
 
@@ -338,8 +344,14 @@ Structure d'information (Yang et al. 2018)
 :::
 ::::
 
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Critiqué pour ses hypothèses très exigeantes[@bewley1981b]
+:::
+::::
+
 ::: {.fragment .fade-in}
--   Critiqué pour ses hypothèses très exigeantes (Bewley, 1981)
+-   Résultats empiriques mixtes concernant les hypothèses et implications [@dowding1994a]
 :::
 
 ::: notes
@@ -354,26 +366,26 @@ Modèle utile, mais sérieuses limitations.
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Effet positif et important de l'interactions dans les dépenses des états américains (Case et al., 1993)
+-   Effet positif et important de l'interactions dans les dépenses des états américains [@case1993b]
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Séparation des effets *yardstick* et *spill over* (Bordignon et al., 2003) (Italie)
+-   Séparation des effets *yardstick* et *spill over* [@bordignon2003a] (Italie)
     -   Incertitude politique, interactions positives
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Interactions et politique (Delgado et al. 2012)
+-   Interactions et politique [@delgado2015]
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Pas de preuve solide d'interdépendance dans les municipalités finlandaises (Lyytikäinen, 2012)
+-   Pas de preuve solide d'interdépendance dans les municipalités finlandaises [@lyytikäinen2012a]
 :::
 ::::
 
@@ -383,11 +395,11 @@ Littérature tend à démontrer la présence d'interactions, mais reste de l'inc
 L'ampleur de l'effet est beaucoup moins clair.
 :::
 
-## /Interactions et solution de coin
+## Interactions et solution de coin
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Porto et Revelli (2011): estiment des effets d'interaction limités à l'aide de modèles spatiaux censurés.
+Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@porto2013a]
 :::
 ::::
 
@@ -405,7 +417,7 @@ Porto et Revelli (2011): estiment des effets d'interaction limités à l'aide de
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Équilibre de Nash: information complète (Yang et al., 2018)
+Équilibre de Nash: information complète [@yang2018a]
 :::
 ::::
 
@@ -417,7 +429,7 @@ Porto et Revelli (2011): estiment des effets d'interaction limités à l'aide de
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Information incomplète rejetée vs information complète
+-   Information incomplète rejetée c. information complète
 :::
 ::::
 
