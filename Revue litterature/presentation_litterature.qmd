@@ -185,7 +185,7 @@ Modélisation de la variable de taux (continue ou censurée)
 ::::
 
 ::: {.fragment .fade-in}
-Approche classique vs bayésienne
+Approche classique c. bayésienne
 :::
 
 ::: {.fragment .fade-in}
@@ -207,10 +207,13 @@ $$\underbrace{p(\theta|y)}_\text{Posterior} = \frac{\overbrace{p(\theta)}^\text{
 
 ## Question de recherche
 
--   Estimation des effets d'interactions dans un jeu simultané de compétition fiscale par une approche bayésienne
+Estimation des effets d'interactions dans un jeu simultané de compétition fiscale par une approche bayésienne
+
+- Taux de taxation
+- Municipalité de Caroline du Nord (2012)
 
 ::: notes
-Basé sur: Tobit models with social interactions: Complete vs incomplete information (Yang et al. 2018)
+Basé sur: Tobit models with social interactions: Complete c. incomplete information (Yang et al. 2018)
 :::
 
 # Corpus méthodologique
@@ -249,7 +252,7 @@ $$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial[@case1993a]
+Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial[@case1993]
 :::
 ::::
 
@@ -259,12 +262,6 @@ Choix du modèle selon le type de compétition [@bordignon2003]:
 
 -   **SEM**: *Yardstick competition*
 -   **SAR**: *Mobilité de l'assiette fiscale*
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
-Interactions significatives (Allers & Elhorst, 2005) ???
 :::
 ::::
 
@@ -320,7 +317,7 @@ Modèles Tobit avec effet spatial [@qu2012]
 ::: {.fragment .fade-in}
 Structure d'information [@yang2018]
 
--   Complète vs incomplète
+-   Complète c. incomplète
 -   Variable censurée
 :::
 
@@ -340,18 +337,18 @@ Structure d'information [@yang2018]
 ::: {.fragment .semi-fade-out}
 -   Tiebout (1956)
     -   Littérature test nombreuses hypothèses et implications
-    -   Revue de littérature empirique: résultats assez mixtes (Dowding et al. 1994)
+    -   Revue de littérature empirique: résultats assez mixtes [@dowding1994]
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Critiqué pour ses hypothèses très exigeantes[@bewley1981b]
+-   Critiqué pour ses hypothèses très exigeantes[@bewley1981]
 :::
 ::::
 
 ::: {.fragment .fade-in}
--   Résultats empiriques mixtes concernant les hypothèses et implications [@dowding1994a]
+-   Résultats empiriques mixtes concernant les hypothèses et implications [@dowding1994]
 :::
 
 ::: notes
@@ -366,13 +363,13 @@ Modèle utile, mais sérieuses limitations.
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Effet positif et important de l'interactions dans les dépenses des états américains [@case1993b]
+-   Effet positif et important de l'interactions dans les dépenses des états américains [@case1993]
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Séparation des effets *yardstick* et *spill over* [@bordignon2003a] (Italie)
+-   Séparation des effets *yardstick* et *spill over* [@bordignon2003] (Italie)
     -   Incertitude politique, interactions positives
 :::
 ::::
@@ -385,7 +382,7 @@ Modèle utile, mais sérieuses limitations.
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Pas de preuve solide d'interdépendance dans les municipalités finlandaises [@lyytikäinen2012a]
+-   Pas de preuve solide d'interdépendance dans les municipalités finlandaises [@lyytikäinen2012]
 :::
 ::::
 
@@ -399,7 +396,7 @@ L'ampleur de l'effet est beaucoup moins clair.
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@porto2013a]
+Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@porto2013]
 :::
 ::::
 
@@ -411,13 +408,13 @@ Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@p
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
--   Variable latente des voisins significative, mais représente mal une solution de coin
+-   Variable latente représente mal une solution de coin
 :::
 ::::
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Équilibre de Nash: information complète [@yang2018a]
+Équilibre de Nash: information complète [@yang2018]
 :::
 ::::
 
@@ -428,32 +425,21 @@ Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@p
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Information incomplète rejetée c. information complète
-:::
 ::::
-
-::: {.fragment .fade-in}
--   Information incomplète: Espérance du taux des voisins
-:::
 
 ## Contribution thématique
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
--   Améliorer la compréhension du processus d'interactions dans les politiques fiscales de juridictions locales sous la forme d'un équilibre de Nash
-:::
+-   Améliorer la compréhension du processus d'interactions dans les politiques fiscales des juridictions locales sous la forme d'un équilibre de Nash
 ::::
-
-::: {.fragment .fade-in}
--   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
-:::
 
 ## Contribution méthodologique
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
 -   Peu de méthodes bayésiennes dans la littérature
+    -   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
 :::
 ::::
 
