@@ -78,8 +78,8 @@ Modèles de compétitivité fiscale (concurrence parfaite)
 ::: {.fragment .fade-in}
 Modèles de compétition fiscale avec interactions stratégiques (théorie des jeux)
 
--   Information complète ou incomplète
 -   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction [@case1993]
+-   Information complète ou incomplète
 :::
 
 ## Compétition fiscale (Tiebout)
@@ -108,9 +108,9 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Similaire aux modèles de compétition parfaite
-::::
+:::
 
 ::: notes
 Les individus votent *avec leurs pieds* : en déménageant
@@ -184,9 +184,9 @@ Interactions stratégiques - corrélation entre les individus
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 Modélisation de la variable de taux (continue ou censurée)
-::::
+:::
 
 ::: notes
 **interactions**: Modèles économétriques standard assument généralement iid (indép. des individus)
@@ -332,9 +332,9 @@ Structure d'information [@yang2018]
 :::
 ::::
 
-:::: {.fragment .fade-in}
+::: {.fragment .fade-in}
 -   Critiqué pour ses hypothèses très exigeantes[@bewley1981]
-::::
+:::
 
 ::: notes
 Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.
