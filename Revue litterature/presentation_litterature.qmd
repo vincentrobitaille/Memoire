@@ -109,14 +109,8 @@ Compétition des juridictions pour offrir des combinaisons de taxes et biens pub
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Similaire aux modèles de compétition parfaite
-:::
 ::::
-
-::: {.fragment .fade-in}
-Critiqué pour ses hypothèses contraignantes [@bewley1981; @dowding1994]
-:::
 
 ::: notes
 Les individus votent *avec leurs pieds* : en déménageant
@@ -180,22 +174,19 @@ Interactions stratégiques - corrélation entre les individus
 
 :::: {.fragment .fade-in}
 ::: {.fragment .semi-fade-out}
-Modélisation de la variable de taux (continue ou censurée)
+-   Problème d'endogénéité
 :::
 ::::
 
-::: {.fragment .fade-in}
-Approche classique c. bayésienne
+:::: {.fragment .fade-in}
+::: {.fragment .semi-fade-out}
+-   Économétrie spatiale
 :::
+::::
 
-::: {.fragment .fade-in}
--   Classique: répétition d'un nombre élevé de fois
--   Bayésienne: niveau de croyance à propos d'un évènement
-:::
-
-::: {.fragment .fade-in}
-$$\underbrace{p(\theta|y)}_\text{Posterior} = \frac{\overbrace{p(\theta)}^\text{Prior} \times \overbrace{p(y|\theta)}^\text{Vraisem.}}{\underbrace{p(y)}_\text{Données}}$$
-:::
+:::: {.fragment .fade-in}
+Modélisation de la variable de taux (continue ou censurée)
+::::
 
 ::: notes
 **interactions**: Modèles économétriques standard assument généralement iid (indép. des individus)
@@ -342,14 +333,8 @@ Structure d'information [@yang2018]
 ::::
 
 :::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Critiqué pour ses hypothèses très exigeantes[@bewley1981]
-:::
 ::::
-
-::: {.fragment .fade-in}
--   Résultats empiriques mixtes concernant les hypothèses et implications [@dowding1994]
-:::
 
 ::: notes
 Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.
