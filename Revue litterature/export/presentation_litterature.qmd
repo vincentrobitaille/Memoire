@@ -11,45 +11,16 @@ csl: apa.csl
 
 ## Pertinence
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
+
 Financement des biens publics locaux
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Routes municipales
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Sécurité publique
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Défis économiques et politiques
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Érosion de l'assiette fiscale
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   "Spill over" d'externalités et de bénéfices
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Satisfaction des électeurs
-:::
 
 ::: notes
 **Biens/services publics**: routes, sécurité, parcs, aqueducs, entretient, loisirs, culture, éducation (partiel/variable)
@@ -67,47 +38,20 @@ Défis économiques et politiques
 
 ## Cadre théorique
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Modèles de compétitivité fiscale (concurrence parfaite)
 
 -   [@tiebout1956]
-:::
-::::
 
-::: {.fragment .fade-in}
 Modèles de compétition fiscale avec interactions stratégiques (théorie des jeux)
-:::
 
 ## Compétition fiscale (Tiebout)
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Compétition des juridictions pour offrir des combinaisons de taxes et biens publics locaux
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Taxes sans distorsions
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Taille faible des juridictions face à l'économie
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Incapacité des juridictions à influencer le marché
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Similaire aux modèles de compétition parfaite
-:::
 
 ::: notes
 Les individus votent *avec leurs pieds* : en déménageant
@@ -119,41 +63,14 @@ Hypothèses contraignantes
 
 ## Interactions stratégiques
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Théorie des jeux
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Interactions entre les décisions de taxation
     -   En plus des caractéristiques économiques, démographiques et politiques, présence d'interaction [@case1993]
     -   Information complète ou incomplète
-:::
-
-::: {.fragment .fade-in}
-```         
 -   Nombre réduit de juridictions
-```
-:::
-
-::: {.fragment .fade-in}
-```         
 -   Spill over (positif ou négatif)
-```
-:::
-
-::: {.fragment .fade-in}
-```         
 -   Yardstick competition
-```
-:::
-
-::: {.fragment .fade-in}
-```         
 -   Mobilité des agents / du capital
-```
-:::
 
 ::: notes
 **Spill over**: Externalités positives ou négatives pour les voisins
@@ -165,27 +82,12 @@ Hypothèses contraignantes
 
 ## Modélisation économétrique
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Interactions stratégiques - corrélation entre les individus
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Problème d'endogénéité
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Économétrie spatiale
-:::
-::::
 
-::: {.fragment .fade-in}
 Modélisation de la variable de taux (continue ou censurée)
-:::
 
 ::: notes
 **interactions**: Modèles économétriques standard assument généralement iid (indép. des individus)
@@ -208,50 +110,23 @@ Basé sur: Tobit models with social interactions: Complete c. incomplete informa
 
 ## Modélisation
 
-::: {.fragment .fade-in}
 Économétrie spatiale: permet des interactions dans les chocs, la variable endogène, etc. [@arbia2024]
-:::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   "Spill over" des externalités
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Déplacement de la base fiscale
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Yardstick competition
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 $$y=\lambda Wy + X\beta + u, \quad u = \rho Wu+\varepsilon$$
-:::
-::::
+
 
 ## Mesurer les interactions
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Estimation de l'effet d'interactions sur les dépenses à l'aide de lag spatial[@case1993]
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Choix du modèle selon le type de compétition [@bordignon2003]:
 
 -   **SEM**: *Yardstick competition*
 -   **SAR**: *Mobilité de l'assiette fiscale*
-:::
-::::
 
 ::: notes
 **SEM**: Compétition associée aux variables inobservées (termes d'erreur)
@@ -263,21 +138,11 @@ Choix du modèle selon le type de compétition [@bordignon2003]:
 
 ## Solution de coin
 
-::: {.fragment .fade-in}
 Politiques fiscales limitées avec interactions. Application aux taxes locales sur les véhicules [@porto2013]:
-:::
 
-::: {.fragment .fade-in}
 -   Approche bayésienne - Variable censurée
-:::
-
-::: {.fragment .fade-in}
 -   Tobit avec lag spatio-temporel
-:::
-
-::: {.fragment .fade-in}
 -   Modèle de survie
-:::
 
 ::: notes
 **Bayésien censurée**: choix du taux influencé par taux désiré des voisins et non taux censuré/appliqué (représente moins bien solution coin)
@@ -289,21 +154,15 @@ Politiques fiscales limitées avec interactions. Application aux taxes locales s
 
 ## Solution de coin et structure d'information
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Modèles Tobit avec effet spatial [@qu2012]
 
 -   Tobit SLM simultané
 -   Tobit SLM latent
-:::
-::::
 
-::: {.fragment .fade-in}
 Structure d'information [@yang2018]
 
 -   Complète c. incomplète
 -   Variable censurée
-:::
 
 ::: notes
 **Tobit**: Variables fiscales généralement contraintes (ex: taux de taxe) Un SLM est un type de SAR.
@@ -317,17 +176,10 @@ Structure d'information [@yang2018]
 
 ## Modèles Tiebout
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Tiebout (1956)
     -   Littérature test nombreuses hypothèses et implications
     -   Revue de littérature empirique: résultats assez mixtes [@dowding1994]
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Critiqué pour ses hypothèses très exigeantes[@bewley1981]
-:::
 
 ::: notes
 Littérature riche, mais peu concentrée sur la compétition sur le taux de taxe.
@@ -339,30 +191,11 @@ Modèle utile, mais sérieuses limitations.
 
 ## Interactions
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Effet positif et important de l'interactions dans les dépenses des états américains [@case1993]
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Séparation des effets *yardstick* et *spill over* [@bordignon2003] (Italie)
     -   Incertitude politique, interactions positives
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Interactions et politique [@delgado2015]
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Pas de preuve solide d'interdépendance dans les municipalités finlandaises [@lyytikäinen2012]
-:::
-::::
 
 ::: notes
 Littérature tend à démontrer la présence d'interactions, mais reste de l'incertitude.
@@ -378,58 +211,25 @@ L'ampleur de l'effet est beaucoup moins clair.
 
 ## Interactions et solution de coin
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Estimation des effets d'interaction à l'aide de modèles spatiaux censurés [@porto2013]
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Variable endogène observée des voisins significative et importante (lag spatio-temporel)
-:::
-::::
-
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Variable latente représente mal une solution de coin
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 Équilibre de Nash: information complète [@yang2018]
-:::
-::::
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   SAR Tobit (simultané)
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Information incomplète rejetée c. information complète
-:::
 
 ## Contribution thématique
 
-::: {.fragment .fade-in}
 -   Améliorer la compréhension du processus d'interactions dans les politiques fiscales des juridictions locales sous la forme d'un équilibre de Nash
-:::
 
 ## Contribution méthodologique
 
-:::: {.fragment .fade-in}
-::: {.fragment .semi-fade-out}
 -   Peu de méthodes bayésiennes dans la littérature
     -   L'approche bayésienne permet d'approcher différement et de manière plus intuitive les résultats
-:::
-::::
-
-::: {.fragment .fade-in}
 -   Diversification des approches
     -   Approche structurelle peu présente
-:::
 
 ## References
