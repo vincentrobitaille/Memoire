@@ -18,10 +18,13 @@ library(spdep)
 county_pop_tax <- read.csv("data/CountyPopTaxNum.csv")
 municipal_info <- read.csv("data/NCMunicipalInfoNewVar2.csv")
 nc_hhi_ts <- read.csv("data/NChhits.csv")
-municipal_info |> summary()
+
+municipal_info |> 
+  summary()
 ```
 
 -   **Variable du taux de taxation manquante ?**
+-   Variable de taux manquante
 -   Les variables qui commencent par "exp" semblent être la ventilation des dépenses municipales
 -   Les variables qui commencent par "p" ?
 -   city: Ville
@@ -29,4 +32,4 @@ municipal_info |> summary()
 -   citypop: population de la ville ?
 -   latitude: ok
 -   longitude: ok
--   De nombreuses variables existent en plusieurs versions ex:pop11 et pop12
+-   De nombreuses variables existent en plusieurs versions ex: pop11 et pop12
