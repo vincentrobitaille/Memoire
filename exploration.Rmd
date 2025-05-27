@@ -19,6 +19,8 @@ county_pop_tax <- read.csv("data/CountyPopTaxNum.csv")
 municipal_info <- read.csv("data/NCMunicipalInfoNewVar2.csv")
 nc_hhi_ts <- read.csv("data/NChhits.csv")
 
+municipal_info$id <- 1:nrow(municipal_info)
+
 municipal_info |> 
   summary()
 ```
@@ -33,3 +35,33 @@ municipal_info |>
 -   latitude: ok
 -   longitude: ok
 -   De nombreuses variables existent en plusieurs versions ex: pop11 et pop12
+
+
+## Calcul des distances
+
+$$d = 2r\arcsin\left(\sqrt{\sin²\left(\frac{l_2-l_1)}{2}\right)+\cos(l_1)\cos(l_2)\sin²\left(\frac{\xi_2-\xi_1}{2 }\right)}\right)$$
+où $r$ est le rayon (de la terre = 6 371km ?), $l_1$ et $l_2$ des latitudes et $\xi_1$ et $\xi_2$ des longitudes.
+
+```{r}
+dist_geo <- function(coord1, coord2) {
+  r = 6371
+  d = 2*r * asin(sqrt(
+    sin((coord2$latitude - coord1$latitude)/2)^2 + cos(coord1$latitude) * cos(coord2$latitude) * sin((coord2$longitude - coord1$longitude)/2)^2
+  ))
+  return(d)
+}
+
+x1 <- municipal_info[1, c("latitude", "longitude")]
+x2 <- municipal_info[-1, c("latitude", "longitude")]
+
+dist_geo(x1, x2)
+
+dmat <- matrix(nrow = nrow(municipal_info), ncol = nrow(municipal_info))
+
+for (i in 1:nrow(municipal_info)) {
+  dmat[,i] <- dist_geo(municipal_info[i, c("latitude", "longitude")],
+                       municipal_info[, c("latitude", "longitude")])
+}
+#st_as_sf
+```
+
