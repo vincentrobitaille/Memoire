@@ -26,22 +26,12 @@ Y2 <- yX[ind2, 1]
 tobit_simul_vrais <- function(Y, Y1, Y2, ind0, ind1, W1, W2, W22, sigma2, beta, lambda) {
   #  À améliorer pour prendre en compte la séparation des données, simplification pour l'instant
   # Précalcul certains morceaux pour simplification du code
-  pnorm_i = function(Y, X, W, i, sigma2, lambda) {
-    z = pnorm((lambda * W[i,] %*% Y + X[i,] %*% beta)/sqrt(sigma2))
-    return(z)
-  }
-  sq_i = function(Y, i, lambda, W, X, beta) {
-    sq = (Y[i] - lambda %*% W[i,] %*% Y - X[i,] %*% beta)^2
-    return(sq)
-  }
+  pnorm_i = pnorm((lambda * W[i,] %*% Y + X[i,] %*% beta)/sqrt(sigma2))
+  sq_i = (Y[i] - lambda %*% W[i,] %*% Y - X[i,] %*% beta)^2
   log_det = log(det(Inm - lambda * W22))
   
-  log_vrais = sum(
-    log(1 - pnorm_i(Y = Y, X = X, W = W, i = ind1, sigma2 = sigma2, lambda = lambda))
-  ) - 
-    sum(
-      0.5*(log(2*pi*sigma2) + sq_i/sigma2)
-    ) +
+  log_vrais = sum(log(1 - pnorm_i)) - 
+    sum(0.5*(log(2*pi*sigma2) + sq_i/sigma2)) +
     log_det
   
   return(log_vrais)
