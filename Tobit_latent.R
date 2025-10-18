@@ -19,7 +19,7 @@ tobit_latent_post <- function(Y, index_censure, W, rho, lambda, beta, sigma2, n)
   return(log_vrais)
 }
 
-sample_pdf_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m) {
+sample_pdf_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m = 1) {
   
   # Méthode d'échantillonnage de Gibbs (Geweke) pour l'estimation des y latents
   
@@ -38,6 +38,7 @@ sample_pdf_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m) {
       epsilon = Sn %*% Y_latent - Xbeta
       omega = Sn_inv %*% epsilon
       i = index_censure[mn]
+      # À REVOIR ??? VOIR LIVRE LESAGE, p.301
       z_i = msm::rtnorm(n = 1,
                         mean = y_tilde[i],
                         sd = sqrt(sigma2*(omega[i])^2),
