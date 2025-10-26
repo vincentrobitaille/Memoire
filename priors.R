@@ -40,6 +40,26 @@ prior_beta_normal <- function(m, sigma2, V = diag(length(m))) {
 }
 
 
-vrais_prior_lambda_beta <- function(lambda, a, b) {
-  d
+d_prior_lambda <- function(lambda, a, b) {
+  dl = dbeta((lambda +1)/2, 
+             shape1 = a, 
+             shape2 = b,
+             log = TRUE)
+  return(dl)
+}
+
+d_prior_sigma2 <- function(sigma2, a, b) {
+  ds = dgamma(1/sigma2,
+              shape = a,
+              scale = b,
+              log = TRUE)
+  return(ds)
+}
+
+d_prior_beta <- function(beta, sigma2, V = diag(length(m))) {
+  db = mvtnorm::dmvnorm(beta,
+                        mean = m,
+                        sigma = sigma2*V,
+                        log = TRUE)
+  return(db)
 }
