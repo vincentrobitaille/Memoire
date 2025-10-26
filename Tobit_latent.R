@@ -3,12 +3,12 @@ library(tidyr)
 library(tmvtnorm)
 library(msm)
 
-n = 10
+# n = 10
 
 tobit_latent_post <- function(Y, index_censure, W, rho, lambda, beta, sigma2, n) {
   In = diag(n)
   
-  log_pi = -n*log(2*pi*sqrt(sigma2))
+  log_pi = -(n/2)*log(2*pi*sigma2)
   
   log_det = log(det(In - lambda %*% W))
   
@@ -20,8 +20,7 @@ tobit_latent_post <- function(Y, index_censure, W, rho, lambda, beta, sigma2, n)
 }
 
 sample_pdf_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m = 1) {
-  
-  # Méthode d'échantillonnage de Gibbs (Geweke) pour l'estimation des y latents
+    # Méthode d'échantillonnage de Gibbs (Geweke) pour l'estimation des y latents
   
   In = diag(n)
   Sn = In - lambda * W
