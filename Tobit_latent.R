@@ -6,6 +6,8 @@ library(msm)
 # n = 10
 
 tobit_latent_post <- function(Y, index_censure, W, rho, lambda, beta, sigma2, n) {
+  # Toujours bon ou utile ?
+
   In = diag(n)
   
   log_pi = -(n/2)*log(2*pi*sigma2)
