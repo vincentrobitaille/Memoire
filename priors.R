@@ -1,5 +1,6 @@
 library(mvtnorm)
 source("simul data.R")
+source("outils.R")
 # https://statswithr.github.io/book/introduction-to-bayesian-regression.html
 # Le prior pour lambda est p(lambda*)
 # lambda* = (lambda + 1)/2

@@ -1,3 +1,4 @@
+library(mvtnorm)
 SAR_vrais <- function(y, lambda, W, X, beta, sigma2, n, log) {
   # Vraisemblance pour un modèle SAR (normale)
   Sn_inv = solve(diag(n) - lambda*W)
