@@ -1,0 +1,45 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+```{r}
+library(spdep)
+library(Matrix)
+library(dplyr)
+library(tidyr)
+library(spatialreg)
+```
+
+# Générer des données (modèle latent)
+
+Les le processus de génération des données pour le modèle latent est simplement un modèle SAR dont les données sont ensuite censurées.
+
+```{r}
+
+source("simul data.R")
+
+df_censure_latent <- gen_data_latent(n = 100,
+                                     beta_reel = c(1, 1),
+                                     lambda_reel = 0.6,
+                                     sigma2_reel = 1,
+                                     seed = 6390)
+
+df_latent <- df_censure_latent$donnee
+
+W_latent <- df_censure_latent$W |> as.matrix()
+W_latent <- W_latent |> mat2listw()
+```
+
+#### Estimation d'un modèle SAR classique (approche fréquentiste)
+
+```{r}
+# On réestime le modèle de base selon sa bonne forme
+fit1.1 <- lagsarlm(y_latent ~ X1, data = df_latent, listw = W_latent)
+summary(fit1.1)
+
+# On estime le modèle original, mais sur les données censurées
+fit1.2 <- lagsarlm(y_obs ~ X1, data = df_latent, listw = W_latent)
+summary(fit1.2)
+```
+
+#### Estimation d'un modèle SAR classique (approche bayésienne)
