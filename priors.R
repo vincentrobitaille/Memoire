@@ -1,6 +1,6 @@
 library(mvtnorm)
 source("simul data.R")
-source("outils.R")
+
 # https://statswithr.github.io/book/introduction-to-bayesian-regression.html
 # Le prior pour lambda est p(lambda*)
 # lambda* = (lambda + 1)/2
@@ -57,7 +57,7 @@ d_prior_sigma2 <- function(sigma2, a, b) {
   return(ds)
 }
 
-d_prior_beta <- function(beta, sigma2, V = diag(length(m))) {
+d_prior_beta <- function(beta, m, sigma2, V = diag(length(m))) {
   db = mvtnorm::dmvnorm(beta,
                         mean = m,
                         sigma = sigma2*V,

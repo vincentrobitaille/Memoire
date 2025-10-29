@@ -18,8 +18,8 @@ phi = 2
 
 
 # Algo de MH
-MH_spatial <- function(y, X, h_beta, h_gamma, m, V, W, N = 5000, init_param, 
-                       tau = 5, phi = 2) {
+MH_spatial <- function(y, X, h_beta = c(a = 1, b = 1), h_gamma = c(a = 1, b = 1),
+                       m, V, W, N = 5000, init_param, tau = 5, phi = 2) {
   # Notes à faire: Généraliser pour nombre arbitraire de beta
   #                Intégrer hyperparamètres
   
@@ -58,26 +58,39 @@ MH_spatial <- function(y, X, h_beta, h_gamma, m, V, W, N = 5000, init_param,
               min = 0,
               max = 1)
     # Candidats pour betas
-    beta = rmvnorm(1, 
+    beta_candid = rmvnorm(1, 
                    mean = unlist(param_hist[i -1, jk]),
                    sigma = tau)
     # Candidat pour sigma2
-    sigma2 = rnorm(1,
+    sigma2_candid = rnorm(1,
                    mean = sqrt(param_hist[i -1,]$sigma2),
                    sd = phi)^2
-    lambda = runif(1, 
+    lambda_candid = runif(1, 
                    min = 0, 
                    max = 1)
     
-    # Calcul probabilité d'acceptation
-    rho = rapport_q_VAR(beta = beta,
-                    sigma2 = sigma2,
-                    lambda = lambda,
-                    df = param_hist,
-                    i = i,
-                    W = W,
-                    y = y,
-                    X = X)
+    # Rapport des noyaux (log)
+    rq = rapport_q_SAR(beta = param_hist[i -1, jk],
+                       beta_candid = beta_candid,
+                       sigma2 = param_hist[i -1, js],
+                       sigma2_candid = sigma2_candid,
+                       lambda = param_hist[i -1, jl],
+                       lambda_candid = lambda_candid,
+                       tau = tau,
+                       phi = phi,
+                       log = TRUE)
+    
+    rf = rapport_f_SAR(beta = param_hist[i -1, jk],
+                       beta_candid = beta_candid,
+                       sigma2 = param_hist[i -1, js],
+                       sigma2_candid = sigma2_candid,
+                       lambda = param_hist[i -1, jl],
+                       lambda_candid = lambda_candid,
+                       h_beta = h_beta,
+                       h_gamma = h_gamma,
+                       y = y, X = X, W = W, n = n, V = V)
+    
+    rho = exp(rq + rf)
     
     # Acceptation/rejet
     ar = 1*(rho > u)
