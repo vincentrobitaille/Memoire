@@ -3,10 +3,10 @@ source("priors.R")
 SAR_vrais <- function(y, lambda, W, X, beta, sigma2, n, log) {
   # Vraisemblance pour un modèle SAR (normale)
   Sn_inv = solve(diag(n) - lambda*W)
-  dvrais_cand = dnorm(y,
-                      mean = Sn_inv %*% X %*% t(beta),
-                      sd = sqrt(sigma2 * Sn_inv %*% t(Sn_inv)),
-                      log = TRUE)
+  dvrais_cand = dmvnorm(y,
+                        mean = Sn_inv %*% X %*% t(beta),
+                        sigma = sigma2 * Sn_inv %*% t(Sn_inv),
+                        log = TRUE)
   return(dvrais_cand)
 }
 
@@ -64,7 +64,7 @@ rapport_q_SAR <- function(beta, beta_candid, sigma2, sigma2_candid, lambda,
                        mean = sqrt(sigma2_candid),
                        sd = phi,
                        log = TRUE) - 
-    dnorm(sqrt(sigma_candid),
+    dnorm(sqrt(sigma2_candid),
           mean = sqrt(sigma2),
           sd = phi,
           log = TRUE)
@@ -80,34 +80,38 @@ rapport_q_SAR <- function(beta, beta_candid, sigma2, sigma2_candid, lambda,
 
 rapport_f_SAR <- function(beta, beta_candid, m, sigma2, sigma2_candid, 
                           lambda, lambda_candid, h_beta, h_gamma, 
-                          y, X, W, n, V) {
-  dbeta_prior = d_prior_beta(beta = beta_cand,
+                          y, X, W, n, V, log = TRUE) {
+  dbeta_prior = d_prior_beta(beta = beta_candid,
                              m = m,
-                             sigma2 = sigma2_cand, 
+                             sigma2 = sigma2_candid, 
                              V = V) - 
     d_prior_beta(beta = unlist(beta),
                  m = m,
                  sigma2 = sigma2, 
                  V = V)
-  dsigma2_prior = d_prior_sigma2(sigma2 = sigma2_cand,
-                                 a = h_beta["a"], 
-                                 b = h_beta["b"]) -
-    d_prior_sigma2(sigma2 = sigma2,
-                   a = h_beta["a"], 
-                   b = h_beta["b"])
-  dlambda_prior = d_prior_lambda(lambda = lambda_cand,
-                                 a = h_gamma["a"],
+  dsigma2_prior = d_prior_sigma2(sigma2 = sigma2_candid,
+                                 a = h_gamma["a"], 
                                  b = h_gamma["b"]) -
-    d_prior_lambda(lambda = lambda,
-                   a = h_gamma["a"],
+    d_prior_sigma2(sigma2 = sigma2,
+                   a = h_gamma["a"], 
                    b = h_gamma["b"])
-  dSAR_vrais = SAR_vrais(y = y, lambda = lambda_cand, W = W, X = X, 
-                         beta = beta_cand, sigma2 = sigma2_cand, 
+  dlambda_prior = d_prior_lambda(lambda = lambda_candid,
+                                 a = h_beta["a"],
+                                 b = h_beta["b"]) -
+    d_prior_lambda(lambda = lambda,
+                   a = h_beta["a"],
+                   b = h_beta["b"])
+  dSAR_vrais = SAR_vrais(y = y, lambda = lambda_candid, W = W, X = X, 
+                         beta = beta_candid, sigma2 = sigma2_candid, 
                          n, log = TRUE) - 
     SAR_vrais(y = y, lambda = lambda, W = W, X = X, beta = beta, 
               sigma2 = sigma2, n, log = TRUE)
   
-  rap_f = dbeta_prior + dsigma2_prior + dlambda_prior + dSAR_vrais
+  if (log) {
+    rap_f = dbeta_prior + dsigma2_prior + dlambda_prior + dSAR_vrais
+  } else {
+    rap_f = exp(dbeta_prior + dsigma2_prior + dlambda_prior + dSAR_vrais)
+  }
   
   return(rap_f)
 }

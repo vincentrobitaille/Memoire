@@ -43,3 +43,42 @@ summary(fit1.2)
 ```
 
 #### Estimation d'un modèle SAR classique (approche bayésienne)
+
+```{r}
+source("estimation_latent.R")
+
+m <- c(beta0 = 0, beta1 = 0)
+k <- length(m)
+V <- diag(k)
+h_beta <- c(a = 1, b = 1)
+h_gamma <- c(a = 1, b = 1)
+W_latent_mat <- W_latent |> 
+  listw2mat()
+tau = 0.1*diag(k)
+phi = 0.1
+
+fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
+                           X = as.matrix(df_latent[,c("X0", "X1")]),
+                           h_beta = h_beta,
+                           h_gamma = h_gamma,
+                           m = m,
+                           V = diag(k),
+                           W = W_latent_mat,
+                           N = 50000,
+                           tau = tau,
+                           phi = phi,
+                           init_param = c(beta0 = 0, 
+                                          beta1 = 0, 
+                                          sigma2 = 2, 
+                                          lambda = 0))
+
+fit1.1_bayes_acc <- fit1.1_bayes |> 
+  filter(accept == 1)
+
+fit1.1_bayes_acc$beta0 |> hist()
+fit1.1_bayes_acc$lambda |> hist()
+
+fit1.1_bayes_acc |> colMeans()
+
+```
+

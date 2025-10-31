@@ -1,20 +1,22 @@
 library(mvtnorm)
 
 source("priors.R")
+source("simul data.R")
+source("outils.R")
 # Hyperparamètres
 # beta
-m <- c(0, 0)
-k <- length(m)
-V <- diag(k)
-a_beta <- 1
-b_beta <- 1
-a_gamma <- 1
-b_gamma <- 1
-
-# Outils
-
-tau = 5*diag(k)
-phi = 2
+# m <- c(0, 0)
+# k <- length(m)
+# V <- diag(k)
+# a_beta <- 1
+# b_beta <- 1
+# a_gamma <- 1
+# b_gamma <- 1
+# 
+# # Outils
+# 
+# tau = 5*diag(k)
+# phi = 2
 
 
 # Algo de MH
@@ -41,63 +43,89 @@ MH_spatial <- function(y, X, h_beta = c(a = 1, b = 1), h_gamma = c(a = 1, b = 1)
   n = nrow(X)
   tau = tau * diag(k)
   
+  beta_acc = matrix(init_param[jk], ncol = 2)
+  colnames(beta_acc) = names(init_param[jk])
+  sigma2_acc = init_param[js]
+  lambda_acc = init_param[jl]
   
   # Valeurs de départ pour les paramètres
-  param_hist[1, ] = c(init_param, rho = NA,  accept = NA)
+  param_hist = data.frame(as.list(init_param), 
+                          rho = NA,
+                          accept = NA)
+  # param_hist[1, ] = c(init_param, rho = NA,  accept = NA)
   
   jra = which(substr(names(init_param), 1, 1) %in% c("r", "a"))
   
+  p2 = matrix(nrow = N, ncol = k+4)
+  colnames(p2) = colnames(param_hist)
+  
   param_hist = dplyr::bind_rows(
-    data.frame(as.list(init_param)),
-    param_hist
+    param_hist,
+    p2 |> as.data.frame()
   )
   
-  for (i in 2:N) {
+  rm(p2)
+  
+  pb_mh = txtProgressBar(min = 2, max = N+1)
+  
+  for (i in 2:(N+1)) {
     # Probabilité de ref pour acceptation
     u = runif(n = 1,
               min = 0,
               max = 1)
     # Candidats pour betas
     beta_candid = rmvnorm(1, 
-                   mean = unlist(param_hist[i -1, jk]),
+                   mean = beta_acc,
                    sigma = tau)
     # Candidat pour sigma2
     sigma2_candid = rnorm(1,
-                   mean = sqrt(param_hist[i -1,]$sigma2),
+                   mean = sqrt(sigma2_acc),
                    sd = phi)^2
     lambda_candid = runif(1, 
-                   min = 0, 
+                   min = -1, 
                    max = 1)
     
     # Rapport des noyaux (log)
-    rq = rapport_q_SAR(beta = param_hist[i -1, jk],
+    rq = rapport_q_SAR(beta = beta_acc,
                        beta_candid = beta_candid,
-                       sigma2 = param_hist[i -1, js],
+                       sigma2 = sigma2_acc,
                        sigma2_candid = sigma2_candid,
-                       lambda = param_hist[i -1, jl],
+                       lambda = lambda_acc,
                        lambda_candid = lambda_candid,
                        tau = tau,
                        phi = phi,
                        log = TRUE)
     
-    rf = rapport_f_SAR(beta = param_hist[i -1, jk],
+    rf = rapport_f_SAR(beta = beta_acc,
                        beta_candid = beta_candid,
-                       sigma2 = param_hist[i -1, js],
+                       sigma2 = sigma2_acc,
                        sigma2_candid = sigma2_candid,
-                       lambda = param_hist[i -1, jl],
+                       lambda = lambda_acc,
                        lambda_candid = lambda_candid,
                        h_beta = h_beta,
                        h_gamma = h_gamma,
-                       y = y, X = X, W = W, n = n, V = V)
+                       y = y, X = X, W = W, n = n, V = V, m = m)
     
-    rho = exp(rq + rf)
+    rho = min(c(exp(rq + rf), 1))
     
     # Acceptation/rejet
     ar = 1*(rho > u)
     
-    param_hist[i, jk] = unlist(beta)
-    param_hist[i, js] = sigma2
-    param_hist[i, jl] = lambda
-    param_hist[i, jra] = c(rho, ar)
-  } 
+    if (ar == 1) {
+      beta_acc = beta_candid
+      sigma2_acc = sigma2_candid
+      lambda_acc = lambda_candid
+    }
+    
+    param_hist[i, jk] = beta_candid[1,]
+    param_hist[i, js] = sigma2_candid
+    param_hist[i, jl] = lambda_candid
+    param_hist[i, "rho"] = rho
+    param_hist[i, "accept"] = ar
+    
+    # Sys.sleep(0.0001)
+    setTxtProgressBar(pb_mh, i)
+  }
+  
+  return(param_hist)
 }

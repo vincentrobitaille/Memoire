@@ -21,7 +21,7 @@ tobit_latent_post <- function(Y, index_censure, W, rho, lambda, beta, sigma2, n)
   return(log_vrais)
 }
 
-sample_pdf_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m = 1) {
+geweke_latent <- function(Y, W, lambda, beta, sigma2, index_censure, m = 1) {
     # Méthode d'échantillonnage de Gibbs (Geweke) pour l'estimation des y latents
   
   In = diag(n)
