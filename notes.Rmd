@@ -54,8 +54,12 @@ h_beta <- c(a = 1, b = 1)
 h_gamma <- c(a = 1, b = 1)
 W_latent_mat <- W_latent |> 
   listw2mat()
-tau = 0.1*diag(k)
-phi = 0.1
+# Variance proposition beta
+tau <- 0.01*diag(k)
+# Variance proposition sigma2
+phi <- 0.01
+c_lambda = 0.01
+N_samp <- 100000
 
 fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
                            X = as.matrix(df_latent[,c("X0", "X1")]),
@@ -64,21 +68,44 @@ fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
                            m = m,
                            V = diag(k),
                            W = W_latent_mat,
-                           N = 50000,
+                           N = N_samp,
                            tau = tau,
                            phi = phi,
-                           init_param = c(beta0 = 0, 
-                                          beta1 = 0, 
-                                          sigma2 = 2, 
-                                          lambda = 0))
+                           c_lambda = c_lambda,
+                           init_param = c(beta0 = 0.1, 
+                                          beta1 = 0.1, 
+                                          sigma2 = 1, 
+                                          lambda = 0.1))
+
+fit1.1_bayes$accept |> mean(na.rm = TRUE)
+# fit1.1_bayes |> select(!c(rho, accept)) |> ts() |> plot()
+fit1.1_bayes$beta0 |> ts() |> plot()
+fit1.1_bayes$beta1 |> ts() |> plot()
+fit1.1_bayes$lambda |> ts() |> plot()
+fit1.1_bayes$sigma2 |> ts() |> plot()
 
 fit1.1_bayes_acc <- fit1.1_bayes |> 
   filter(accept == 1)
 
-fit1.1_bayes_acc$beta0 |> hist()
-fit1.1_bayes_acc$lambda |> hist()
+fit1.1_bayes_acc_burn <- fit1.1_bayes_acc |> 
+  slice_tail(n = N_samp - 500)
+  
 
-fit1.1_bayes_acc |> colMeans()
+fit1.1_bayes_acc |> ts() |> forecast::autoplot()
+
+fit1.1_bayes_acc_burn$beta0 |> ts() |> acf()
+fit1.1_bayes_acc_burn$beta1 |> ts() |> acf()
+fit1.1_bayes_acc_burn$sigma2 |> ts() |> acf()
+fit1.1_bayes_acc_burn$lambda |> ts() |> acf()
+
+fit1.1_bayes_acc_burn$beta0 |> hist()
+fit1.1_bayes_acc_burn$lambda |> hist()
+
+fit1.1_bayes_acc_burn |> colMeans()
+
+fit1.1_bayes_acc_burn |> ts() |> forecast::autoplot()
+
+fit1.1_bayes_acc |> select(beta0, beta1, sigma2, lambda) |> ts() |> plot()
 
 ```
 

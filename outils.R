@@ -83,24 +83,28 @@ rapport_f_SAR <- function(beta, beta_candid, m, sigma2, sigma2_candid,
                           y, X, W, n, V, log = TRUE) {
   dbeta_prior = d_prior_beta(beta = beta_candid,
                              m = m,
+                             # Sigma2 ou candid ?
                              sigma2 = sigma2_candid, 
                              V = V) - 
     d_prior_beta(beta = unlist(beta),
                  m = m,
                  sigma2 = sigma2, 
                  V = V)
+  
   dsigma2_prior = d_prior_sigma2(sigma2 = sigma2_candid,
                                  a = h_gamma["a"], 
                                  b = h_gamma["b"]) -
     d_prior_sigma2(sigma2 = sigma2,
                    a = h_gamma["a"], 
                    b = h_gamma["b"])
+  
   dlambda_prior = d_prior_lambda(lambda = lambda_candid,
                                  a = h_beta["a"],
                                  b = h_beta["b"]) -
     d_prior_lambda(lambda = lambda,
                    a = h_beta["a"],
                    b = h_beta["b"])
+  
   dSAR_vrais = SAR_vrais(y = y, lambda = lambda_candid, W = W, X = X, 
                          beta = beta_candid, sigma2 = sigma2_candid, 
                          n, log = TRUE) - 

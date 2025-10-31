@@ -21,7 +21,7 @@ source("outils.R")
 
 # Algo de MH
 MH_spatial <- function(y, X, h_beta = c(a = 1, b = 1), h_gamma = c(a = 1, b = 1),
-                       m, V, W, N = 5000, init_param, tau = 5, phi = 2) {
+                       m, V, W, N = 5000, init_param, tau = 5, phi = 2, c_lambda = 1) {
   # Notes à faire: Généraliser pour nombre arbitraire de beta
   #                Intégrer hyperparamètres
   
@@ -68,22 +68,30 @@ MH_spatial <- function(y, X, h_beta = c(a = 1, b = 1), h_gamma = c(a = 1, b = 1)
   
   pb_mh = txtProgressBar(min = 2, max = N+1)
   
+  ar_hist = 0
+  
   for (i in 2:(N+1)) {
     # Probabilité de ref pour acceptation
     u = runif(n = 1,
               min = 0,
               max = 1)
     # Candidats pour betas
-    beta_candid = rmvnorm(1, 
-                   mean = beta_acc,
-                   sigma = tau)
+    beta_candid = beta_acc + 
+      rmvnorm(1, 
+              mean = rep(0, k),
+              sigma = tau)
     # Candidat pour sigma2
-    sigma2_candid = rnorm(1,
-                   mean = sqrt(sigma2_acc),
-                   sd = phi)^2
-    lambda_candid = runif(1, 
-                   min = -1, 
-                   max = 1)
+    sigma2_candid = (sqrt(sigma2_acc) + 
+                       rnorm(1, mean = 0, sd = phi))^2
+    # sigma2_candid = rnorm(1,
+    #                mean = sqrt(sigma2_acc),
+    #                sd = phi)^2
+    lambda_candid = lambda_acc + c_lambda*rnorm(1,
+                                                mean = 0,
+                                                sd = 1)
+    # lambda_candid = runif(1, 
+    #                min = -1, 
+    #                max = 1)
     
     # Rapport des noyaux (log)
     rq = rapport_q_SAR(beta = beta_acc,
@@ -104,12 +112,21 @@ MH_spatial <- function(y, X, h_beta = c(a = 1, b = 1), h_gamma = c(a = 1, b = 1)
                        lambda_candid = lambda_candid,
                        h_beta = h_beta,
                        h_gamma = h_gamma,
-                       y = y, X = X, W = W, n = n, V = V, m = m)
+                       y = y, X = X, W = W, n = n, V = V, m = m,
+                       log = TRUE)
     
     rho = min(c(exp(rq + rf), 1))
     
     # Acceptation/rejet
     ar = 1*(rho > u)
+    ar_hist = ar_hist + ar
+    ar_m = ar_hist/(i-1)
+    
+    # if (ar_m < 0.4) {
+    #   c_lambda = c_lambda/1.1
+    # } else if (ar_m > 0.6) {
+    #   c_lambda = c_lambda*1.1
+    # }
     
     if (ar == 1) {
       beta_acc = beta_candid
