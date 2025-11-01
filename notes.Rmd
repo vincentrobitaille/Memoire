@@ -45,21 +45,21 @@ summary(fit1.2)
 #### Estimation d'un modèle SAR classique (approche bayésienne)
 
 ```{r}
-source("estimation_latent.R")
+source("MH_spatial_latent.R")
 
 m <- c(beta0 = 0, beta1 = 0)
 k <- length(m)
-V <- diag(k)
+V <- 100000*diag(k)
 h_beta <- c(a = 1, b = 1)
 h_gamma <- c(a = 1, b = 1)
 W_latent_mat <- W_latent |> 
   listw2mat()
 # Variance proposition beta
-tau <- 0.01*diag(k)
+tau <- c(0.001, 0.1)
 # Variance proposition sigma2
-phi <- 0.01
-c_lambda = 0.01
-N_samp <- 100000
+phi <- 0.1
+c_lambda = 0.05
+N_samp <- 200000
 
 fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
                            X = as.matrix(df_latent[,c("X0", "X1")]),
@@ -72,12 +72,19 @@ fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
                            tau = tau,
                            phi = phi,
                            c_lambda = c_lambda,
-                           init_param = c(beta0 = 0.1, 
-                                          beta1 = 0.1, 
-                                          sigma2 = 1, 
+                           init_param = c(beta0 = 10, 
+                                          beta1 = 10, 
+                                          sigma2 = 0.1, 
                                           lambda = 0.1))
+```
 
-fit1.1_bayes$accept |> mean(na.rm = TRUE)
+```{r}
+fit1.1_bayes$accept |> 
+  mean(na.rm = TRUE)
+fit1.1_bayes |> 
+  slice_tail(n = N_samp - 1000) |> 
+  pull(accept) |> 
+  mean(na.rm = TRUE)
 # fit1.1_bayes |> select(!c(rho, accept)) |> ts() |> plot()
 fit1.1_bayes$beta0 |> ts() |> plot()
 fit1.1_bayes$beta1 |> ts() |> plot()
@@ -88,10 +95,15 @@ fit1.1_bayes_acc <- fit1.1_bayes |>
   filter(accept == 1)
 
 fit1.1_bayes_acc_burn <- fit1.1_bayes_acc |> 
-  slice_tail(n = N_samp - 500)
+  slice_tail(n = nrow(fit1.1_bayes_acc) - 1000)
   
 
 fit1.1_bayes_acc |> ts() |> forecast::autoplot()
+
+fit1.1_bayes_acc_burn$beta0 |> ts() |> plot()
+fit1.1_bayes_acc_burn$beta1 |> ts() |> plot()
+fit1.1_bayes_acc_burn$sigma2 |> ts() |> plot()
+fit1.1_bayes_acc_burn$lambda |> ts() |> plot()
 
 fit1.1_bayes_acc_burn$beta0 |> ts() |> acf()
 fit1.1_bayes_acc_burn$beta1 |> ts() |> acf()
