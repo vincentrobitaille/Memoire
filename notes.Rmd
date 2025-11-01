@@ -121,3 +121,55 @@ fit1.1_bayes_acc |> select(beta0, beta1, sigma2, lambda) |> ts() |> plot()
 
 ```
 
+### Estimation du modèle SAR avec Gibbs-MH
+
+```{r}
+source("MH_Gibbs_latent.R")
+
+fit1.1_gibbs <- MH_Gibbs_latent(
+  y = df_latent$y_latent,
+  X = as.matrix(df_latent[,c("X0", "X1")]),
+  W = listw2mat(W_latent),
+  c_beta = c(0, 0),
+  c_lambda = 0.01,
+  h_T = 1e+10,
+  N = 500,
+  h_igamma = c(a = 0, b = 0),
+  theta_0 = c(beta0 = 0, beta1 = 0, 
+              sigma2 = 0.5, lambda = 0.3)
+  )
+
+fit1.1_gibbs$accept |> mean(na.rm = TRUE)
+
+fit1.1_gibbs$beta0 |> ts() |> forecast::autoplot()
+fit1.1_gibbs$beta1 |> ts() |> forecast::autoplot()
+fit1.1_gibbs$sigma2 |> ts() |> forecast::autoplot()
+fit1.1_gibbs$lambda |> ts() |> forecast::autoplot()
+
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(beta0) |> ts() |> forecast::autoplot()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(beta1) |> ts() |> forecast::autoplot()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(sigma2) |> ts() |> forecast::autoplot()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(lambda) |> ts() |> forecast::autoplot()
+
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(beta0) |> ts() |> acf()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(beta1) |> ts() |> acf()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(sigma2) |> ts() |> acf()
+fit1.1_gibbs |> 
+  filter(accept == 1) |>
+  pull(lambda) |> ts() |> acf()
+```
+

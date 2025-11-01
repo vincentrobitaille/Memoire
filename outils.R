@@ -119,3 +119,6 @@ rapport_f_SAR <- function(beta, beta_candid, m, sigma2, sigma2_candid,
   
   return(rap_f)
 }
+
+
+

@@ -50,6 +50,7 @@ d_prior_lambda <- function(lambda, a, b) {
 }
 
 d_prior_sigma2 <- function(sigma2, a, b) {
+  # ???
   ds = dgamma(1/sigma2,
               shape = a,
               scale = b,
