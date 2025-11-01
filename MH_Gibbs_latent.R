@@ -5,7 +5,7 @@ source("simul data.R")
 source("outils.R")
 
 MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+10*diag(2), N = 5000,
-                            h_igamma = c(a = 0, b = 0), 
+                            h_igamma = c(a = 0, b = 0), censure = NULL, m_step = 1,
                             theta_0 = c(beta0 = 0, beta1 = 0, sigma2 = 2, lambda = 0.1)) {
   # y : vecteur de la variable endogène
   # X : matrice [1, x1, ... xk-1] des variables exogènes
@@ -15,6 +15,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   # h_gamma : hyperparamètres (a, b) pour le prior gamma de sigma2
   # N : Taille d'échantillonnage
   # theta_0 : Vecteur nommé de paramètres initiaux (pour beta, sigma2 et lambda)
+  # censure : si vrai, y fourni est censuré, faux si pas censuré (variable latente)
   
   param_hist = data.frame(
     as.list(theta_0),
@@ -51,8 +52,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     return(dvrais_cand)
   }
   
-  lambda_cond_prop = function(y, X, Sn, Sn_candid, beta, sigma2) {
-    Xb = X %*% t(beta)
+  lambda_cond_prop = function(y, Xb, Sn, Sn_candid, sigma2) {
     Sny_Xb_candid = Sn_candid %*% y - Xb
     Sny_Xb = Sn %*% y - Xb
     
@@ -70,24 +70,37 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   lambda = theta_0["lambda"]
   sigma2 = theta_0["sigma2"]
   
+  # Préparation si utilisation de Geweke
+  if (!is.null(censure)) {
+    y_obs = y
+    y_lat_ind = which(y_obs == censure)
+    }
+  
   # MCMC
   pb_mh = txtProgressBar(min = 1, max = N-1)
   for (i in 1:N) {
-    # lambda = param_hist[i,]$lambda
-    # beta = param_hist[i, n_beta]
-    # sigma2 = param_hist[i,]$sigma2
-    
     Sn = diag(n) - lambda*W
     Sn_inv = solve(Sn)
-    # Échantillonnage posterior conditionnel beta
-    # p(beta|sigma2, lambda)
+    Xb = X%*%t(beta)
+    
+    # Échantillonneur de Gibbs-Geweke pour les variables latentes
+    if (!is.null(censure)) {
+      for (m_s in 1:m_step) {
+        for (j in y_lat_ind) {
+          y[j] = lambda*W[j]%*%y + Xb + rnorm(1, mean = 0, sd = sqrt(sigma2))
+        }
+      }
+    }
+    
+    # Échantillonnage posterior conditionnel beta (Gibbs)
+    # p(beta|sigma2, lambda, y)
     h_T_star = solve(t(X) %*% X + h_T_inv)
     c_star = h_T_star %*% (t(X) %*% Sn %*% y + h_T_inv %*% c_beta)
     
     beta = rmvnorm(1, c_star, sigma2*h_T_star)
     
-    # Échantillonnage posterior conditionnel sigma2
-    # p(beta|sigma2, lambda)
+    # Échantillonnage posterior conditionnel sigma2 (Gibbs)
+    # p(sigma2|beta, lambda, y)
     Sny_Xbeta = Sn %*% y - X %*% t(beta)
     b_star = h_igamma["b"] + t(Sny_Xbeta) %*% (Sny_Xbeta/2)
     
@@ -95,35 +108,17 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     
     u = runif(1)
     
+    # Échantillonnage posterior conditionnel lambda (MH)
+    # p(sigma2|beta, lambda, y)
     lambda_candid = lambda + c_lambda*rnorm(1)
-    
-    # Avec prior U[-1, 1] pour lambda
-    # rho = exp(
-    #   SAR_vrais_gibbs(y = y, 
-    #                   lambda = lambda_candid,
-    #                   W = W,
-    #                   X = X,
-    #                   beta = beta,
-    #                   sigma2 = sigma2,
-    #                   n = n,
-    #                   log = TRUE) - 
-    #     SAR_vrais_gibbs(y = y, 
-    #                     lambda = lambda,
-    #                     W = W,
-    #                     X = X,
-    #                     beta = beta,
-    #                     sigma2 = sigma2,
-    #                     n = n,
-    #                     log = TRUE)
-    #   )
     
     Sn_candid = diag(n) - lambda_candid*W
     
     # On rejette les candidats de lambda qui ne sont pas dans (-1, 1)
     if (lambda_candid < 1 & 
         lambda_candid > -1) {
-      rho = lambda_cond_prop(y = y, X = X, Sn = Sn, Sn_candid = Sn_candid,
-                             beta = beta, sigma2 = sigma2)
+      rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
+                             sigma2 = sigma2)
     } else {
       rho = 0
     }
@@ -147,7 +142,10 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
       # beta = beta_candid
     }
     
-    param_hist[i+1, c(n_beta, "sigma2", "lambda", "rho", "accept", "c_lambda")] = c(beta[1,], sigma2, lambda, rho, accept, c_lambda)
+    param_hist[i+1, 
+               c(n_beta, "sigma2", "lambda", 
+                 "rho", "accept", "c_lambda")] = c(beta[1,], sigma2, lambda, 
+                                                   rho, accept, c_lambda)
     
     setTxtProgressBar(pb_mh, i)
   }
