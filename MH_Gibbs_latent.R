@@ -69,6 +69,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   
   lambda = theta_0["lambda"]
   sigma2 = theta_0["sigma2"]
+  beta = matrix(theta_0[substr(names(theta_0), 1, 4) == "beta"], ncol = 2)
   
   # Préparation si utilisation de Geweke
   if (!is.null(censure)) {
