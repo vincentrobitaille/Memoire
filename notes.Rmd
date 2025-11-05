@@ -1,8 +1,10 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  pdf_document: default
+  html_notebook: default
 ---
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(spdep)
 library(Matrix)
 library(dplyr)
@@ -26,8 +28,10 @@ df_censure_latent <- gen_data_latent(n = 100,
 
 df_latent <- df_censure_latent$donnee
 
-W_latent <- df_censure_latent$W |> as.matrix()
-W_latent <- W_latent |> mat2listw()
+W_latent <- df_censure_latent$W |> 
+  as.matrix()
+W_latent <- W_latent |> 
+  mat2listw()
 ```
 
 #### Estimation d'un modèle SAR classique (approche fréquentiste)
@@ -44,7 +48,7 @@ summary(fit1.2)
 
 #### Estimation d'un modèle SAR classique (approche bayésienne)
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 source("MH_spatial_latent.R")
 
 m <- c(beta0 = 0, beta1 = 0)
@@ -78,7 +82,7 @@ fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
                                           lambda = 0.1))
 ```
 
-```{r}
+```{r eval=FALSE, include=FALSE}
 fit1.1_bayes$accept |> 
   mean(na.rm = TRUE)
 fit1.1_bayes |> 
@@ -139,13 +143,28 @@ fit1.1_gibbs <- MH_Gibbs_latent(
               sigma2 = 0.5, lambda = 0.3)
   )
 
-fit1.1_gibbs$accept |> mean(na.rm = TRUE)
+fit1.1_gibbs$accept |> 
+  mean(na.rm = TRUE)
 
+
+
+
+
+```
+
+#### Complet (accept et rejet)
+
+```{r}
 fit1.1_gibbs$beta0 |> ts() |> forecast::autoplot()
 fit1.1_gibbs$beta1 |> ts() |> forecast::autoplot()
 fit1.1_gibbs$sigma2 |> ts() |> forecast::autoplot()
 fit1.1_gibbs$lambda |> ts() |> forecast::autoplot()
 
+```
+
+#### Complet (accept)
+
+```{r}
 fit1.1_gibbs |> 
   filter(accept == 1) |>
   pull(beta0) |> ts() |> forecast::autoplot()
@@ -158,7 +177,11 @@ fit1.1_gibbs |>
 fit1.1_gibbs |> 
   filter(accept == 1) |>
   pull(lambda) |> ts() |> forecast::autoplot()
+```
 
+#### ACF accept
+
+```{r}
 fit1.1_gibbs |> 
   filter(accept == 1) |>
   pull(beta0) |> ts() |> acf()
