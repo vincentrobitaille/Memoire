@@ -49,79 +49,86 @@ summary(fit1.2)
 #### Estimation d'un modèle SAR classique (approche bayésienne)
 
 ```{r eval=FALSE, include=FALSE}
-source("MH_spatial_latent.R")
+###
+# IGNORER
+###
 
-m <- c(beta0 = 0, beta1 = 0)
-k <- length(m)
-V <- 100000*diag(k)
-h_beta <- c(a = 1, b = 1)
-h_gamma <- c(a = 1, b = 1)
-W_latent_mat <- W_latent |> 
-  listw2mat()
-# Variance proposition beta
-tau <- c(0.001, 0.1)
-# Variance proposition sigma2
-phi <- 0.1
-c_lambda = 0.05
-N_samp <- 200000
-
-fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
-                           X = as.matrix(df_latent[,c("X0", "X1")]),
-                           h_beta = h_beta,
-                           h_gamma = h_gamma,
-                           m = m,
-                           V = diag(k),
-                           W = W_latent_mat,
-                           N = N_samp,
-                           tau = tau,
-                           phi = phi,
-                           c_lambda = c_lambda,
-                           init_param = c(beta0 = 10, 
-                                          beta1 = 10, 
-                                          sigma2 = 0.1, 
-                                          lambda = 0.1))
+# source("MH_spatial_latent.R")
+# 
+# m <- c(beta0 = 0, beta1 = 0)
+# k <- length(m)
+# V <- 100000*diag(k)
+# h_beta <- c(a = 1, b = 1)
+# h_gamma <- c(a = 1, b = 1)
+# W_latent_mat <- W_latent |> 
+#   listw2mat()
+# # Variance proposition beta
+# tau <- c(0.001, 0.1)
+# # Variance proposition sigma2
+# phi <- 0.1
+# c_lambda = 0.05
+# N_samp <- 200000
+# 
+# fit1.1_bayes <- MH_spatial(y = df_latent$y_latent,
+#                            X = as.matrix(df_latent[,c("X0", "X1")]),
+#                            h_beta = h_beta,
+#                            h_gamma = h_gamma,
+#                            m = m,
+#                            V = diag(k),
+#                            W = W_latent_mat,
+#                            N = N_samp,
+#                            tau = tau,
+#                            phi = phi,
+#                            c_lambda = c_lambda,
+#                            init_param = c(beta0 = 10, 
+#                                           beta1 = 10, 
+#                                           sigma2 = 0.1, 
+#                                           lambda = 0.1))
 ```
 
 ```{r eval=FALSE, include=FALSE}
-fit1.1_bayes$accept |> 
-  mean(na.rm = TRUE)
-fit1.1_bayes |> 
-  slice_tail(n = N_samp - 1000) |> 
-  pull(accept) |> 
-  mean(na.rm = TRUE)
-# fit1.1_bayes |> select(!c(rho, accept)) |> ts() |> plot()
-fit1.1_bayes$beta0 |> ts() |> plot()
-fit1.1_bayes$beta1 |> ts() |> plot()
-fit1.1_bayes$lambda |> ts() |> plot()
-fit1.1_bayes$sigma2 |> ts() |> plot()
-
-fit1.1_bayes_acc <- fit1.1_bayes |> 
-  filter(accept == 1)
-
-fit1.1_bayes_acc_burn <- fit1.1_bayes_acc |> 
-  slice_tail(n = nrow(fit1.1_bayes_acc) - 1000)
-  
-
-fit1.1_bayes_acc |> ts() |> forecast::autoplot()
-
-fit1.1_bayes_acc_burn$beta0 |> ts() |> plot()
-fit1.1_bayes_acc_burn$beta1 |> ts() |> plot()
-fit1.1_bayes_acc_burn$sigma2 |> ts() |> plot()
-fit1.1_bayes_acc_burn$lambda |> ts() |> plot()
-
-fit1.1_bayes_acc_burn$beta0 |> ts() |> acf()
-fit1.1_bayes_acc_burn$beta1 |> ts() |> acf()
-fit1.1_bayes_acc_burn$sigma2 |> ts() |> acf()
-fit1.1_bayes_acc_burn$lambda |> ts() |> acf()
-
-fit1.1_bayes_acc_burn$beta0 |> hist()
-fit1.1_bayes_acc_burn$lambda |> hist()
-
-fit1.1_bayes_acc_burn |> colMeans()
-
-fit1.1_bayes_acc_burn |> ts() |> forecast::autoplot()
-
-fit1.1_bayes_acc |> select(beta0, beta1, sigma2, lambda) |> ts() |> plot()
+###
+# IGNORER
+###
+# fit1.1_bayes$accept |> 
+#   mean(na.rm = TRUE)
+# fit1.1_bayes |> 
+#   slice_tail(n = N_samp - 1000) |> 
+#   pull(accept) |> 
+#   mean(na.rm = TRUE)
+# # fit1.1_bayes |> select(!c(rho, accept)) |> ts() |> plot()
+# fit1.1_bayes$beta0 |> ts() |> plot()
+# fit1.1_bayes$beta1 |> ts() |> plot()
+# fit1.1_bayes$lambda |> ts() |> plot()
+# fit1.1_bayes$sigma2 |> ts() |> plot()
+# 
+# fit1.1_bayes_acc <- fit1.1_bayes |> 
+#   filter(accept == 1)
+# 
+# fit1.1_bayes_acc_burn <- fit1.1_bayes_acc |> 
+#   slice_tail(n = nrow(fit1.1_bayes_acc) - 1000)
+#   
+# 
+# fit1.1_bayes_acc |> ts() |> forecast::autoplot()
+# 
+# fit1.1_bayes_acc_burn$beta0 |> ts() |> plot()
+# fit1.1_bayes_acc_burn$beta1 |> ts() |> plot()
+# fit1.1_bayes_acc_burn$sigma2 |> ts() |> plot()
+# fit1.1_bayes_acc_burn$lambda |> ts() |> plot()
+# 
+# fit1.1_bayes_acc_burn$beta0 |> ts() |> acf()
+# fit1.1_bayes_acc_burn$beta1 |> ts() |> acf()
+# fit1.1_bayes_acc_burn$sigma2 |> ts() |> acf()
+# fit1.1_bayes_acc_burn$lambda |> ts() |> acf()
+# 
+# fit1.1_bayes_acc_burn$beta0 |> hist()
+# fit1.1_bayes_acc_burn$lambda |> hist()
+# 
+# fit1.1_bayes_acc_burn |> colMeans()
+# 
+# fit1.1_bayes_acc_burn |> ts() |> forecast::autoplot()
+# 
+# fit1.1_bayes_acc |> select(beta0, beta1, sigma2, lambda) |> ts() |> plot()
 
 ```
 
@@ -145,11 +152,6 @@ fit1.1_gibbs <- MH_Gibbs_latent(
 
 fit1.1_gibbs$accept |> 
   mean(na.rm = TRUE)
-
-
-
-
-
 ```
 
 #### Complet (accept et rejet)
@@ -162,7 +164,9 @@ fit1.1_gibbs$lambda |> ts() |> forecast::autoplot()
 
 ```
 
+
 #### Complet (accept)
+
 
 ```{r}
 fit1.1_gibbs |> 
@@ -179,7 +183,9 @@ fit1.1_gibbs |>
   pull(lambda) |> ts() |> forecast::autoplot()
 ```
 
+
 #### ACF accept
+
 
 ```{r}
 fit1.1_gibbs |> 
