@@ -134,6 +134,12 @@ summary(fit1.2)
 
 ### Estimation du modèle SAR avec Gibbs-MH
 
+Méthode basée sur celle présentée dans "Introduction to spatial econometrics" de LeSage. Pour l'instant, l'estimation est seulement pour le modèle SAR avec une variable $y$ non censurée.
+
+Ajout d'un module pour la censure (modèle latent, estimation des variables latentes avec l'algo de Gibbs présenté par Geweke) à venir. Référence exacte à ajouter.
+
+  - Essentiellement, on rajoute une étape qui est un échantillonneur de gibbs pour chaque $y$ latent estimé à partir des autres observations tel que $p(y_j|y_1,..., y_{j-1}, y_{j+1},...,y_n)$
+
 ```{r}
 source("MH_Gibbs_latent.R")
 

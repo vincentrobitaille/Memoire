@@ -1,7 +1,5 @@
 library(mvtnorm)
 
-source("priors.R")
-source("simul data.R")
 source("outils.R")
 
 MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+10*diag(2), N = 5000,
