@@ -10,51 +10,48 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
   # y : vecteur de la variable endogène
   # X : matrice [1, x1, ... xk-1] des variables exogènes
   # W : matrice spatiale
-  # c : Paramètre de tuning ?
+  # c_lambda : Paramètre initial le tuning (écart-type de la proposition de lambda)
   # h_T : Hyperparamètre pour les betas
   # h_gamma : hyperparamètres (a, b) pour le prior gamma de sigma2
   # N : Taille d'échantillonnage
   # theta_0 : Vecteur nommé de paramètres initiaux (pour beta, sigma2 et lambda)
   # censure : si vrai, y fourni est censuré, faux si pas censuré (variable latente)
+  # tuning_lambda : Si vrai, fait un tuning pour la proposition de lambda
   
-  param_hist = data.frame(
-    as.list(theta_0),
-    c_lambda = c_lambda,
-    rho = NA,
-    accept = NA
-  )
-  
-  ph2 = as.data.frame(matrix(nrow = N, ncol = ncol(param_hist)))
-  colnames(ph2) = colnames(param_hist)
-  
-  param_hist = rbind(
-    param_hist,
-    ph2
-  )
-  rm(ph2)
-  
-  n_beta = names(theta_0)[substr(names(theta_0), 1, 4) == "beta"]
-  
-  k = ncol(X)
-  n = nrow(X)
-  y = matrix(y, ncol = 1)
-  c_beta = matrix(c_beta, ncol = 1)
-  a_star = h_igamma["a"] + n/2
-  h_T = h_T*diag(k)
-  h_T_inv = solve(h_T)
-  In = diag(n)
-  
-  SAR_vrais_latent = function(y, lambda, W, Sn_inv, X, beta, sigma2, n, log) {
-    # Vraisemblance pour un modèle SAR (normale)
-    dvrais_cand = dmvnorm(t(y),
-                          mean = Sn_inv %*% (X %*% t(beta)),
-                          sigma = sigma2 * (Sn_inv %*% t(Sn_inv)),
-                          log = TRUE)
-    return(dvrais_cand)
+  # Diverses préparations pour faciliter le processus
+  # Calculs à l'avance
+  # Matrice pour stocker échantillons, etc
+  {
+    param_hist = data.frame(
+      as.list(theta_0),
+      c_lambda = c_lambda,
+      rho = NA,
+      accept = NA
+    )
+    
+    ph2 = as.data.frame(matrix(nrow = N, ncol = ncol(param_hist)))
+    colnames(ph2) = colnames(param_hist)
+    
+    param_hist = rbind(
+      param_hist,
+      ph2
+    )
+    rm(ph2)
+    
+    n_beta = names(theta_0)[substr(names(theta_0), 1, 4) == "beta"]
+    
+    k = ncol(X)
+    n = nrow(X)
+    y = matrix(y, ncol = 1)
+    c_beta = matrix(c_beta, ncol = 1)
+    a_star = h_igamma["a"] + n/2
+    h_T = h_T*diag(k)
+    h_T_inv = solve(h_T)
+    In = diag(n)
   }
   
+  # Rapport des vraisemblances pour p(Y|lambda',...)/p(Y|lambda, ...)
   lambda_cond_prop = function(y, Xb, Sn, Sn_candid, sigma2) {
-    # Rapport des vraisemblances pour p(lambda|beta, sigma2, y*)
     Sny_Xb_candid = Sn_candid %*% y - Xb
     Sny_Xb = Sn %*% y - Xb
     
@@ -79,8 +76,9 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
     y_lat_ind = which(y_obs == censure)
     y_latent_noms <- paste0("y", y_lat_ind)
     param_hist[, y_latent_noms] = 0
-    }
-  # MCMC
+  }
+  
+  # Chaine de MCMC MH et Gibbs
   pb_mh = txtProgressBar(min = 1, max = N-1)
   for (i in 1:N) {
     Sn = In - lambda*W
@@ -91,8 +89,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
     if (!is.null(censure)) {
       for (m_s in 1:m_step) {
         for (j in y_lat_ind) {
-          # y[j] = (lambda*W%*%y)[j] + Xb[j] + rnorm(1, mean = 0, sd = sqrt(sigma2))
-          # On pourrait garder uniquement ceux (-inf, 0] vu qu'on sait que les latentes sont au max zéro ?
+          # Échantillonne d'une normale multivariée tronquée
           y[j] = rtruncnorm(n = 1, mean = ((lambda*W%*%y)[j] + Xb[j]), sd = sqrt(sigma2), b = 0)
         }
       }
@@ -114,8 +111,6 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
     
     sigma2 = 1/rgamma(1, shape = a_star, rate = b_star)
     
-    u = runif(1)
-    
     # Échantillonnage posterior conditionnel lambda (MH)
     # p(sigma2|beta, lambda, y)
     # Ancienne méthode
@@ -124,46 +119,29 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
                                  (1-lambda)) + c_lambda*rnorm(n = 1, 
                                                             mean = 0, 
                                                             sd = 1)
-    lambda_candid = (exp(lambda_transf_candid) - 1)/
-      (exp(lambda_transf_candid) + 1)
+    e_lambda_candid = exp(lambda_transf_candid) 
+    lambda_candid = (e_lambda_candid - 1)/(e_lambda_candid + 1)
     
     Sn_candid = In - lambda_candid*W
     
-    # On rejette les candidats de lambda qui ne sont pas dans (-1, 1)
-    # Ancienne méthode
-    # if (lambda_candid < 1 & 
-    #     lambda_candid > -1) {
-    #   rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
-    #                          sigma2 = sigma2)
-    # } else {
-    #   rho = 0
-    # }
     # Avec propositions et priors symétriques, rho est le rapport des vraisemblances
     rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
                            sigma2 = sigma2)
     
-    accept = 1*(rho > u)
+    accept = 1*(rho > runif(1))
     
     sum_accept = sum_accept + accept
     
     mean_accept = sum_accept/i
     
     # Tuning pour la variance de la marche aléatoire de la proposition de lambda
-    # La méthode provient de LeSage p. 136-137
-    # Ancienne méthode
-    # if ( mean_accept > 0.6) {
-    #   c_lambda = c_lambda*1.1
-    # } else if ( mean_accept < 0.4) {
-    #   c_lambda = c_lambda/1.1
-    # }
     if(tuning_lambda) {
       c_lambda = max(c_lambda + (mean_accept-0.45)/(i^0.6), 1e-8) 
     }
     
+    # Actualise la valeur de lambda si le candidat est accepté
     if ( accept == 1 ) {
       lambda = lambda_candid
-      # À Vérifier pour beta et sigma2 ?
-      # beta = beta_candid
     }
     
     param_hist[i+1, 

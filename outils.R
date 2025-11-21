@@ -10,6 +10,15 @@ SAR_vrais <- function(y, lambda, W, X, beta, sigma2, n, log) {
   return(dvrais_cand)
 }
 
+SAR_vrais_latent = function(y, lambda, W, Sn_inv, X, beta, sigma2, n, log) {
+  # Vraisemblance pour un modèle SAR (normale)
+  dvrais_cand = dmvnorm(t(y),
+                        mean = Sn_inv %*% (X %*% t(beta)),
+                        sigma = sigma2 * (Sn_inv %*% t(Sn_inv)),
+                        log = TRUE)
+  return(dvrais_cand)
+}
+
 # rapport_q_SAR <- function(beta, sigma2, lambda, df, i, W, y, X, n) {
 #   dbeta_cand = dmvnorm(c(df[i -1,]$beta0, 
 #                          df[i -1,]$beta1), 
