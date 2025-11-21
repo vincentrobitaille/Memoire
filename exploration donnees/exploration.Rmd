@@ -15,8 +15,8 @@ library(spdep)
 -   **municipal_info** contient des données fiscales, économiques, démographiques et géographiques sur les municipalités
 
 ```{r}
-county_pop_tax <- read.csv("data/CountyPopTaxNum.csv")
-municipal_info <- read.csv("data/NCMunicipalInfoNewVar2.csv")
+county_pop_tax <- read.csv("../data/CountyPopTaxNum.csv")
+municipal_info <- read.csv("../data/NCMunicipalInfoNewVar2.csv")
 nc_hhi_ts <- read.csv("data/NChhits.csv")
 
 municipal_info$id <- 1:nrow(municipal_info)

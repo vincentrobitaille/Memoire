@@ -150,7 +150,7 @@ fit1.1_gibbs <- MH_Gibbs_latent(
   c_beta = c(0, 0),
   c_lambda = 0.01,
   h_T = 1e+10,
-  N = 100000,
+  N = 30000,
   h_igamma = c(a = 0, b = 0),
   theta_0 = c(beta0 = 0, beta1 = 0, 
               sigma2 = 0.5, lambda = 0.3)
@@ -218,21 +218,43 @@ fit1.2_gibbs <- MH_Gibbs_latent(
   X = as.matrix(df_latent[,c("X0", "X1")]),
   W = listw2mat(W_latent),
   c_beta = c(0, 0),
-  c_lambda = 1,
+  c_lambda = 0.1,
   h_T = 1e+10,
-  N = 5000000,
+  N = 30000,
   h_igamma = c(a = 0, b = 0),
   theta_0 = c(beta0 = 0, beta1 = 0, 
               sigma2 = 0.5, lambda = 0.3),
   censure = 0,
   m_step = 1
   )
+fit1.3_gibbs <- MH_Gibbs_latent(
+  y = df_latent$y_obs,
+  X = as.matrix(df_latent[,c("X0", "X1")]),
+  W = listw2mat(W_latent),
+  c_beta = c(0, 0),
+  c_lambda = 0.1,
+  h_T = 1e+10,
+  N = 30000,
+  h_igamma = c(a = 0, b = 0),
+  theta_0 = c(beta0 = 0, beta1 = 0, 
+              sigma2 = 0.5, lambda = 0.3),
+  censure = 0,
+  m_step = 1,
+  tuning_lambda = TRUE
+  )
 ```
 
 ```{r}
 fit1.2_gibbs$accept |> 
   mean(na.rm = TRUE)
+```
 
+```{r}
+fit1.2_acc[,] |> colMeans()
+```
+
+
+```{r}
 fit1.2_acc <- fit1.2_gibbs |> 
   filter(accept == 1)
 
@@ -244,8 +266,6 @@ fit1.2_acc$y3 |> hist()
 fit1.2_acc$y9 |> hist()
 fit1.2_acc$y12 |> hist()
 
-fit1.2_acc[,] |> colMeans()
-
 fit1.2_acc$beta0 |> ts() |> forecast::autoplot()
 fit1.2_acc$beta1 |> ts() |> forecast::autoplot()
 fit1.2_acc$sigma2 |> ts() |> forecast::autoplot()
@@ -256,4 +276,37 @@ fit1.2_acc$beta1 |> ts() |> acf()
 fit1.2_acc$sigma2 |> ts() |> acf()
 fit1.2_acc$lambda |> ts() |> acf()
 ```
+
+```{r}
+fit1.3_gibbs$accept |> 
+  mean(na.rm = TRUE)
+```
+
+```{r}
+fit1.3_acc[,] |> colMeans()
+```
+
+```{r}
+fit1.3_acc <- fit1.3_gibbs |> 
+  filter(accept == 1)
+
+fit1.3_acc$beta0 |> hist()
+fit1.3_acc$beta1 |> hist()
+fit1.3_acc$sigma2 |> hist()
+fit1.3_acc$lambda |> hist()
+fit1.3_acc$y3 |> hist()
+fit1.3_acc$y9 |> hist()
+fit1.3_acc$y12 |> hist()
+
+fit1.3_acc$beta0 |> ts() |> forecast::autoplot()
+fit1.3_acc$beta1 |> ts() |> forecast::autoplot()
+fit1.3_acc$sigma2 |> ts() |> forecast::autoplot()
+fit1.3_acc$lambda |> ts() |> forecast::autoplot()
+
+fit1.3_acc$beta0 |> ts() |> acf(lag.max = 100)
+fit1.3_acc$beta1 |> ts() |> acf(lag.max = 100)
+fit1.3_acc$sigma2 |> ts() |> acf(lag.max = 100)
+fit1.3_acc$lambda |> ts() |> acf(lag.max = 100)
+```
+
 

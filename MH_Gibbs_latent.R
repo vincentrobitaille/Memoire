@@ -5,7 +5,8 @@ source("outils.R")
 
 MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10*diag(2), N = 5000,
                             h_igamma = c(a = 0, b = 0), censure = NULL, m_step = 1,
-                            theta_0 = c(beta0 = 0, beta1 = 0, sigma2 = 2, lambda = 0.1)) {
+                            theta_0 = c(beta0 = 0, beta1 = 0, sigma2 = 2, lambda = 0.1),
+                            tuning_lambda = FALSE) {
   # y : vecteur de la variable endogène
   # X : matrice [1, x1, ... xk-1] des variables exogènes
   # W : matrice spatiale
@@ -41,6 +42,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
   a_star = h_igamma["a"] + n/2
   h_T = h_T*diag(k)
   h_T_inv = solve(h_T)
+  In = diag(n)
   
   SAR_vrais_latent = function(y, lambda, W, Sn_inv, X, beta, sigma2, n, log) {
     # Vraisemblance pour un modèle SAR (normale)
@@ -81,7 +83,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
   # MCMC
   pb_mh = txtProgressBar(min = 1, max = N-1)
   for (i in 1:N) {
-    Sn = diag(n) - lambda*W
+    Sn = In - lambda*W
     Sn_inv = solve(Sn)
     Xb = X%*%t(beta)
     
@@ -125,7 +127,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
     lambda_candid = (exp(lambda_transf_candid) - 1)/
       (exp(lambda_transf_candid) + 1)
     
-    Sn_candid = diag(n) - lambda_candid*W
+    Sn_candid = In - lambda_candid*W
     
     # On rejette les candidats de lambda qui ne sont pas dans (-1, 1)
     # Ancienne méthode
@@ -154,7 +156,9 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10
     # } else if ( mean_accept < 0.4) {
     #   c_lambda = c_lambda/1.1
     # }
-    # c_lambda = max(c_lambda + (mean_accept-0.45)/(i^0.6), 1e-8)
+    if(tuning_lambda) {
+      c_lambda = max(c_lambda + (mean_accept-0.45)/(i^0.6), 1e-8) 
+    }
     
     if ( accept == 1 ) {
       lambda = lambda_candid
