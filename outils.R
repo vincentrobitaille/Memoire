@@ -49,6 +49,7 @@ SAR_vrais <- function(y, lambda, W, X, beta, sigma2, n, log) {
 #   return(rho)
 # }
 
+# Rapport pour les fonctions qui génèrent des candidats
 rapport_q_SAR <- function(beta, beta_candid, sigma2, sigma2_candid, lambda, 
                           lambda_candid, tau, phi, log = TRUE) {
   dbeta_cand = dmvnorm(unlist(beta), 
@@ -78,6 +79,7 @@ rapport_q_SAR <- function(beta, beta_candid, sigma2, sigma2_candid, lambda,
   return(rap_q)
 }
 
+# Rapport du modèle (prior et vraisemblance)
 rapport_f_SAR <- function(beta, beta_candid, m, sigma2, sigma2_candid, 
                           lambda, lambda_candid, h_beta, h_gamma, 
                           y, X, W, n, V, log = TRUE) {
