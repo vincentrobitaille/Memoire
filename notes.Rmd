@@ -220,12 +220,12 @@ fit1.2_gibbs <- MH_Gibbs_latent(
   c_beta = c(0, 0),
   c_lambda = 1,
   h_T = 1e+10,
-  N = 200000,
+  N = 20000,
   h_igamma = c(a = 0, b = 0),
   theta_0 = c(beta0 = 0, beta1 = 0, 
               sigma2 = 0.5, lambda = 0.3),
   censure = 0,
-  m_step = 5
+  m_step = 1
   )
 ```
 
@@ -238,10 +238,22 @@ fit1.2_acc <- fit1.2_gibbs |>
 
 fit1.2_acc$beta0 |> hist()
 fit1.2_acc$beta1 |> hist()
+fit1.2_acc$sigma2 |> hist()
+fit1.2_acc$lambda |> hist()
 fit1.2_acc$y3 |> hist()
 fit1.2_acc$y9 |> hist()
 fit1.2_acc$y12 |> hist()
 
 fit1.2_acc[,] |> colMeans()
+
+fit1.2_acc$beta0 |> ts() |> forecast::autoplot()
+fit1.2_acc$beta1 |> ts() |> forecast::autoplot()
+fit1.2_acc$sigma2 |> ts() |> forecast::autoplot()
+fit1.2_acc$lambda |> ts() |> forecast::autoplot()
+
+fit1.2_acc$beta0 |> ts() |> acf()
+fit1.2_acc$beta1 |> ts() |> acf()
+fit1.2_acc$sigma2 |> ts() |> acf()
+fit1.2_acc$lambda |> ts() |> acf()
 ```
 
