@@ -1,8 +1,9 @@
 library(mvtnorm)
+library(truncnorm)
 
 source("outils.R")
 
-MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+10*diag(2), N = 5000,
+MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 1, h_T = 1e+10*diag(2), N = 5000,
                             h_igamma = c(a = 0, b = 0), censure = NULL, m_step = 1,
                             theta_0 = c(beta0 = 0, beta1 = 0, sigma2 = 2, lambda = 0.1)) {
   # y : vecteur de la variable endogène
@@ -41,7 +42,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   h_T = h_T*diag(k)
   h_T_inv = solve(h_T)
   
-  SAR_vrais_gibbs = function(y, lambda, W, Sn_inv, X, beta, sigma2, n, log) {
+  SAR_vrais_latent = function(y, lambda, W, Sn_inv, X, beta, sigma2, n, log) {
     # Vraisemblance pour un modèle SAR (normale)
     dvrais_cand = dmvnorm(t(y),
                           mean = Sn_inv %*% (X %*% t(beta)),
@@ -51,6 +52,7 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   }
   
   lambda_cond_prop = function(y, Xb, Sn, Sn_candid, sigma2) {
+    # Rapport des vraisemblances pour p(lambda|beta, sigma2, y*)
     Sny_Xb_candid = Sn_candid %*% y - Xb
     Sny_Xb = Sn %*% y - Xb
     
@@ -73,8 +75,9 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
   if (!is.null(censure)) {
     y_obs = y
     y_lat_ind = which(y_obs == censure)
+    y_latent_noms <- paste0("y", y_lat_ind)
+    param_hist[, y_latent_noms] = 0
     }
-  
   # MCMC
   pb_mh = txtProgressBar(min = 1, max = N-1)
   for (i in 1:N) {
@@ -86,9 +89,12 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     if (!is.null(censure)) {
       for (m_s in 1:m_step) {
         for (j in y_lat_ind) {
-          y[j] = lambda*W[j]%*%y + Xb + rnorm(1, mean = 0, sd = sqrt(sigma2))
+          # y[j] = (lambda*W%*%y)[j] + Xb[j] + rnorm(1, mean = 0, sd = sqrt(sigma2))
+          # On pourrait garder uniquement ceux (-inf, 0] vu qu'on sait que les latentes sont au max zéro ?
+          y[j] = rtruncnorm(n = 1, mean = ((lambda*W%*%y)[j] + Xb[j]), sd = sqrt(sigma2), b = 0)
         }
       }
+      param_hist[i, y_latent_noms] = y[y_lat_ind]
     }
     
     # Échantillonnage posterior conditionnel beta (Gibbs)
@@ -97,10 +103,11 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     c_star = h_T_star %*% (t(X) %*% Sn %*% y + h_T_inv %*% c_beta)
     
     beta = rmvnorm(1, c_star, sigma2*h_T_star)
-    
+
+    Xb = X %*% t(beta)    
     # Échantillonnage posterior conditionnel sigma2 (Gibbs)
     # p(sigma2|beta, lambda, y)
-    Sny_Xbeta = Sn %*% y - X %*% t(beta)
+    Sny_Xbeta = Sn %*% y - Xb
     b_star = h_igamma["b"] + t(Sny_Xbeta) %*% (Sny_Xbeta/2)
     
     sigma2 = 1/rgamma(1, shape = a_star, rate = b_star)
@@ -109,18 +116,29 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     
     # Échantillonnage posterior conditionnel lambda (MH)
     # p(sigma2|beta, lambda, y)
-    lambda_candid = lambda + c_lambda*rnorm(1)
+    # Ancienne méthode
+    # lambda_candid = lambda + c_lambda*rnorm(1)
+    lambda_transf_candid = log((1+lambda)/
+                                 (1-lambda)) + c_lambda*rnorm(n = 1, 
+                                                            mean = 0, 
+                                                            sd = 1)
+    lambda_candid = (exp(lambda_transf_candid) - 1)/
+      (exp(lambda_transf_candid) + 1)
     
     Sn_candid = diag(n) - lambda_candid*W
     
     # On rejette les candidats de lambda qui ne sont pas dans (-1, 1)
-    if (lambda_candid < 1 & 
-        lambda_candid > -1) {
-      rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
-                             sigma2 = sigma2)
-    } else {
-      rho = 0
-    }
+    # Ancienne méthode
+    # if (lambda_candid < 1 & 
+    #     lambda_candid > -1) {
+    #   rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
+    #                          sigma2 = sigma2)
+    # } else {
+    #   rho = 0
+    # }
+    # Avec propositions et priors symétriques, rho est le rapport des vraisemblances
+    rho = lambda_cond_prop(y = y, Xb = Xb, Sn = Sn, Sn_candid = Sn_candid,
+                           sigma2 = sigma2)
     
     accept = 1*(rho > u)
     
@@ -129,11 +147,14 @@ MH_Gibbs_latent <- function(y, X, W, c_beta = c(0, 0), c_lambda = 0.1, h_T = 1e+
     mean_accept = sum_accept/i
     
     # Tuning pour la variance de la marche aléatoire de la proposition de lambda
-    if ( mean_accept > 0.6) {
-      c_lambda = c_lambda*1.1
-    } else if ( mean_accept < 0.4) {
-      c_lambda = c_lambda/1.1
-    }
+    # La méthode provient de LeSage p. 136-137
+    # Ancienne méthode
+    # if ( mean_accept > 0.6) {
+    #   c_lambda = c_lambda*1.1
+    # } else if ( mean_accept < 0.4) {
+    #   c_lambda = c_lambda/1.1
+    # }
+    # c_lambda = max(c_lambda + (mean_accept-0.45)/(i^0.6), 1e-8)
     
     if ( accept == 1 ) {
       lambda = lambda_candid
