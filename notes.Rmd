@@ -132,7 +132,7 @@ summary(fit1.2)
 
 ```
 
-### Estimation du modèle SAR avec Gibbs-MH
+### Estimation du modèle SAR avec Gibbs-MH - sans latence
 
 Méthode basée sur celle présentée dans "Introduction to spatial econometrics" de LeSage. Pour l'instant, l'estimation est seulement pour le modèle SAR avec une variable $y$ non censurée.
 
@@ -206,5 +206,42 @@ fit1.1_gibbs |>
 fit1.1_gibbs |> 
   filter(accept == 1) |>
   pull(lambda) |> ts() |> acf()
+```
+
+### Estimation du modèle SAR avec Gibbs-MH - avec latence
+
+```{r}
+source("MH_Gibbs_latent.R")
+
+fit1.2_gibbs <- MH_Gibbs_latent(
+  y = df_latent$y_obs,
+  X = as.matrix(df_latent[,c("X0", "X1")]),
+  W = listw2mat(W_latent),
+  c_beta = c(0, 0),
+  c_lambda = 1,
+  h_T = 1e+10,
+  N = 200000,
+  h_igamma = c(a = 0, b = 0),
+  theta_0 = c(beta0 = 0, beta1 = 0, 
+              sigma2 = 0.5, lambda = 0.3),
+  censure = 0,
+  m_step = 5
+  )
+```
+
+```{r}
+fit1.2_gibbs$accept |> 
+  mean(na.rm = TRUE)
+
+fit1.2_acc <- fit1.2_gibbs |> 
+  filter(accept == 1)
+
+fit1.2_acc$beta0 |> hist()
+fit1.2_acc$beta1 |> hist()
+fit1.2_acc$y3 |> hist()
+fit1.2_acc$y9 |> hist()
+fit1.2_acc$y12 |> hist()
+
+fit1.2_acc[,] |> colMeans()
 ```
 
