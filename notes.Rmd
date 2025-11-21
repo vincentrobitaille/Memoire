@@ -220,7 +220,7 @@ fit1.2_gibbs <- MH_Gibbs_latent(
   c_beta = c(0, 0),
   c_lambda = 1,
   h_T = 1e+10,
-  N = 20000,
+  N = 5000000,
   h_igamma = c(a = 0, b = 0),
   theta_0 = c(beta0 = 0, beta1 = 0, 
               sigma2 = 0.5, lambda = 0.3),
